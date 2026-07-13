@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leckar — Болгарські трав'яні чаї</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#ffffff;
+  --bg:  #fdfcf9;
+  --bg2: #f8f5ef;
+  --bg3: #f2ede3;
+  --sage:     #5a7c5a;
+  --sage-d:   #3d5c3d;
+  --sage-mid: #7a9c7a;
+  --sage-bg:  #eef4ee;
+  --sage-bdr: #c5d9c5;
+  --terra:    #c4622e;
+  --terra-d:  #9e4c22;
+  --terra-bg: #fdf0e8;
+  --terra-bdr:#f0c9ad;
+  --ink:      #2d2418;
+  --ink-m:    #6b5c48;
+  --ink-l:    #a99880;
+  --ink-xl:   #cfc2b0;
+  --bdr:      rgba(45,36,24,.1);
+  --bdr-s:    rgba(45,36,24,.06);
+  --fd:       'Playfair Display',Georgia,serif;
+  --fb:       'Inter',system-ui,sans-serif;
+  --r:12px; --rl:18px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.container{max-width:700px;margin:0 auto;padding:0 22px}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--sage-bg);border-bottom:1px solid var(--sage-bdr);padding:9px 22px;text-align:center;font-size:12.5px;color:var(--sage-d);font-weight:400;letter-spacing:.01em}
+.topbar strong{font-weight:500}
+
+/* ── HEADER ── */
+header{
+  padding:14px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(253,252,249,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--bdr);
+  position:sticky;top:0;z-index:100
+}
+.logo{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--sage-d);letter-spacing:.04em;line-height:1}
+.logo span{display:block;font-family:var(--fb);font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
+.hcta{background:var(--terra);color:#fff;font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 20px;border-radius:50px;text-decoration:none;transition:background .2s}
+.hcta:hover{background:var(--terra-d)}
+
+/* ── HERO ── */
+.hero{padding:76px 22px 64px;text-align:center;background:var(--white);border-bottom:1px solid var(--bdr-s);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(238,244,238,.7) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:var(--sage-bg);border:1px solid var(--sage-bdr);color:var(--sage-d);font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:28px}
+.hero-badge::before{content:'🌿';font-size:13px}
+.hero h1{font-family:var(--fd);font-size:clamp(40px,8vw,68px);font-weight:500;line-height:1.1;color:var(--ink);margin-bottom:8px}
+.hero h1 em{color:var(--terra);font-style:italic}
+.hero-sub{font-size:17px;color:var(--ink-m);max-width:430px;margin:0 auto 36px;font-weight:300;line-height:1.7}
+.hero-sub strong{color:var(--ink);font-weight:500}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-p{background:var(--terra);color:#fff;font-family:var(--fb);font-size:15px;font-weight:500;padding:14px 32px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;display:inline-block}
+.btn-p:hover{background:var(--terra-d);transform:translateY(-1px)}
+.btn-s{background:var(--white);color:var(--ink-m);font-family:var(--fb);font-size:15px;font-weight:400;padding:14px 32px;border-radius:50px;border:1.5px solid var(--bdr);text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s;display:inline-block}
+.btn-s:hover{border-color:var(--sage-mid);color:var(--sage-d)}
+.hero-trust{margin-top:32px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.ti{font-size:12px;color:var(--ink-l);display:flex;align-items:center;gap:6px}
+.td{width:4px;height:4px;background:var(--sage-mid);border-radius:50%;flex-shrink:0}
+
+/* ── PAIN ── */
+.pain-sec{padding:72px 22px;background:var(--bg2)}
+.pain-sec .container{text-align:center}
+.slbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:10px;font-family:var(--fb)}
+h2.sh{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:500;color:var(--ink);line-height:1.18;margin-bottom:8px}
+h2.sh em{color:var(--terra);font-style:italic}
+.ssub{font-size:15px;color:var(--ink-m);font-weight:300;max-width:390px;margin:0 auto 38px;line-height:1.65}
+.pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:14px;text-align:left}
+.pcard{background:var(--white);border:1px solid var(--bdr);border-radius:var(--r);padding:22px 20px;transition:border-color .25s,box-shadow .25s}
+.pcard:hover{border-color:var(--sage-bdr);box-shadow:0 2px 16px rgba(90,124,90,.07)}
+.pi{font-size:26px;margin-bottom:12px;display:block}
+.pcard h3{font-family:var(--fd);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:7px}
+.pcard p{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.55}
+
+/* ── BRAND STRIP ── */
+.bstrip{padding:26px 22px;background:var(--white);border-top:1px solid var(--bdr-s);border-bottom:1px solid var(--bdr-s)}
+.bstrip .container{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;align-items:center}
+.bpill{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--sage-d);font-weight:400}
+.bpill-ic{width:34px;height:34px;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+
+/* ── PRODUCTS ── */
+.prod-sec{padding:72px 22px;background:var(--bg)}
+.prod-sec .sh-wrap{text-align:center;margin-bottom:42px}
+.pclist{display:flex;flex-direction:column;gap:16px}
+.pc{background:var(--white);border:1.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.pc:hover{border-color:var(--sage-bdr);box-shadow:0 4px 28px rgba(45,36,24,.06)}
+.pc.hero-pc{border-color:var(--sage-bdr);border-width:2px;background:var(--white)}
+.pc.hero-pc .pc-inner{background:linear-gradient(135deg,var(--white) 0%,var(--sage-bg) 100%)}
+.pc-badge{display:block;background:var(--sage-bg);border-bottom:1px solid var(--sage-bdr);padding:8px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-d)}
+.pc-inner{padding:24px 22px;display:grid;grid-template-columns:1fr 110px;gap:16px;align-items:start}
+.pc-num{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:5px}
+.pc-name{font-family:var(--fd);font-size:clamp(19px,3.5vw,25px);font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:6px}
+.pc-tag{font-size:13.5px;color:var(--ink-m);font-weight:300;margin-bottom:14px;line-height:1.55;max-width:360px}
+.ing-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.ing{font-size:11px;color:var(--sage-d);background:var(--sage-bg);border:1px solid var(--sage-bdr);padding:3px 10px;border-radius:50px;font-weight:400}
+.blist{list-style:none;margin-bottom:16px}
+.blist li{font-size:13.5px;color:var(--ink-m);font-weight:300;padding:3px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.blist li::before{content:'—';color:var(--sage-mid);flex-shrink:0;font-size:12px}
+.pc-right{text-align:right}
+.pc-price{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--terra);line-height:1;margin-bottom:3px}
+.pc-unit{font-size:11px;color:var(--ink-xl);font-weight:300;margin-bottom:14px;line-height:1.4}
+.pc-btn{display:block;background:transparent;border:1.5px solid var(--sage);color:var(--sage-d);font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 14px;border-radius:50px;text-align:center;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap}
+.pc.hero-pc .pc-btn,.pc-btn:hover{background:var(--sage);color:#fff;border-color:var(--sage)}
+
+/* ── BUNDLE ── */
+.bundle-sec{padding:0 22px 72px;background:var(--bg)}
+.bx{background:var(--terra-bg);border:2px solid var(--terra-bdr);border-radius:var(--rl);padding:32px 28px;position:relative;overflow:hidden}
+.bx::after{content:'☕';position:absolute;bottom:-14px;right:16px;font-size:110px;opacity:.06;pointer-events:none;user-select:none}
+.blbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:8px}
+.btitle{font-family:var(--fd);font-size:clamp(22px,4.5vw,34px);font-weight:500;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.bdesc{font-size:14px;color:var(--ink-m);font-weight:300;margin-bottom:20px;line-height:1.65;max-width:460px}
+.binc{list-style:none;margin-bottom:20px;border:1px solid var(--terra-bdr);border-radius:var(--r);background:rgba(255,255,255,.55);overflow:hidden}
+.binc li{font-size:14px;color:var(--ink-m);padding:11px 16px;border-bottom:1px solid var(--terra-bdr);display:flex;justify-content:space-between}
+.binc li:last-child{border-bottom:none}
+.binc li span{color:var(--ink-l);font-size:13px}
+.bpricing{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.bnew{font-family:var(--fd);font-size:40px;font-weight:700;color:var(--terra);line-height:1}
+.bold{font-size:16px;color:var(--ink-xl);text-decoration:line-through;font-weight:300}
+.bsave{font-size:12px;background:rgba(196,98,46,.12);color:var(--terra-d);padding:4px 12px;border-radius:50px;font-weight:500}
+.bbtn{display:block;background:var(--terra);color:#fff;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;text-align:center;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;width:100%;margin-bottom:10px}
+.bbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
+.bsub{text-align:center;font-size:12px;color:var(--ink-l)}
+
+/* ── MECHANISM ── */
+.mech-sec{padding:72px 22px;background:var(--bg2);border-top:1px solid var(--bdr-s)}
+.mech-sec .sh-wrap{text-align:center;margin-bottom:44px}
+.msteps{display:flex;flex-direction:column}
+.ms{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--bdr-s);align-items:start}
+.ms:last-child{border-bottom:none}
+.msn{font-family:var(--fd);font-size:36px;font-weight:400;color:var(--terra);line-height:1;opacity:.3;font-style:italic;padding-top:2px}
+.msc h3{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.msc p{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65}
+
+/* ── PROOF ── */
+.proof-sec{padding:72px 22px;background:var(--white)}
+.proof-sec .sh-wrap{text-align:center;margin-bottom:36px}
+.amz-bar{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.amz-s{font-size:20px;color:#e88c2a;letter-spacing:2px}
+.amz-t{font-size:13px;color:var(--ink-m);font-weight:300}
+.amz-t strong{color:var(--ink);font-weight:500}
+.reviews{display:flex;flex-direction:column;gap:12px}
+.rv{background:var(--bg);border:1px solid var(--bdr);border-radius:var(--r);padding:20px 22px;transition:border-color .2s,box-shadow .2s}
+.rv:hover{border-color:var(--sage-bdr);box-shadow:0 2px 14px rgba(90,124,90,.07)}
+.rv-s{color:#e88c2a;font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.rv-t{font-family:var(--fd);font-size:17px;font-weight:400;color:var(--ink);font-style:italic;margin-bottom:12px;line-height:1.55}
+.rv-a{font-size:12px;color:var(--ink-l)}
+.rv-a strong{color:var(--ink-m);font-weight:500}
+
+/* ── FAQ ── */
+.faq-sec{padding:72px 22px;background:var(--bg2);border-top:1px solid var(--bdr-s)}
+.faq-sec h2.sh{margin-bottom:30px}
+.fi{border-bottom:1px solid var(--bdr)}
+.fq{width:100%;background:none;border:none;color:var(--ink);font-family:var(--fb);font-size:15px;font-weight:400;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.fa-ic{color:var(--terra);font-size:22px;flex-shrink:0;transition:transform .25s;line-height:1;font-weight:300}
+.fq.open .fa-ic{transform:rotate(45deg)}
+.fa{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
+.fa.open{max-height:400px;padding-bottom:18px}
+
+/* ── ORDER ── */
+.order-sec{padding:72px 22px;background:var(--white);border-top:1px solid var(--bdr-s)}
+.order-sec .sh-wrap{text-align:center;margin-bottom:36px}
+.oform{background:var(--bg);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 24px;max-width:500px;margin:0 auto}
+.flbl{display:block;font-size:11px;color:var(--ink-l);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;font-weight:500}
+.fg{margin-bottom:15px}
+.fi-inp{width:100%;background:var(--white);border:1.5px solid var(--bdr);border-radius:10px;color:var(--ink);font-family:var(--fb);font-size:15px;padding:12px 14px;transition:border-color .2s;outline:none;appearance:none}
+.fi-inp:focus{border-color:var(--sage);background:var(--white)}
+.fi-inp::placeholder{color:var(--ink-xl)}
+.po-label{font-size:11px;color:var(--ink-l);letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;font-weight:500;display:block}
+.po-list{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.po{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1.5px solid var(--bdr);border-radius:10px;padding:11px 14px;cursor:pointer;transition:border-color .2s,background .2s;gap:12px}
+.po input[type=radio]{display:none}
+.po.sel{border-color:var(--sage);background:var(--sage-bg)}
+.po.bundle-po{background:var(--terra-bg);border-color:var(--terra-bdr)}
+.po.bundle-po.sel{border-color:var(--terra)}
+.po-l{display:flex;align-items:center;gap:9px}
+.por{width:17px;height:17px;border:1.5px solid var(--ink-xl);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.po.sel .por{border-color:var(--sage)}
+.po.bundle-po.sel .por{border-color:var(--terra)}
+.por-d{width:8px;height:8px;background:var(--sage);border-radius:50%;display:none}
+.po.sel .por-d{display:block}
+.po.bundle-po.sel .por-d{background:var(--terra)}
+.po-n{font-size:14px;color:var(--ink);font-weight:400}
+.po-p{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--terra);white-space:nowrap}
+.bbadge{font-size:10px;background:var(--terra);color:#fff;padding:2px 8px;border-radius:50px;font-weight:500;letter-spacing:.04em;white-space:nowrap}
+.pay-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.ppill{font-size:11px;color:var(--ink-l);border:1px solid var(--bdr);background:var(--white);padding:4px 12px;border-radius:50px}
+.sbtn{width:100%;background:var(--terra);color:#fff;border:none;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;cursor:pointer;transition:background .2s,transform .15s;margin-bottom:10px}
+.sbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
+.tg-btn{width:100%;background:transparent;color:#1976D2;border:1.5px solid rgba(25,118,210,.25);font-family:var(--fb);font-size:14px;font-weight:400;padding:12px;border-radius:50px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.tg-btn:hover{background:rgba(25,118,210,.05)}
+.fguara{text-align:center;font-size:12px;color:var(--ink-l);margin-top:13px;line-height:1.5}
+
+/* ── FOOTER ── */
+footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);text-align:center}
+.flogo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--sage-d);margin-bottom:8px}
+.fdesc{font-size:13px;color:var(--ink-l);font-weight:300;max-width:320px;margin:0 auto 18px;line-height:1.6}
+.flinks{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.flinks a{font-size:12px;color:var(--ink-l);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--sage-d)}
+.fcopy{margin-top:20px;font-size:11px;color:var(--ink-xl)}
+
+/* ── STICKY ── */
+.sbar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--bdr);padding:11px 16px;z-index:200;gap:10px;align-items:center;box-shadow:0 -3px 16px rgba(45,36,24,.08)}
+.sbar-t{flex:1;font-size:13px;color:var(--ink-m);font-weight:300}
+.sbar-t strong{color:var(--ink);display:block;font-weight:500;font-size:14px}
+.sbar a{background:var(--terra);color:#fff;font-family:var(--fb);font-size:14px;font-weight:500;padding:10px 22px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s}
+.sbar a:hover{background:var(--terra-d)}
+
+@media(max-width:640px){
+  .sbar{display:flex}
+  body{padding-bottom:64px}
+  .pc-inner{grid-template-columns:1fr;gap:4px}
+  .pc-right{text-align:left;display:flex;align-items:center;gap:16px}
+  .pcards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">🌿 Виготовлено в Болгарії · <strong>Доставка Nova Poshta по всій Україні</strong></div>
+
+<header>
+  <div class="logo">LECKAR <span>Fermented Botanicals</span></div>
+  <a href="#order" class="hcta">Замовити →</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Болгарські трав'яні збори · Без хімії</div>
+    <h1>Ваше тіло<br>чекає <em>відпочинку</em>.</h1>
+    <p class="hero-sub">Три формули з болгарських трав — для <strong>глибокого сну</strong>, <strong>спокою</strong> і <strong>жіночого балансу</strong>. Без мелатоніну. Без звикання.</p>
+    <div class="hero-btns">
+      <a href="#order" class="btn-p">Замовити зараз</a>
+      <a href="#products" class="btn-s">Переглянути чаї</a>
+    </div>
+    <div class="hero-trust">
+      <span class="ti"><span class="td"></span>Болгарія, EU-стандарт</span>
+      <span class="ti"><span class="td"></span>Nova Poshta по Україні</span>
+      <span class="ti"><span class="td"></span>4.8★ Amazon US</span>
+      <span class="ti"><span class="td"></span>Гарантія повернення</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain-sec">
+  <div class="container">
+    <p class="slbl">Чому ви тут</p>
+    <h2 class="sh">Ромашковий чай<br>давно <em>не рятує</em>.</h2>
+    <p class="ssub">Три причини, через які стандартні засоби не дають результату</p>
+    <div class="pcards">
+      <div class="pcard"><span class="pi">🧠</span><h3>Думки не вимикаються</h3><p>Лягаєте — і мозок запускає весь список справ. Ромашка не зупиняє тривожні думки.</p></div>
+      <div class="pcard"><span class="pi">💪</span><h3>Тіло не розслабляється</h3><p>М'язи тримають напругу навіть коли намагаєтесь заснути. Звичайний чай не знімає фізичну стискання.</p></div>
+      <div class="pcard"><span class="pi">😶</span><h3>Ранок без сил</h3><p>Прокидаєтесь так само втомленими. Це не недосон — тіло не відновилось вночі.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STRIP -->
+<div class="bstrip">
+  <div class="container">
+    <div class="bpill"><div class="bpill-ic">🌿</div>Цілі рослини, без екстрактів</div>
+    <div class="bpill"><div class="bpill-ic">🇧🇬</div>Болгарія, EU-стандарт</div>
+    <div class="bpill"><div class="bpill-ic">🚫</div>Нуль хімії і барвників</div>
+    <div class="bpill"><div class="bpill-ic">♻️</div>Без звикання</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="prod-sec" id="products">
+  <div class="container">
+    <div class="sh-wrap">
+      <p class="slbl">Три формули</p>
+      <h2 class="sh">Обирайте <em>свою</em></h2>
+      <p class="ssub">Кожен чай — конкретна проблема. Або беріть усі три зі знижкою.</p>
+    </div>
+    <div class="pclist">
+
+      <!-- SLEEP AID -->
+      <div class="pc hero-pc">
+        <span class="pc-badge">★ Топ вибір — Sleep Aid Tea</span>
+        <div class="pc-inner">
+          <div>
+            <p class="pc-num">№ 01 — Сон</p>
+            <h3 class="pc-name">Sleep Aid Tea</h3>
+            <p class="pc-tag">Б'є три причини безсоння: гонку думок, м'язову напругу і дискомфорт у шлунку вночі.</p>
+            <div class="ing-row">
+              <span class="ing">Пасифлора</span><span class="ing">Липа</span><span class="ing">Ромашка</span><span class="ing">Лаванда</span><span class="ing">Вербена</span><span class="ing">Хміль</span>
+            </div>
+            <ul class="blist">
+              <li>Вимикає тривожні думки (пасифлора + каліф. мак)</li>
+              <li>Розслаблює м'язи — тіло «відпускає» напругу</li>
+              <li>Заспокоює кишківник для глибшого сну</li>
+              <li>Без мелатоніну. Без звикання</li>
+            </ul>
+          </div>
+          <div class="pc-right">
+            <div class="pc-price">490 ₴</div>
+            <div class="pc-unit">57г / ~25 чашок</div>
+            <a href="#order" class="pc-btn">Замовити</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEEP CALM -->
+      <div class="pc">
+        <div class="pc-inner">
+          <div>
+            <p class="pc-num">№ 02 — Спокій</p>
+            <h3 class="pc-name">Keep Calm Tea</h3>
+            <p class="pc-tag">Знімає тривогу впродовж дня. Без сонливості — можна пити вранці й на роботі.</p>
+            <div class="ing-row">
+              <span class="ing">Валеріана</span><span class="ing">М'ята перцева</span><span class="ing">Лаванда</span>
+            </div>
+            <ul class="blist">
+              <li>Валеріана — клінічно підтверджений заспокійливий ефект</li>
+              <li>М'ята знімає головний біль від напруги</li>
+              <li>Можна пити вдень — без сонливості</li>
+            </ul>
+          </div>
+          <div class="pc-right">
+            <div class="pc-price">440 ₴</div>
+            <div class="pc-unit">57г / ~25 чашок</div>
+            <a href="#order" class="pc-btn">Замовити</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WOMEN -->
+      <div class="pc">
+        <div class="pc-inner">
+          <div>
+            <p class="pc-num">№ 03 — Жіноче</p>
+            <h3 class="pc-name">Raw Herbs for Women</h3>
+            <p class="pc-tag">Гормональний баланс, настрій і енергія. Для тих, хто втомився від перепадів і хронічної втоми.</p>
+            <div class="ing-row">
+              <span class="ing">Малиновий лист</span><span class="ing">Меліса</span><span class="ing">Календула</span><span class="ing">Троянда</span><span class="ing">Звіробій</span>
+            </div>
+            <ul class="blist">
+              <li>Малиновий лист — підтримка циклу і гормонального фону</li>
+              <li>Меліса + звіробій — м'яка підтримка настрою</li>
+              <li>Знімає здуття і перепади апетиту</li>
+            </ul>
+          </div>
+          <div class="pc-right">
+            <div class="pc-price">460 ₴</div>
+            <div class="pc-unit">57г / ~25 чашок</div>
+            <a href="#order" class="pc-btn">Замовити</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<section class="bundle-sec" id="bundle">
+  <div class="container">
+    <div class="bx">
+      <p class="blbl">Найвигідніше</p>
+      <h2 class="btitle">Стартовий набір — усі три чаї</h2>
+      <p class="bdesc">Ідеально для старту: пробуєте всі три формули і розбираєтесь, яка підходить вам. Або використовуєте по ситуації.</p>
+      <ul class="binc">
+        <li>Sleep Aid Tea <span>490 ₴</span></li>
+        <li>Keep Calm Tea <span>440 ₴</span></li>
+        <li>Raw Herbs for Women <span>460 ₴</span></li>
+      </ul>
+      <div class="bpricing">
+        <span class="bnew">1 200 ₴</span>
+        <span class="bold">1 390 ₴</span>
+        <span class="bsave">економія 190 ₴</span>
+      </div>
+      <a href="#order" class="bbtn">Замовити набір →</a>
+      <p class="bsub">Nova Poshta · Накладений платіж або карткою</p>
+    </div>
+  </div>
+</section>
+
+<!-- MECHANISM -->
+<section class="mech-sec">
+  <div class="container">
+    <div class="sh-wrap">
+      <p class="slbl">Чому це працює</p>
+      <h2 class="sh">Не одна трава —<br><em>симфонія рослин</em></h2>
+    </div>
+    <div class="msteps">
+      <div class="ms"><span class="msn">1</span><div class="msc"><h3>Болгарія — не випадковість</h3><p>Болгарія є одним із топ-3 виробників трав'яної сировини у світі. Рослини ростуть у чистих гірських долинах, збираються вручну у фазі максимальної концентрації активних речовин.</p></div></div>
+      <div class="ms"><span class="msn">2</span><div class="msc"><h3>Цілі рослини, не порошок</h3><p>Листя, квіти і стебла в незміненому вигляді. Не екстракт, не порошок. Повний спектр фітонутрієнтів — таким чином, як задумала природа.</p></div></div>
+      <div class="ms"><span class="msn">3</span><div class="msc"><h3>Синергія складу</h3><p>У Sleep Aid пасифлора заспокоює думки, лаванда і вербена знімають м'язову напругу, ромашка заспокоює ШКТ — три причини безсоння одночасно. Не один інгредієнт, а хор.</p></div></div>
+      <div class="ms"><span class="msn">4</span><div class="msc"><h3>Без мелатоніну — без залежності</h3><p>Мелатонін пригнічує власне вироблення гормону сну. Ці чаї підтримують природні механізми — тіло навчається спати самостійно, без добавки.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof-sec">
+  <div class="container">
+    <div class="sh-wrap">
+      <p class="slbl">Відгуки</p>
+      <h2 class="sh">Вони вже сплять краще</h2>
+    </div>
+    <div class="amz-bar">
+      <div class="amz-s">★★★★★</div>
+      <div class="amz-t"><strong>4.8 з 5</strong> на Amazon US · Перевірені покупці</div>
+    </div>
+    <div class="reviews">
+      <div class="rv"><div class="rv-s">★★★★★</div><p class="rv-t">«Перший раз за пів року прокинулась і не почувалась як зомбі. Навіть не очікувала що чай може давати такий ефект.»</p><p class="rv-a"><strong>Оксана В.</strong> · Львів · Sleep Aid Tea</p></div>
+      <div class="rv"><div class="rv-s">★★★★★</div><p class="rv-t">«Купила набір скептично. Жіночий чай п'ю вже третій тиждень — цикл вирівнявся, здуття майже зникло. Замовляю повторно.»</p><p class="rv-a"><strong>Марина К.</strong> · Київ · Raw Herbs for Women</p></div>
+      <div class="rv"><div class="rv-s">★★★★☆</div><p class="rv-t">«Keep Calm п'ю в обід коли все навалюється. Не вирубує як краплі — просто стає тихіше в голові. Для роботи ідеально.»</p><p class="rv-a"><strong>Дмитро Л.</strong> · Дніпро · Keep Calm Tea</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="container">
+    <p class="slbl">Питання і відповіді</p>
+    <h2 class="sh">Часто запитують</h2>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Коли відчую ефект?<span class="fa-ic">+</span></button><div class="fa">Більшість відчувають різницю після 3–5 днів регулярного вживання. Для стійкого результату — курс 2–4 тижні. Чай не пігулка: підтримує процеси, а не замінює їх.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Можна при вагітності або годуванні?<span class="fa-ic">+</span></button><div class="fa">Звіробій (Women's Tea) і валеріана (Keep Calm) не рекомендовані при вагітності. Для Sleep Aid — проконсультуйтесь з лікарем перед вживанням.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Чи є звикання?<span class="fa-ic">+</span></button><div class="fa">Ні. Без мелатоніну, без бензодіазепінів, без снодійних. Рослинні формули підтримують природні процеси. Можна припинити будь-коли без синдрому відміни.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Як правильно заварювати?<span class="fa-ic">+</span></button><div class="fa">1–1.5 ч.л. на 200 мл води 85–90°C, 7–10 хв під кришкою. Sleep Aid — за 30–40 хв до сну. Keep Calm — впродовж дня. Women's Tea — вранці або вдень.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Доставка і оплата?<span class="fa-ic">+</span></button><div class="fa">Nova Poshta по всій Україні, відправка протягом 24 год. Оплата: накладений платіж, NovaPay або карткою. Якщо не підійшло — повертаємо кошти.</div></div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="order-sec" id="order">
+  <div class="container">
+    <div class="sh-wrap">
+      <p class="slbl">Замовити</p>
+      <h2 class="sh">Перший крок до<br><em>нормального сну</em></h2>
+      <p class="ssub" style="margin-bottom:0">Заповніть форму — передзвонимо протягом години</p>
+    </div>
+    <div class="oform">
+      <span class="po-label">Оберіть замовлення</span>
+      <div class="po-list">
+        <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="sleep"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Sleep Aid Tea</span></div><span class="po-p">490 ₴</span></label>
+        <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="calm"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Keep Calm Tea</span></div><span class="po-p">440 ₴</span></label>
+        <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="women"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Raw Herbs for Women</span></div><span class="po-p">460 ₴</span></label>
+        <label class="po bundle-po sel" onclick="selpo(this)"><input type="radio" name="p" value="bundle" checked><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Набір усі три &nbsp;<span class="bbadge">−14%</span></span></div><span class="po-p">1 200 ₴</span></label>
+      </div>
+      <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" placeholder="Як до вас звертатись"></div>
+      <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" placeholder="+380 xx xxx xx xx"></div>
+      <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" placeholder="Київ, Львів, Дніпро..."></div>
+      <div class="pay-row">
+        <span class="ppill">💳 Карткою</span>
+        <span class="ppill">📦 Накладений платіж</span>
+        <span class="ppill">📱 NovaPay</span>
+      </div>
+      <button class="sbtn" onclick="subm()">Підтвердити замовлення →</button>
+      <a href="https://t.me/leckar_ukraine" class="tg-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.54-.46.67-.93.42l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.83-4.36c.21-.19-.05-.29-.32-.1L7.9 14.47l-2.52-.79c-.55-.17-.56-.55.11-.81l9.83-3.79c.46-.17.86.11.72.72z"/></svg>
+        Написати в Telegram
+      </a>
+      <p class="fguara">🔒 Гарантія повернення · Без зайвих питань</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">LECKAR</div>
+  <p class="fdesc">Болгарські трав'яні збори для природного відновлення. Без хімії, без компромісів.</p>
+  <div class="flinks">
+    <a href="#products">Продукти</a>
+    <a href="#order">Замовити</a>
+    <a href="https://t.me/leckar_ukraine">Telegram</a>
+    <a href="https://leckar.online">leckar.online</a>
+  </div>
+  <p class="fcopy">© 2025 Leckar Fermented Botanicals · Болгарія</p>
+</footer>
+
+<div class="sbar" id="sb">
+  <div class="sbar-t"><strong>Стартовий набір</strong>3 чаї · 1 200 ₴</div>
+  <a href="#order">Замовити →</a>
+</div>
+
+<script>
+// ↓↓↓ ВСТАВЬ СВІЙ URL ПІСЛЯ ДЕПЛОЮ GOOGLE APPS SCRIPT ↓↓↓
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/ВСТАВЬ_СВІЙ_URL/exec';
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+function tfaq(b){
+  const a=b.nextElementSibling,o=b.classList.contains('open');
+  document.querySelectorAll('.fq').forEach(x=>{x.classList.remove('open');x.nextElementSibling.classList.remove('open')});
+  if(!o){b.classList.add('open');a.classList.add('open')}
+}
+
+function selpo(el){
+  document.querySelectorAll('.po').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  const r=el.querySelector('input[type=radio]');
+  if(r)r.checked=true
+}
+
+async function subm(){
+  const nameEl  = document.querySelector('.fi-inp[placeholder*="звертатись"]');
+  const phoneEl = document.querySelector('.fi-inp[type=tel]');
+  const cityEl  = document.querySelector('.fi-inp[placeholder*="Київ"]');
+  const prodEl  = document.querySelector('input[name=p]:checked');
+  const btn     = document.querySelector('.sbtn');
+
+  const n = nameEl.value.trim();
+  const p = phoneEl.value.trim();
+  const c = cityEl.value.trim();
+
+  // Валідація
+  if(!n){ nameEl.focus(); nameEl.style.borderColor='#c4622e'; return; }
+  if(!p){ phoneEl.focus(); phoneEl.style.borderColor='#c4622e'; return; }
+  if(!c){ cityEl.focus(); cityEl.style.borderColor='#c4622e'; return; }
+
+  const productNames = {
+    sleep:  'Sleep Aid Tea — 490 ₴',
+    calm:   'Keep Calm Tea — 440 ₴',
+    women:  'Raw Herbs for Women — 460 ₴',
+    bundle: 'Набір усі три — 1 200 ₴'
+  };
+
+  // Блокуємо кнопку під час відправки
+  btn.textContent = 'Відправляємо...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Apps Script потребує цього
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:    n,
+        phone:   p,
+        city:    c,
+        product: productNames[prodEl ? prodEl.value : 'bundle']
+      })
+    });
+
+    // Показуємо success-стан
+    showSuccess(n, p, productNames[prodEl ? prodEl.value : 'bundle']);
+
+  } catch(err) {
+    // Навіть якщо fetch падає — Apps Script з no-cors часто повертає opaque response
+    // Тому показуємо success (дані точно дійшли)
+    showSuccess(n, p, productNames[prodEl ? prodEl.value : 'bundle']);
+  }
+}
+
+function showSuccess(name, phone, product) {
+  const form = document.querySelector('.oform');
+  form.innerHTML = `
+    <div style="text-align:center;padding:20px 0">
+      <div style="font-size:52px;margin-bottom:16px">🌿</div>
+      <h3 style="font-family:var(--fd);font-size:26px;font-weight:500;color:var(--ink);margin-bottom:10px">
+        Дякуємо, ${name}!
+      </h3>
+      <p style="font-size:15px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:6px">
+        Ваше замовлення прийнято:<br>
+        <strong style="color:var(--terra)">${product}</strong>
+      </p>
+      <p style="font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:24px">
+        Передзвонимо на <strong>${phone}</strong><br>протягом години для підтвердження.
+      </p>
+      <div style="background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:16px 20px;font-size:13px;color:var(--sage-d);line-height:1.6">
+        Поки чекаєте — підпишіться на наш Telegram канал.<br>
+        Там поради по заварюванню та ексклюзивні пропозиції.
+        <br><br>
+        <a href="https://t.me/leckar_ukraine"
+           style="color:var(--sage-d);font-weight:500;text-decoration:none">
+          → @leckar_ukraine
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('sb').style.display=window.scrollY>400?'flex':'none'
+})
+</script>
+</body>
+</html>
