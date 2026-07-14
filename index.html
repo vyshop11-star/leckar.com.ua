@@ -199,6 +199,11 @@ h2.sh em{color:var(--terra);font-style:italic}
 .bbadge{font-size:10px;background:var(--terra);color:#fff;padding:2px 8px;border-radius:50px;font-weight:500;letter-spacing:.04em;white-space:nowrap}
 .pay-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
 .ppill{font-size:11px;color:var(--ink-l);border:1px solid var(--bdr);background:var(--white);padding:4px 12px;border-radius:50px}
+/* delivery toggle */
+.dlv-toggle{display:flex;gap:8px;margin-bottom:14px}
+.dlv-opt{flex:1;padding:10px 8px;border:1.5px solid var(--bdr);border-radius:10px;font-family:var(--fb);font-size:13px;font-weight:400;color:var(--ink-m);background:var(--bg);cursor:pointer;text-align:center;transition:all .2s;line-height:1.3}
+.dlv-opt.act{border-color:var(--sage);background:var(--sage-bg);color:var(--sage-d);font-weight:500}
+.dlv-note{font-size:11.5px;color:var(--ink-l);margin-bottom:14px;line-height:1.5;padding:10px 12px;background:var(--bg2);border-radius:8px}
 .sbtn{width:100%;background:var(--terra);color:#fff;border:none;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;cursor:pointer;transition:background .2s,transform .15s;margin-bottom:10px}
 .sbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
 .tg-btn{width:100%;background:transparent;color:#1976D2;border:1.5px solid rgba(25,118,210,.25);font-family:var(--fb);font-size:14px;font-weight:400;padding:12px;border-radius:50px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
@@ -247,7 +252,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     <p class="hero-sub">Три формули з болгарських трав — для <strong>глибокого сну</strong>, <strong>спокою</strong> і <strong>жіночого балансу</strong>. Без мелатоніну. Без звикання.</p>
     <div class="hero-btns">
       <a href="#order" class="btn-p">Замовити зараз</a>
-      <a href="#products" class="btn-s">Обрати свій чай</a>
+      <a href="#products" class="btn-s">Переглянути чаї</a>
     </div>
     <div class="hero-trust">
       <span class="ti"><span class="td"></span>Болгарія, EU-стандарт</span>
@@ -267,7 +272,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     <div class="pcards">
       <div class="pcard"><span class="pi">🧠</span><h3>Думки не вимикаються</h3><p>Лягаєте — і мозок запускає весь список справ. Ромашка не зупиняє тривожні думки.</p></div>
       <div class="pcard"><span class="pi">💪</span><h3>Тіло не розслабляється</h3><p>М'язи тримають напругу навіть коли намагаєтесь заснути. Звичайний чай не знімає фізичну стискання.</p></div>
-      <div class="pcard"><span class="pi">😶</span><h3>Організм працює понаднормово</h3><p>Нічна важкість у шлунку заважає тілу увійти у фазу глибокого сну. Це не брак годин у ліжку — це відсутність справжнього нічного відновлення.</p></div>
+      <div class="pcard"><span class="pi">😶</span><h3>Ранок без сил</h3><p>Прокидаєтесь так само втомленими. Це не недосон — тіло не відновилось вночі.</p></div>
     </div>
   </div>
 </section>
@@ -299,7 +304,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
           <div>
             <p class="pc-num">№ 01 — Сон</p>
             <h3 class="pc-name">Sleep Aid Tea</h3>
-            <p class="pc-tag">М’яко усуває три причини безсоння: заспокоює думки, знімає м’язову напругу та дарує легкість шлунку вночі.</p>
+            <p class="pc-tag">Б'є три причини безсоння: гонку думок, м'язову напругу і дискомфорт у шлунку вночі.</p>
             <div class="ing-row">
               <span class="ing">Пасифлора</span><span class="ing">Липа</span><span class="ing">Ромашка</span><span class="ing">Лаванда</span><span class="ing">Вербена</span><span class="ing">Хміль</span>
             </div>
@@ -460,14 +465,24 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="women"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Raw Herbs for Women</span></div><span class="po-p">490 ₴</span></label>
         <label class="po bundle-po sel" onclick="selpo(this)"><input type="radio" name="p" value="bundle" checked><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Набір усі три &nbsp;<span class="bbadge">−15%</span></span></div><span class="po-p">1 250 ₴</span></label>
       </div>
-      <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" placeholder="Як до вас звертатись"></div>
-      <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" placeholder="+380 xx xxx xx xx"></div>
-      <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" placeholder="Київ, Львів, Дніпро..."></div>
-      <div class="pay-row">
-        <span class="ppill">💳 Карткою</span>
-        <span class="ppill">📦 Накладений платіж</span>
-        <span class="ppill">📱 NovaPay</span>
+      <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" id="f-name" placeholder="Як до вас звертатись"></div>
+      <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" id="f-phone" placeholder="+380 xx xxx xx xx"></div>
+      <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" id="f-city" placeholder="Київ, Львів, Дніпро..."></div>
+
+      <label class="flbl">Тип доставки Nova Poshta</label>
+      <div class="dlv-toggle">
+        <button type="button" class="dlv-opt act" id="dlv-branch" onclick="setDlv('branch')">
+          📦 Відділення
+        </button>
+        <button type="button" class="dlv-opt" id="dlv-locker" onclick="setDlv('locker')">
+          🤖 Поштомат
+        </button>
       </div>
+      <div class="fg">
+        <label class="flbl" id="dlv-label">Номер відділення</label>
+        <input type="text" class="fi-inp" id="f-branch" placeholder="Наприклад: 12">
+      </div>
+      <p class="dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
       <button class="sbtn" onclick="subm()">Підтвердити замовлення →</button>
       <a href="https://t.me/leckar_ukraine" class="tg-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.54-.46.67-.93.42l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.83-4.36c.21-.19-.05-.29-.32-.1L7.9 14.47l-2.52-.79c-.55-.17-.56-.55.11-.81l9.83-3.79c.46-.17.86.11.72.72z"/></svg>
@@ -496,9 +511,16 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 </div>
 
 <script>
-// ↓↓↓ ВСТАВЬ СВІЙ URL ПІСЛЯ ДЕПЛОЮ GOOGLE APPS SCRIPT ↓↓↓
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby70vNwXA8pQp2CsVNp-42H28X_TR2FaPNPNcLGCI_TjVi2_uYT_oIDezIIQ48wpWE/exec';
-// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+let dlvType = 'branch';
+function setDlv(type){
+  dlvType = type;
+  document.getElementById('dlv-branch').classList.toggle('act', type==='branch');
+  document.getElementById('dlv-locker').classList.toggle('act', type==='locker');
+  document.getElementById('dlv-label').textContent = type==='branch' ? 'Номер відділення' : 'Номер поштомату';
+  document.getElementById('f-branch').placeholder = type==='branch' ? 'Наприклад: 12' : 'Наприклад: 4521';
+}
 
 function tfaq(b){
   const a=b.nextElementSibling,o=b.classList.contains('open');
@@ -514,20 +536,23 @@ function selpo(el){
 }
 
 async function subm(){
-  const nameEl  = document.querySelector('.fi-inp[placeholder*="звертатись"]');
-  const phoneEl = document.querySelector('.fi-inp[type=tel]');
-  const cityEl  = document.querySelector('.fi-inp[placeholder*="Київ"]');
-  const prodEl  = document.querySelector('input[name=p]:checked');
-  const btn     = document.querySelector('.sbtn');
+  const nameEl   = document.getElementById('f-name');
+  const phoneEl  = document.getElementById('f-phone');
+  const cityEl   = document.getElementById('f-city');
+  const branchEl = document.getElementById('f-branch');
+  const prodEl   = document.querySelector('input[name=p]:checked');
+  const btn      = document.querySelector('.sbtn');
 
   const n = nameEl.value.trim();
   const p = phoneEl.value.trim();
   const c = cityEl.value.trim();
+  const b = branchEl.value.trim();
 
-  // Валідація
-  if(!n){ nameEl.focus(); nameEl.style.borderColor='#c4622e'; return; }
-  if(!p){ phoneEl.focus(); phoneEl.style.borderColor='#c4622e'; return; }
-  if(!c){ cityEl.focus(); cityEl.style.borderColor='#c4622e'; return; }
+  [nameEl,phoneEl,cityEl,branchEl].forEach(el=>el.style.borderColor='');
+  if(!n){nameEl.focus();nameEl.style.borderColor='var(--terra)';return}
+  if(!p){phoneEl.focus();phoneEl.style.borderColor='var(--terra)';return}
+  if(!c){cityEl.focus();cityEl.style.borderColor='var(--terra)';return}
+  if(!b){branchEl.focus();branchEl.style.borderColor='var(--terra)';return}
 
   const productNames = {
     sleep:  'Sleep Aid Tea — 490 ₴',
@@ -535,8 +560,8 @@ async function subm(){
     women:  'Raw Herbs for Women — 490 ₴',
     bundle: 'Набір усі три — 1 250 ₴'
   };
+  const dlvLabel = dlvType==='branch' ? `Відділення НП №${b}` : `Поштомат НП №${b}`;
 
-  // Блокуємо кнопку під час відправки
   btn.textContent = 'Відправляємо...';
   btn.disabled = true;
   btn.style.opacity = '0.7';
@@ -544,49 +569,42 @@ async function subm(){
   try {
     await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // Apps Script потребує цього
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
-        name:    n,
-        phone:   p,
-        city:    c,
-        product: productNames[prodEl ? prodEl.value : 'bundle']
+        name:     n,
+        phone:    p,
+        city:     c,
+        delivery: dlvLabel,
+        product:  productNames[prodEl ? prodEl.value : 'bundle']
       })
     });
+  } catch(err){}
 
-    // Показуємо success-стан
-    showSuccess(n, p, productNames[prodEl ? prodEl.value : 'bundle']);
-
-  } catch(err) {
-    // Навіть якщо fetch падає — Apps Script з no-cors часто повертає opaque response
-    // Тому показуємо success (дані точно дійшли)
-    showSuccess(n, p, productNames[prodEl ? prodEl.value : 'bundle']);
-  }
+  showSuccess(n, p, productNames[prodEl ? prodEl.value : 'bundle'], c, dlvLabel);
 }
 
-function showSuccess(name, phone, product) {
+function showSuccess(name, phone, product, city, delivery) {
   const form = document.querySelector('.oform');
   form.innerHTML = `
     <div style="text-align:center;padding:20px 0">
       <div style="font-size:52px;margin-bottom:16px">🌿</div>
-      <h3 style="font-family:var(--fd);font-size:26px;font-weight:500;color:var(--ink);margin-bottom:10px">
+      <h3 style="font-family:var(--fd);font-size:26px;font-weight:500;color:var(--ink);margin-bottom:12px">
         Дякуємо, ${name}!
       </h3>
-      <p style="font-size:15px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:6px">
-        Ваше замовлення прийнято:<br>
-        <strong style="color:var(--terra)">${product}</strong>
+      <div style="background:var(--bg2);border-radius:var(--r);padding:16px;margin-bottom:18px;text-align:left">
+        <div style="font-size:13px;color:var(--ink-l);margin-bottom:6px">Ваше замовлення:</div>
+        <div style="font-size:15px;font-weight:500;color:var(--terra);margin-bottom:8px">${product}</div>
+        <div style="font-size:13px;color:var(--ink-m)">📍 ${city}, ${delivery}</div>
+        <div style="font-size:13px;color:var(--ink-m)">📞 ${phone}</div>
+        <div style="font-size:13px;color:var(--ink-m)">💳 Оплата при отриманні</div>
+      </div>
+      <p style="font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:20px">
+        Передзвонимо протягом години для підтвердження і відправимо протягом 24 годин.
       </p>
-      <p style="font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:24px">
-        Передзвонимо на <strong>${phone}</strong><br>протягом години для підтвердження.
-      </p>
-      <div style="background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:16px 20px;font-size:13px;color:var(--sage-d);line-height:1.6">
-        Поки чекаєте — підпишіться на наш Telegram канал.<br>
-        Там поради по заварюванню та ексклюзивні пропозиції.
-        <br><br>
-        <a href="https://t.me/leckar_ukraine"
-           style="color:var(--sage-d);font-weight:500;text-decoration:none">
-          → @leckar_ukraine
-        </a>
+      <div style="background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:16px;font-size:13px;color:var(--sage-d);line-height:1.6">
+        Підпишіться на наш Telegram — поради по заварюванню та акції.<br><br>
+        <a href="https://t.me/leckar_ukraine" style="color:var(--sage-d);font-weight:500;text-decoration:none">→ @leckar_ukraine</a>
       </div>
     </div>
   `;
