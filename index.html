@@ -206,8 +206,8 @@ h2.sh em{color:var(--terra);font-style:italic}
 .dlv-note{font-size:11.5px;color:var(--ink-l);margin-bottom:14px;line-height:1.5;padding:10px 12px;background:var(--bg2);border-radius:8px}
 .sbtn{width:100%;background:var(--terra);color:#fff;border:none;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;cursor:pointer;transition:background .2s,transform .15s;margin-bottom:10px}
 .sbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
-.tg-btn{width:100%;background:transparent;color:#1976D2;border:1.5px solid rgba(25,118,210,.25);font-family:var(--fb);font-size:14px;font-weight:400;padding:12px;border-radius:50px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
-.tg-btn:hover{background:rgba(25,118,210,.05)}
+.ig-btn{width:100%;background:transparent;color:#C13584;border:1.5px solid rgba(193,53,132,.25);font-family:var(--fb);font-size:14px;font-weight:400;padding:12px;border-radius:50px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.ig-btn:hover{background:rgba(193,53,132,.05)}
 .fguara{text-align:center;font-size:12px;color:var(--ink-l);margin-top:13px;line-height:1.5}
 
 /* ── FOOTER ── */
@@ -487,10 +487,10 @@ Sleep aid не має у своєму складі рослин, що можут
       </div>
       <p class="dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
       <button class="sbtn" onclick="subm()">Підтвердити замовлення →</button>
-      <a href="https://t.me/leckar_ukraine" class="tg-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.54-.46.67-.93.42l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.83-4.36c.21-.19-.05-.29-.32-.1L7.9 14.47l-2.52-.79c-.55-.17-.56-.55.11-.81l9.83-3.79c.46-.17.86.11.72.72z"/></svg>
-        Написати в Telegram
-      </a>
+      <a href="https://www.instagram.com/leckarua/" target="_blank" class="ig-btn">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+  Написати в Instagram
+</a>
       <p class="fguara">🔒 Гарантія повернення · Без зайвих питань</p>
     </div>
   </div>
@@ -502,7 +502,7 @@ Sleep aid не має у своєму складі рослин, що можут
   <div class="flinks">
     <a href="#products">Продукти</a>
     <a href="#order">Замовити</a>
-    <a href="https://t.me/leckar_ukraine">Telegram</a>
+    <a href="https://www.instagram.com/leckarua/" target="_blank">Instagram</a>
   </div>
   <p class="fcopy">© 2025 Leckar Fermented Botanicals · Болгарія</p>
 </footer>
@@ -512,8 +512,19 @@ Sleep aid не має у своєму складі рослин, що можут
   <a href="#order">Замовити →</a>
 </div>
 
+<!-- Підключення бібліотеки для маски телефону -->
+<script src="https://unpkg.com/imask"></script>
+
 <script>
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4b37HLa7KMuend8LwVxu4pcWbtAwu3WJdW7V6GI_VKsjdI0udjpl2U1MdhE1MzWo/exec';
+
+// Ініціалізація маски для поля телефону
+const phoneEl = document.getElementById('f-phone');
+const phoneMask = IMask(phoneEl, {
+  mask: '+{380} (00) 000-00-00',
+  lazy: false,
+  placeholderChar: '_'
+});
 
 let dlvType = 'branch';
 function setDlv(type){
@@ -539,20 +550,24 @@ function selpo(el){
 
 async function subm(){
   const nameEl   = document.getElementById('f-name');
-  const phoneEl  = document.getElementById('f-phone');
   const cityEl   = document.getElementById('f-city');
   const branchEl = document.getElementById('f-branch');
   const prodEl   = document.querySelector('input[name=p]:checked');
   const btn      = document.querySelector('.sbtn');
 
   const n = nameEl.value.trim();
-  const p = phoneEl.value.trim();
   const c = cityEl.value.trim();
   const b = branchEl.value.trim();
+  
+  // Беремо значення з нашої маски
+  const pRaw = phoneMask.unmaskedValue; // "380991234567"
+  const pFormatted = phoneMask.value; // "+380 (99) 123-45-67"
 
   [nameEl,phoneEl,cityEl,branchEl].forEach(el=>el.style.borderColor='');
+  
   if(!n){nameEl.focus();nameEl.style.borderColor='var(--terra)';return}
-  if(!p){phoneEl.focus();phoneEl.style.borderColor='var(--terra)';return}
+  // Перевіряємо, чи введено всі 12 цифр
+  if(pRaw.length < 12){phoneEl.focus();phoneEl.style.borderColor='var(--terra)';return}
   if(!c){cityEl.focus();cityEl.style.borderColor='var(--terra)';return}
   if(!b){branchEl.focus();branchEl.style.borderColor='var(--terra)';return}
 
@@ -575,7 +590,7 @@ async function subm(){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         name:     n,
-        phone:    p,
+        phone:    pFormatted, // Відправляємо форматований номер
         city:     c,
         delivery: dlvLabel,
         product:  productNames[prodEl ? prodEl.value : 'bundle']
@@ -583,7 +598,7 @@ async function subm(){
     });
   } catch(err){}
 
-  showSuccess(n, p, productNames[prodEl ? prodEl.value : 'bundle'], c, dlvLabel);
+  showSuccess(n, pFormatted, productNames[prodEl ? prodEl.value : 'bundle'], c, dlvLabel); // Показуємо на екрані також красивий номер
 }
 
 function showSuccess(name, phone, product, city, delivery) {
@@ -605,8 +620,8 @@ function showSuccess(name, phone, product, city, delivery) {
         Передзвонимо протягом години для підтвердження і відправимо протягом 24 годин.
       </p>
       <div style="background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:16px;font-size:13px;color:var(--sage-d);line-height:1.6">
-        Підпишіться на наш Telegram — поради по заварюванню та акції.<br><br>
-        <a href="https://t.me/leckar_ukraine" style="color:var(--sage-d);font-weight:500;text-decoration:none">→ @leckar_ukraine</a>
+     Підпишіться на наш Instagram — поради по заварюванню та акції.<br><br>
+<a href="https://www.instagram.com/leckarua/" target="_blank" style="color:var(--sage-d);font-weight:500;text-decoration:none">→ @leckarua</a>
       </div>
     </div>
   `;
