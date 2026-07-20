@@ -590,7 +590,7 @@ async function subm(){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         name:     n,
-        phone:    pFormatted, // Відправляємо форматований номер
+  phone:    "'" + pFormatted, // Добавляем апостроф, чтобы Гугл не считал это формулой
         city:     c,
         delivery: dlvLabel,
         product:  productNames[prodEl ? prodEl.value : 'bundle']
