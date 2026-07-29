@@ -54,8 +54,8 @@ src="https://www.facebook.com/tr?id=1997557044152619&ev=PageView&noscript=1"
   --ink-xl:   #cfc2b0;
   --bdr:      rgba(45,36,24,.1);
   --bdr-s:    rgba(45,36,24,.06);
-  --fd:       'Playfair Display',Georgia,serif;
-  --fb:       'Inter',system-ui,sans-serif;
+  --fd:        'Playfair Display',Georgia,serif;
+  --fb:        'Inter',system-ui,sans-serif;
   --r:12px; --rl:18px;
 }
 html{scroll-behavior:smooth}
@@ -252,6 +252,23 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 .sbar a{background:var(--terra);color:#fff;font-family:var(--fb);font-size:14px;font-weight:500;padding:10px 22px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s}
 .sbar a:hover{background:var(--terra-d)}
 
+/* ── PRODUCT IMAGES ── */
+.pc-img{width:100%;height:200px;object-fit:cover;border-radius:var(--r) var(--r) 0 0;display:block}
+.hero-img{width:100%;max-width:500px;margin:36px auto 0;display:block;border-radius:var(--rl);box-shadow:0 8px 40px rgba(45,36,24,.12)}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(45,36,24,.55);z-index:500;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--white);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;border-radius:24px 24px 0 0;padding:24px 22px 32px;position:relative;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--bg2);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--ink-m);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-close:hover{background:var(--bg3)}
+.modal-title{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px;padding-right:40px}
+@media(min-width:600px){
+  .modal-overlay{align-items:center}
+  .modal-box{border-radius:24px;max-height:85vh}
+}
+
 @media(max-width:640px){
   .sbar{display:flex}
   body{padding-bottom:64px}
@@ -267,7 +284,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 
 <header>
   <a href="#" class="logo">LECKAR <span>FERMENTED BOTANICALS</span></a>
-  <a href="#order" class="hcta">Замовити →</a>
+  <a href="#" onclick="openOrder();return false;" class="hcta">Замовити →</a>
 </header>
 
 <!-- HERO -->
@@ -277,7 +294,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     <h1>Ваше тіло<br>чекає <em>відпочинку</em>.</h1>
     <p class="hero-sub">Три формули з болгарських трав — для <strong>глибокого сну</strong>, <strong>спокою</strong> і <strong>жіночого балансу</strong>. Без мелатоніну. Без звикання.</p>
     <div class="hero-btns">
-      <a href="#order" class="btn-p">Замовити зараз</a>
+      <a href="#" onclick="openOrder();return false;" class="btn-p">Замовити зараз</a>
       <a href="#products" class="btn-s">Обери свою формулу</a>
     </div>
     <div class="hero-trust">
@@ -288,6 +305,10 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     </div>
   </div>
 </section>
+
+<div style="background:var(--white);padding:0 22px 48px;text-align:center">
+  <img src="/img/hero.jpg" alt="Leckar — болгарські трав'яні чаї" class="hero-img" loading="lazy">
+</div>
 
 <!-- PAIN -->
 <section class="pain-sec">
@@ -326,6 +347,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
       <!-- SLEEP AID -->
       <div class="pc hero-pc">
         <span class="pc-badge">★ Топ вибір — Sleep Aid Tea</span>
+        <img src="/img/sleep.jpg" alt="Sleep Aid Tea" class="pc-img">
         <div class="pc-inner">
           <div>
             <p class="pc-num">№ 01 — Сон</p>
@@ -345,13 +367,14 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <a href="#order" class="pc-btn">Замовити</a>
+            <a href="#" onclick="openOrder('sleep');return false;" class="pc-btn">Замовити</a>
           </div>
         </div>
       </div>
 
       <!-- KEEP CALM -->
       <div class="pc">
+        <img src="/img/calm.jpg" alt="Keep Calm Tea" class="pc-img">
         <div class="pc-inner">
           <div>
             <p class="pc-num">№ 02 — Спокій</p>
@@ -370,13 +393,14 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <a href="#order" class="pc-btn">Замовити</a>
+            <a href="#" onclick="openOrder('calm');return false;" class="pc-btn">Замовити</a>
           </div>
         </div>
       </div>
 
       <!-- WOMEN -->
       <div class="pc">
+        <img src="/img/women.jpg" alt="Raw Herbs for Women" class="pc-img">
         <div class="pc-inner">
           <div>
             <p class="pc-num">№ 03 — Жіноче</p>
@@ -395,7 +419,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <a href="#order" class="pc-btn">Замовити</a>
+            <a href="#" onclick="openOrder('women');return false;" class="pc-btn">Замовити</a>
           </div>
         </div>
       </div>
@@ -422,7 +446,7 @@ Herbs for health –це також ідеальний варіант подар
         <span class="bold">1 470 ₴</span>
         <span class="bsave">економія 220 ₴</span>
       </div>
-      <a href="#order" class="bbtn">Замовити Herbs for health →</a>
+      <a href="#" onclick="openOrder('bundle');return false;" class="bbtn">Замовити Herbs for health →</a>
       <p class="bsub">Nova Poshta · Накладений платіж або карткою</p>
     </div>
   </div>
@@ -527,15 +551,47 @@ Sleep aid не має у своєму складі рослин, що можут
   <p class="fdesc">Болгарські трав'яні збори для природного відновлення. Без хімії, без компромісів.</p>
   <div class="flinks">
     <a href="#products">Продукти</a>
-    <a href="#order">Замовити</a>
+    <a href="#" onclick="openOrder();return false;">Замовити</a>
     <a href="https://www.instagram.com/leckarua/" target="_blank">Instagram</a>
   </div>
   <p class="fcopy">© 2025 Leckar Fermented Botanicals · Болгарія</p>
 </footer>
 
+<!-- MODAL ORDER -->
+<div class="modal-overlay" id="orderModal" onclick="closeOnBg(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeOrder()">✕</button>
+    <p class="modal-title">Оформити замовлення</p>
+    <div id="modal-form-wrap">
+      <span class="po-label">Оберіть замовлення</span>
+      <div class="po-list">
+        <label class="po" onclick="selpo(this)"><input type="radio" name="pm" value="sleep"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Sleep Aid Tea</span></div><span class="po-p">490 ₴</span></label>
+        <label class="po" onclick="selpo(this)"><input type="radio" name="pm" value="calm"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Keep Calm Tea</span></div><span class="po-p">490 ₴</span></label>
+        <label class="po" onclick="selpo(this)"><input type="radio" name="pm" value="women"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Raw Herbs for Women</span></div><span class="po-p">490 ₴</span></label>
+        <label class="po bundle-po sel" onclick="selpo(this)"><input type="radio" name="pm" value="bundle" checked><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Набір усі три &nbsp;<span class="bbadge">−15%</span></span></div><span class="po-p">1 250 ₴</span></label>
+      </div>
+      <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" id="m-name" placeholder="Як до вас звертатись"></div>
+      <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" id="m-phone" placeholder="+380 xx xxx xx xx"></div>
+      <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" id="m-city" placeholder="Київ, Львів, Дніпро..."></div>
+      <label class="flbl">Тип доставки Nova Poshta</label>
+      <div class="dlv-toggle">
+        <button type="button" class="dlv-opt act" id="m-dlv-branch" onclick="setDlvM('branch')">📦 Відділення</button>
+        <button type="button" class="dlv-opt" id="m-dlv-locker" onclick="setDlvM('locker')">🤖 Поштомат</button>
+      </div>
+      <div class="fg">
+        <label class="flbl" id="m-dlv-label">Номер відділення</label>
+        <input type="text" class="fi-inp" id="m-branch" placeholder="Наприклад: 12">
+      </div>
+      <p class="dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
+      <button class="sbtn" onclick="submModal()">Підтвердити замовлення →</button>
+      <p class="fguara">🔒 Гарантія повернення · Без зайвих питань</p>
+    </div>
+  </div>
+</div>
+
 <div class="sbar" id="sb">
   <div class="sbar-t"><strong>Стартовий набір</strong>3 чаї · 1 250 ₴</div>
-  <a href="#order">Замовити →</a>
+  <a href="#" onclick="openOrder();return false;">Замовити →</a>
 </div>
 
 <!-- Підключення бібліотеки для маски телефону -->
@@ -616,7 +672,7 @@ async function subm(){
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         name:     n,
-  phone:    "'" + pFormatted, // Добавляем апостроф, чтобы Гугл не считал это формулой
+        phone:    "'" + pFormatted, // Добавляем апостроф, чтобы Гугл не считал это формулой
         city:     c,
         delivery: dlvLabel,
         product:  productNames[prodEl ? prodEl.value : 'bundle']
@@ -646,11 +702,68 @@ function showSuccess(name, phone, product, city, delivery) {
         Передзвонимо протягом години для підтвердження і відправимо протягом 24 годин.
       </p>
       <div style="background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:16px;font-size:13px;color:var(--sage-d);line-height:1.6">
-     Підпишіться на наш Instagram — поради по заварюванню та акції.<br><br>
+       Підпишіться на наш Instagram — поради по заварюванню та акції.<br><br>
 <a href="https://www.instagram.com/leckarua/" target="_blank" style="color:var(--sage-d);font-weight:500;text-decoration:none">→ @leckarua</a>
       </div>
     </div>
   `;
+}
+
+function openOrder(prod){
+  document.getElementById('orderModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(prod){
+    document.querySelectorAll('input[name=pm]').forEach(r=>{
+      if(r.value===prod){
+        r.checked=true;
+        r.closest('.po').click();
+      }
+    });
+  }
+}
+
+function closeOrder(){
+  document.getElementById('orderModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function closeOnBg(e){
+  if(e.target===document.getElementById('orderModal'))closeOrder();
+}
+
+let dlvTypeM='branch';
+function setDlvM(type){
+  dlvTypeM=type;
+  document.getElementById('m-dlv-branch').classList.toggle('act',type==='branch');
+  document.getElementById('m-dlv-locker').classList.toggle('act',type==='locker');
+  document.getElementById('m-dlv-label').textContent=type==='branch'?'Номер відділення':'Номер поштомату';
+  document.getElementById('m-branch').placeholder=type==='branch'?'Наприклад: 12':'Наприклад: 4521';
+}
+
+async function submModal(){
+  const nameEl=document.getElementById('m-name');
+  const phoneEl=document.getElementById('m-phone');
+  const cityEl=document.getElementById('m-city');
+  const branchEl=document.getElementById('m-branch');
+  const prodEl=document.querySelector('input[name=pm]:checked');
+  const btn=document.querySelector('#modal-form-wrap .sbtn');
+  const n=nameEl.value.trim(),p=phoneEl.value.trim(),c=cityEl.value.trim(),b=branchEl.value.trim();
+  [nameEl,phoneEl,cityEl,branchEl].forEach(el=>el.style.borderColor='');
+  if(!n){nameEl.focus();nameEl.style.borderColor='var(--terra)';return}
+  if(!p||p.length<10){phoneEl.focus();phoneEl.style.borderColor='var(--terra)';return}
+  if(!c){cityEl.focus();cityEl.style.borderColor='var(--terra)';return}
+  if(!b){branchEl.focus();branchEl.style.borderColor='var(--terra)';return}
+  const productNames={sleep:'Sleep Aid Tea — 490 ₴',calm:'Keep Calm Tea — 490 ₴',women:'Raw Herbs for Women — 490 ₴',bundle:'Набір усі три — 1 250 ₴'};
+  const dlvLabel=dlvTypeM==='branch'?`Відділення НП №${b}`:`Поштомат НП №${b}`;
+  btn.textContent='Відправляємо...';btn.disabled=true;btn.style.opacity='0.7';
+  try{
+    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:n,phone:"'"+p,city:c,delivery:dlvLabel,product:productNames[prodEl?prodEl.value:'bundle']})});
+  }catch(err){}
+  const priceMap={sleep:490,calm:490,women:490,bundle:1250};
+  const pk=prodEl?prodEl.value:'bundle';
+  if(typeof fbq!=='undefined'){fbq('track','Lead');fbq('track','Purchase',{value:priceMap[pk],currency:'UAH',content_name:productNames[pk]});}
+  document.getElementById('modal-form-wrap').innerHTML=`    <div style="text-align:center;padding:20px 0">      <div style="font-size:48px;margin-bottom:14px">🌿</div>      <h3 style="font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);margin-bottom:12px">Дякуємо, ${n}!</h3>      <div style="background:var(--bg2);border-radius:var(--r);padding:14px;margin-bottom:16px;text-align:left">        <div style="font-size:13px;color:var(--ink-l);margin-bottom:4px">Ваше замовлення:</div>        <div style="font-size:15px;font-weight:500;color:var(--terra);margin-bottom:6px">${productNames[pk]}</div>        <div style="font-size:13px;color:var(--ink-m)">📍 ${c}, ${dlvLabel}</div>        <div style="font-size:13px;color:var(--ink-m)">📞 ${p}</div>        <div style="font-size:13px;color:var(--ink-m)">💳 Оплата при отриманні</div>      </div>      <p style="font-size:13px;color:var(--ink-m);font-weight:300;line-height:1.6">Передзвонимо протягом години для підтвердження.</p>    </div>`;
 }
 
 window.addEventListener('scroll',()=>{
