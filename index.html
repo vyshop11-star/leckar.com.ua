@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leckar — Болгарські трав'яні чаї</title>
-  <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,16 +19,13 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1997557044152619&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
-  <!-- Microsoft Clarity -->
 <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xs4hnhwrwz");
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "xs4hnhwrwz");
 </script>
-<!-- End Microsoft Clarity -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -54,36 +50,23 @@ src="https://www.facebook.com/tr?id=1997557044152619&ev=PageView&noscript=1"
   --ink-xl:   #cfc2b0;
   --bdr:      rgba(45,36,24,.1);
   --bdr-s:    rgba(45,36,24,.06);
-  --fd:        'Playfair Display',Georgia,serif;
-  --fb:        'Inter',system-ui,sans-serif;
+  --fd:       'Playfair Display',Georgia,serif;
+  --fb:       'Inter',system-ui,sans-serif;
   --r:12px; --rl:18px;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .container{max-width:700px;margin:0 auto;padding:0 22px}
-
-/* ── TOPBAR ── */
 .topbar{background:var(--sage-bg);border-bottom:1px solid var(--sage-bdr);padding:9px 22px;text-align:center;font-size:12.5px;color:var(--sage-d);font-weight:400;letter-spacing:.01em}
 .topbar strong{font-weight:500}
-
-/* ── HEADER ── */
-header{
-  padding:14px 22px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(253,252,249,.96);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--bdr);
-  position:sticky;top:0;z-index:100
-}
+header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
 .logo{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--sage-d);letter-spacing:.04em;line-height:1;text-decoration:none}
 .logo span{display:block;font-family:var(--fb);font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
-.hcta{background:var(--terra);color:#fff;font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 20px;border-radius:50px;text-decoration:none;transition:background .2s}
+.hcta{background:var(--terra);color:#fff;font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 20px;border-radius:50px;text-decoration:none;transition:background .2s;border:none;cursor:pointer}
 .hcta:hover{background:var(--terra-d)}
-
-/* ── HERO ── */
 .hero{padding:48px 22px 56px;background:var(--white);border-bottom:1px solid var(--bdr-s);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(238,244,238,.7) 0%,transparent 70%);pointer-events:none}
-.hero .container{max-width:1050px;margin:0 auto;padding:0}
+.hero .container{max-width:1050px;margin:0 auto;padding:0 22px}
 .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;position:relative;z-index:1}
 .hero-content{text-align:left}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;background:var(--sage-bg);border:1px solid var(--sage-bdr);color:var(--sage-d);font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:20px}
@@ -97,12 +80,10 @@ header{
 .btn-p:hover{background:var(--terra-d);transform:translateY(-1px)}
 .btn-s{background:var(--white);color:var(--ink-m);font-family:var(--fb);font-size:15px;font-weight:400;padding:14px 32px;border-radius:50px;border:1.5px solid var(--bdr);text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s;display:inline-block}
 .btn-s:hover{border-color:var(--sage-mid);color:var(--sage-d)}
-.hero-trust{margin-top:0;display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap}
+.hero-trust{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap}
 .ti{font-size:12px;color:var(--ink-l);display:flex;align-items:center;gap:6px}
 .td{width:4px;height:4px;background:var(--sage-mid);border-radius:50%;flex-shrink:0}
-.hero-media{width:100%}
-.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:center top;border-radius:var(--rl);box-shadow:0 12px 40px rgba(45,36,24,.12);display:block;margin:0}
-
+.hero-img{width:100%;max-height:520px;object-fit:cover;object-position:center top;border-radius:var(--rl);box-shadow:0 12px 40px rgba(45,36,24,.12);display:block}
 @media(max-width:820px){
   .hero{padding:36px 20px 40px}
   .hero-grid{grid-template-columns:1fr;gap:28px}
@@ -112,8 +93,6 @@ header{
   .hero-trust{justify-content:center}
   .hero-img{max-height:380px}
 }
-
-/* ── PAIN ── */
 .pain-sec{padding:72px 22px;background:var(--bg2)}
 .pain-sec .container{text-align:center}
 .slbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:10px;font-family:var(--fb)}
@@ -126,22 +105,19 @@ h2.sh em{color:var(--terra);font-style:italic}
 .pi{font-size:26px;margin-bottom:12px;display:block}
 .pcard h3{font-family:var(--fd);font-size:18px;font-weight:500;color:var(--ink);margin-bottom:7px}
 .pcard p{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.55}
-
-/* ── BRAND STRIP ── */
 .bstrip{padding:26px 22px;background:var(--white);border-top:1px solid var(--bdr-s);border-bottom:1px solid var(--bdr-s)}
 .bstrip .container{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;align-items:center}
 .bpill{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--sage-d);font-weight:400}
 .bpill-ic{width:34px;height:34px;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-
-/* ── PRODUCTS ── */
 .prod-sec{padding:72px 22px;background:var(--bg)}
 .prod-sec .sh-wrap{text-align:center;margin-bottom:42px}
 .pclist{display:flex;flex-direction:column;gap:16px}
 .pc{background:var(--white);border:1.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:border-color .2s,box-shadow .2s}
 .pc:hover{border-color:var(--sage-bdr);box-shadow:0 4px 28px rgba(45,36,24,.06)}
-.pc.hero-pc{border-color:var(--sage-bdr);border-width:2px;background:var(--white)}
+.pc.hero-pc{border-color:var(--sage-bdr);border-width:2px}
 .pc.hero-pc .pc-inner{background:linear-gradient(135deg,var(--white) 0%,var(--sage-bg) 100%)}
 .pc-badge{display:block;background:var(--sage-bg);border-bottom:1px solid var(--sage-bdr);padding:8px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-d)}
+.pc-img{width:100%;height:200px;object-fit:contain;display:block;background:var(--bg2)}
 .pc-inner{padding:24px 22px;display:grid;grid-template-columns:1fr 110px;gap:16px;align-items:start}
 .pc-num{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:5px}
 .pc-name{font-family:var(--fd);font-size:clamp(19px,3.5vw,25px);font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:6px}
@@ -155,10 +131,8 @@ h2.sh em{color:var(--terra);font-style:italic}
 .pc-old{font-size:13px;color:var(--ink-xl);font-weight:300;text-decoration:line-through;margin-bottom:2px}
 .pc-price{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--terra);line-height:1;margin-bottom:3px}
 .pc-unit{font-size:11px;color:var(--ink-xl);font-weight:300;margin-bottom:14px;line-height:1.4}
-.pc-btn{display:block;background:transparent;border:1.5px solid var(--sage);color:var(--sage-d);font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 14px;border-radius:50px;text-align:center;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap}
-.pc.hero-pc .pc-btn,.pc-btn:hover{background:var(--sage);color:#fff;border-color:var(--sage)}
-
-/* ── BUNDLE ── */
+.pc-btn{display:block;background:transparent;border:1.5px solid var(--sage);color:var(--sage-d);font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 14px;border-radius:50px;text-align:center;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;border:none}
+.pc.hero-pc .pc-btn,.pc-btn:hover{background:var(--sage);color:#fff}
 .bundle-sec{padding:0 22px 72px;background:var(--bg)}
 .bx{background:var(--terra-bg);border:2px solid var(--terra-bdr);border-radius:var(--rl);padding:32px 28px;position:relative;overflow:hidden}
 .bx::after{content:'☕';position:absolute;bottom:-14px;right:16px;font-size:110px;opacity:.06;pointer-events:none;user-select:none}
@@ -176,8 +150,6 @@ h2.sh em{color:var(--terra);font-style:italic}
 .bbtn{display:block;background:var(--terra);color:#fff;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;text-align:center;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;width:100%;margin-bottom:10px}
 .bbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
 .bsub{text-align:center;font-size:12px;color:var(--ink-l)}
-
-/* ── MECHANISM ── */
 .mech-sec{padding:72px 22px;background:var(--bg2);border-top:1px solid var(--bdr-s)}
 .mech-sec .sh-wrap{text-align:center;margin-bottom:44px}
 .msteps{display:flex;flex-direction:column}
@@ -186,8 +158,6 @@ h2.sh em{color:var(--terra);font-style:italic}
 .msn{font-family:var(--fd);font-size:36px;font-weight:400;color:var(--terra);line-height:1;opacity:.3;font-style:italic;padding-top:2px}
 .msc h3{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:6px}
 .msc p{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65}
-
-/* ── PROOF ── */
 .proof-sec{padding:72px 22px;background:var(--white)}
 .proof-sec .sh-wrap{text-align:center;margin-bottom:36px}
 .amz-bar{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;gap:14px;margin-bottom:16px}
@@ -201,8 +171,6 @@ h2.sh em{color:var(--terra);font-style:italic}
 .rv-t{font-family:var(--fd);font-size:17px;font-weight:400;color:var(--ink);font-style:italic;margin-bottom:12px;line-height:1.55}
 .rv-a{font-size:12px;color:var(--ink-l)}
 .rv-a strong{color:var(--ink-m);font-weight:500}
-
-/* ── FAQ ── */
 .faq-sec{padding:72px 22px;background:var(--bg2);border-top:1px solid var(--bdr-s)}
 .faq-sec h2.sh{margin-bottom:30px}
 .fi{border-bottom:1px solid var(--bdr)}
@@ -211,14 +179,12 @@ h2.sh em{color:var(--terra);font-style:italic}
 .fq.open .fa-ic{transform:rotate(45deg)}
 .fa{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
 .fa.open{max-height:400px;padding-bottom:18px}
-
-/* ── ORDER ── */
 .order-sec{padding:72px 22px;background:var(--white);border-top:1px solid var(--bdr-s)}
 .order-sec .sh-wrap{text-align:center;margin-bottom:36px}
 .oform{background:var(--bg);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 24px;max-width:500px;margin:0 auto}
 .flbl{display:block;font-size:11px;color:var(--ink-l);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;font-weight:500}
 .fg{margin-bottom:15px}
-.fi-inp{width:100%;background:var(--white);border:1.5px solid var(--bdr);border-radius:10px;color:var(--ink);font-family:var(--fb);font-size:15px;padding:12px 14px;transition:border-color .2s;outline:none;appearance:none}
+.fi-inp{width:100%;background:var(--white);border:1.5px solid var(--bdr);border-radius:10px;color:var(--ink);font-family:var(--fb);font-size:15px;padding:12px 14px;transition:border-color .2s;outline:none;appearance:none;-webkit-appearance:none}
 .fi-inp:focus{border-color:var(--sage);background:var(--white)}
 .fi-inp::placeholder{color:var(--ink-xl)}
 .po-label{font-size:11px;color:var(--ink-l);letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;font-weight:500;display:block}
@@ -238,9 +204,6 @@ h2.sh em{color:var(--terra);font-style:italic}
 .po-n{font-size:14px;color:var(--ink);font-weight:400}
 .po-p{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--terra);white-space:nowrap}
 .bbadge{font-size:10px;background:var(--terra);color:#fff;padding:2px 8px;border-radius:50px;font-weight:500;letter-spacing:.04em;white-space:nowrap}
-.pay-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
-.ppill{font-size:11px;color:var(--ink-l);border:1px solid var(--bdr);background:var(--white);padding:4px 12px;border-radius:50px}
-/* delivery toggle */
 .dlv-toggle{display:flex;gap:8px;margin-bottom:14px}
 .dlv-opt{flex:1;padding:10px 8px;border:1.5px solid var(--bdr);border-radius:10px;font-family:var(--fb);font-size:13px;font-weight:400;color:var(--ink-m);background:var(--bg);cursor:pointer;text-align:center;transition:all .2s;line-height:1.3}
 .dlv-opt.act{border-color:var(--sage);background:var(--sage-bg);color:var(--sage-d);font-weight:500}
@@ -250,39 +213,30 @@ h2.sh em{color:var(--terra);font-style:italic}
 .ig-btn{width:100%;background:transparent;color:#C13584;border:1.5px solid rgba(193,53,132,.25);font-family:var(--fb);font-size:14px;font-weight:400;padding:12px;border-radius:50px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
 .ig-btn:hover{background:rgba(193,53,132,.05)}
 .fguara{text-align:center;font-size:12px;color:var(--ink-l);margin-top:13px;line-height:1.5}
-
-/* ── FOOTER ── */
 footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);text-align:center}
 .flogo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--sage-d);margin-bottom:8px}
 .fdesc{font-size:13px;color:var(--ink-l);font-weight:300;max-width:320px;margin:0 auto 18px;line-height:1.6}
 .flinks{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.flinks a{font-size:12px;color:var(--ink-l);text-decoration:none;transition:color .2s}
+.flinks a{font-size:12px;color:var(--ink-l);text-decoration:none;transition:color .2s;cursor:pointer}
 .flinks a:hover{color:var(--sage-d)}
 .fcopy{margin-top:20px;font-size:11px;color:var(--ink-xl)}
-
-/* ── STICKY ── */
 .sbar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--bdr);padding:11px 16px;z-index:200;gap:10px;align-items:center;box-shadow:0 -3px 16px rgba(45,36,24,.08)}
 .sbar-t{flex:1;font-size:13px;color:var(--ink-m);font-weight:300}
 .sbar-t strong{color:var(--ink);display:block;font-weight:500;font-size:14px}
-.sbar a{background:var(--terra);color:#fff;font-family:var(--fb);font-size:14px;font-weight:500;padding:10px 22px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .2s}
-.sbar a:hover{background:var(--terra-d)}
-
-/* ── PRODUCT IMAGES ── */
-.pc-img{width:100%;height:200px;object-fit:contain;border-radius:var(--r) var(--r) 0 0;display:block}
-
-/* ── MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(45,36,24,.55);z-index:500;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.sbar-btn{background:var(--terra);color:#fff;font-family:var(--fb);font-size:14px;font-weight:500;padding:10px 22px;border-radius:50px;white-space:nowrap;flex-shrink:0;transition:background .2s;border:none;cursor:pointer}
+.sbar-btn:hover{background:var(--terra-d)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(45,36,24,.55);z-index:500;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .modal-overlay.open{display:flex}
-.modal-box{background:var(--white);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;border-radius:24px 24px 0 0;padding:24px 22px 32px;position:relative;animation:slideUp .3s ease}
+.modal-box{background:var(--white);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;border-radius:24px 24px 0 0;padding:24px 22px 36px;position:relative;animation:slideUp .3s ease}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-close{position:absolute;top:16px;right:16px;background:var(--bg2);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--ink-m);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--bg2);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--ink-m);display:flex;align-items:center;justify-content:center;transition:background .2s}
 .modal-close:hover{background:var(--bg3)}
+.modal-drag{width:40px;height:4px;background:var(--ink-xl);border-radius:2px;margin:0 auto 20px}
 .modal-title{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px;padding-right:40px}
 @media(min-width:600px){
   .modal-overlay{align-items:center}
   .modal-box{border-radius:24px;max-height:85vh}
 }
-
 @media(max-width:640px){
   .sbar{display:flex}
   body{padding-bottom:64px}
@@ -298,10 +252,9 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 
 <header>
   <a href="#" class="logo">LECKAR <span>FERMENTED BOTANICALS</span></a>
-  <a href="#" onclick="openOrder();return false;" class="hcta">Замовити →</a>
+  <button onclick="openOrder()" class="hcta">Замовити →</button>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -310,7 +263,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         <h1>Ваше тіло<br>чекає <em>відпочинку</em>.</h1>
         <p class="hero-sub">Три формули з болгарських трав — для <strong>глибокого сну</strong>, <strong>спокою</strong> і <strong>жіночого балансу</strong>. Без мелатоніну. Без звикання.</p>
         <div class="hero-btns">
-          <a href="#" onclick="openOrder();return false;" class="btn-p">Замовити зараз</a>
+          <button onclick="openOrder()" class="btn-p">Замовити зараз</button>
           <a href="#products" class="btn-s">Обери свою формулу</a>
         </div>
         <div class="hero-trust">
@@ -320,14 +273,13 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
           <span class="ti"><span class="td"></span>Гарантія повернення</span>
         </div>
       </div>
-      <div class="hero-media">
-        <img src="/img/hero.jpg" alt="Leckar — болгарські трав'яні чаї" class="hero-img" loading="lazy">
+      <div>
+        <img src="/img/hero.jpg" alt="Leckar — болгарські трав'яні чаї Sleep Aid, Keep Calm, Herbs for Women" class="hero-img" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- PAIN -->
 <section class="pain-sec">
   <div class="container">
     <p class="slbl">Чому ви тут</p>
@@ -341,7 +293,6 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   </div>
 </section>
 
-<!-- BRAND STRIP -->
 <div class="bstrip">
   <div class="container">
     <div class="bpill"><div class="bpill-ic">🌿</div>Цілі рослини, без екстрактів</div>
@@ -351,25 +302,23 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   </div>
 </div>
 
-<!-- PRODUCTS -->
 <section class="prod-sec" id="products">
   <div class="container">
     <div class="sh-wrap">
       <p class="slbl">Три формули</p>
       <h2 class="sh">Обирайте <em>свою</em></h2>
-      <p class="ssub">Кожна формула дбайливо створена щоб задовольнити окремі конкретні потреби вашого організму. Оберіть свою або переконайтеся у ефективності усіх трьох, замовивши їх з приємною знижкою. </p>
+      <p class="ssub">Кожна формула дбайливо створена щоб задовольнити окремі конкретні потреби вашого організму. Оберіть свою або переконайтеся у ефективності усіх трьох, замовивши їх з приємною знижкою.</p>
     </div>
     <div class="pclist">
 
-      <!-- SLEEP AID -->
       <div class="pc hero-pc">
         <span class="pc-badge">★ Топ вибір — Sleep Aid Tea</span>
-        <img src="/img/sleep.jpg" alt="Sleep Aid Tea" class="pc-img">
+        <img src="/img/sleep.jpg" alt="Sleep Aid Tea" class="pc-img" loading="lazy">
         <div class="pc-inner">
           <div>
             <p class="pc-num">№ 01 — Сон</p>
             <h3 class="pc-name">Sleep Aid Tea</h3>
-            <p class="pc-tag">Бореться з трьома причинами безсоння: безкінечним потоком тривожних думок, напругою м'язів та дискомфортом у шлунку вночі.</p>
+            <p class="pc-tag">Бореться з трьома причинами безсоння: тривожними думками, напругою м'язів та дискомфортом у шлунку вночі.</p>
             <div class="ing-row">
               <span class="ing">Пасифлора</span><span class="ing">Липа</span><span class="ing">Ромашка</span><span class="ing">Лаванда</span><span class="ing">Вербена</span><span class="ing">Хміль</span>
             </div>
@@ -384,14 +333,13 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <a href="#" onclick="openOrder('sleep');return false;" class="pc-btn">Замовити</a>
+            <button onclick="openOrder('sleep')" class="pc-btn">Замовити</button>
           </div>
         </div>
       </div>
 
-      <!-- KEEP CALM -->
       <div class="pc">
-        <img src="/img/calm.jpg" alt="Keep Calm Tea" class="pc-img">
+        <img src="/img/calm.jpg" alt="Keep Calm Tea" class="pc-img" loading="lazy">
         <div class="pc-inner">
           <div>
             <p class="pc-num">№ 02 — Спокій</p>
@@ -410,14 +358,13 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <a href="#" onclick="openOrder('calm');return false;" class="pc-btn">Замовити</a>
+            <button onclick="openOrder('calm')" class="pc-btn">Замовити</button>
           </div>
         </div>
       </div>
 
-      <!-- WOMEN -->
       <div class="pc">
-        <img src="/img/women.jpg" alt="Raw Herbs for Women" class="pc-img">
+        <img src="/img/women.jpg" alt="Raw Herbs for Women" class="pc-img" loading="lazy">
         <div class="pc-inner">
           <div>
             <p class="pc-num">№ 03 — Жіноче</p>
@@ -436,7 +383,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <a href="#" onclick="openOrder('women');return false;" class="pc-btn">Замовити</a>
+            <button onclick="openOrder('women')" class="pc-btn">Замовити</button>
           </div>
         </div>
       </div>
@@ -445,14 +392,12 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   </div>
 </section>
 
-<!-- BUNDLE -->
 <section class="bundle-sec" id="bundle">
   <div class="container">
     <div class="bx">
       <p class="blbl">Вигідна пропозиція</p>
       <h2 class="btitle">Стартовий набір "Herbs for health" — усі три чаї</h2>
-      <p class="bdesc">Ідеально для знайомства з нашим брендом. Спробуйте усі три формули та переконайтеся в їх ефективності. В будь-яких обставинах сила натуральних трав усіх трьох формул буде завжди з Вами, щоб підтримати Ваше тіло та дух.
-Herbs for health –це також ідеальний варіант подарунку для найближчих. Подбайте про тих, кого любите. </p>
+      <p class="bdesc">Ідеально для знайомства з нашим брендом. Спробуйте усі три формули та переконайтеся в їх ефективності. Також ідеальний варіант подарунку для найближчих.</p>
       <ul class="binc">
         <li>Sleep Aid Tea <span>490 ₴</span></li>
         <li>Keep Calm Tea <span>490 ₴</span></li>
@@ -463,13 +408,12 @@ Herbs for health –це також ідеальний варіант подар
         <span class="bold">1 470 ₴</span>
         <span class="bsave">економія 220 ₴</span>
       </div>
-      <a href="#" onclick="openOrder('bundle');return false;" class="bbtn">Замовити Herbs for health →</a>
+      <button onclick="openOrder('bundle')" class="bbtn">Замовити Herbs for health →</button>
       <p class="bsub">Nova Poshta · Накладений платіж або карткою</p>
     </div>
   </div>
 </section>
 
-<!-- MECHANISM -->
 <section class="mech-sec">
   <div class="container">
     <div class="sh-wrap">
@@ -479,13 +423,12 @@ Herbs for health –це також ідеальний варіант подар
     <div class="msteps">
       <div class="ms"><span class="msn">1</span><div class="msc"><h3>Болгарія — не випадковість</h3><p>Болгарія є одним із топ-3 виробників трав'яної сировини у світі. Рослини ростуть у чистих гірських долинах, збираються вручну у фазі максимальної концентрації активних речовин.</p></div></div>
       <div class="ms"><span class="msn">2</span><div class="msc"><h3>Цілі рослини, не порошок</h3><p>Листя, квіти і стебла в незміненому вигляді. Не екстракт, не порошок. Повний спектр фітонутрієнтів — такий, як задумала природа.</p></div></div>
-      <div class="ms"><span class="msn">3</span><div class="msc"><h3>Синергія складу</h3><p>У Sleep Aid пасифлора заспокоює думки, лаванда і вербена знімають м'язову напругу, ромашка заспокоює ШКТ — три причини безсоння одночасно. Не один інгредієнт, а хор.</p></div></div>
+      <div class="ms"><span class="msn">3</span><div class="msc"><h3>Синергія складу</h3><p>У Sleep Aid пасифлора заспокоює думки, лаванда і вербена знімають м'язову напругу, ромашка заспокоює ШКТ — три причини безсоння одночасно.</p></div></div>
       <div class="ms"><span class="msn">4</span><div class="msc"><h3>Без мелатоніну — без залежності</h3><p>Мелатонін пригнічує власне вироблення гормону сну. Наші формули підтримують природні механізми — тіло навчається спати самостійно, без добавок.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
 <section class="proof-sec">
   <div class="container">
     <div class="sh-wrap">
@@ -504,22 +447,18 @@ Herbs for health –це також ідеальний варіант подар
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq-sec">
   <div class="container">
     <p class="slbl">Питання і відповіді</p>
     <h2 class="sh">Часто запитують</h2>
     <div class="fi"><button class="fq" onclick="tfaq(this)">Коли відчую ефект?<span class="fa-ic">+</span></button><div class="fa">Більшість відзначають значну різницю у самопочутті після 3–5 днів регулярного вживання. Для стійкого результату — курс 2–4 тижні. Чай не пігулка: підтримує процеси, а не замінює їх.</div></div>
-    <div class="fi"><button class="fq" onclick="tfaq(this)">Чи можна вагітним та годуючим мамам?<span class="fa-ic">+</span></button><div class="fa">Women's health містить у складі звіробій. Попри його відомі властивості, він не рекомендований до вживання при вагітності та грудному вигодовуванні.<br><br> 
-Keep calm містить у своєму складі валеріану, саме тому цей чай також не рекомендовано вживати тим, хто очікує на появу малюка або годує грудьми.<br><br>
-Sleep aid не має у своєму складі рослин, що можуть завдати шкоди вагітним або годуючим. Однак, перед вживанням варто обов'язково проконсультуватися з лікарем.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Чи можна вагітним та годуючим мамам?<span class="fa-ic">+</span></button><div class="fa">Women's health містить звіробій — не рекомендований при вагітності та грудному вигодовуванні. Keep Calm містить валеріану — також не рекомендований. Sleep Aid не має протипоказаних рослин, але проконсультуйтесь з лікарем.</div></div>
     <div class="fi"><button class="fq" onclick="tfaq(this)">Чи є звикання?<span class="fa-ic">+</span></button><div class="fa">Ні. Без мелатоніну, без бензодіазепінів, без снодійних. Рослинні формули підтримують природні процеси. Можна припинити будь-коли без синдрому відміни.</div></div>
     <div class="fi"><button class="fq" onclick="tfaq(this)">Як правильно заварювати?<span class="fa-ic">+</span></button><div class="fa">1–1.5 ч.л. на 200 мл води 85–90°C, 7–10 хв під кришкою. Sleep Aid — за 30–40 хв до сну. Keep Calm — впродовж дня. Women's Tea — вранці або вдень.</div></div>
-    <div class="fi"><button class="fq" onclick="tfaq(this)">Доставка і оплата?<span class="fa-ic">+</span></button><div class="fa">Nova Poshta по всій Україні, відправка протягом 24 год. Оплата: накладений платіж, NovaPay або карткою. Якщо не підійшло — повертаємо кошти.</div></div>
+    <div class="fi"><button class="fq" onclick="tfaq(this)">Доставка і оплата?<span class="fa-ic">+</span></button><div class="fa">Nova Poshta по всій Україні, відправка протягом 24 год. Оплата: накладений платіж при отриманні. Якщо не підійшло — повертаємо кошти.</div></div>
   </div>
 </section>
 
-<!-- ORDER -->
 <section class="order-sec" id="order">
   <div class="container">
     <div class="sh-wrap">
@@ -538,15 +477,10 @@ Sleep aid не має у своєму складі рослин, що можут
       <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" id="f-name" placeholder="Як до вас звертатись"></div>
       <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" id="f-phone" placeholder="+380 xx xxx xx xx"></div>
       <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" id="f-city" placeholder="Київ, Львів, Дніпро..."></div>
-
       <label class="flbl">Тип доставки Nova Poshta</label>
       <div class="dlv-toggle">
-        <button type="button" class="dlv-opt act" id="dlv-branch" onclick="setDlv('branch')">
-          📦 Відділення
-        </button>
-        <button type="button" class="dlv-opt" id="dlv-locker" onclick="setDlv('locker')">
-          🤖 Поштомат
-        </button>
+        <button type="button" class="dlv-opt act" id="dlv-branch" onclick="setDlv('branch')">📦 Відділення</button>
+        <button type="button" class="dlv-opt" id="dlv-locker" onclick="setDlv('locker')">🤖 Поштомат</button>
       </div>
       <div class="fg">
         <label class="flbl" id="dlv-label">Номер відділення</label>
@@ -555,9 +489,9 @@ Sleep aid не має у своєму складі рослин, що можут
       <p class="dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
       <button class="sbtn" onclick="subm()">Підтвердити замовлення →</button>
       <a href="https://www.instagram.com/leckarua/" target="_blank" class="ig-btn">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-  Написати в Instagram
-</a>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Написати в Instagram
+      </a>
       <p class="fguara">🔒 Гарантія повернення · Без зайвих питань</p>
     </div>
   </div>
@@ -568,15 +502,16 @@ Sleep aid не має у своєму складі рослин, що можут
   <p class="fdesc">Болгарські трав'яні збори для природного відновлення. Без хімії, без компромісів.</p>
   <div class="flinks">
     <a href="#products">Продукти</a>
-    <a href="#" onclick="openOrder();return false;">Замовити</a>
+    <a onclick="openOrder()">Замовити</a>
     <a href="https://www.instagram.com/leckarua/" target="_blank">Instagram</a>
   </div>
   <p class="fcopy">© 2025 Leckar Fermented Botanicals · Болгарія</p>
 </footer>
 
-<!-- MODAL ORDER -->
+<!-- MODAL -->
 <div class="modal-overlay" id="orderModal" onclick="closeOnBg(event)">
   <div class="modal-box">
+    <div class="modal-drag"></div>
     <button class="modal-close" onclick="closeOrder()">✕</button>
     <p class="modal-title">Оформити замовлення</p>
     <div id="modal-form-wrap">
@@ -608,25 +543,46 @@ Sleep aid не має у своєму складі рослин, що можут
 
 <div class="sbar" id="sb">
   <div class="sbar-t"><strong>Стартовий набір</strong>3 чаї · 1 250 ₴</div>
-  <a href="#" onclick="openOrder();return false;">Замовити →</a>
+  <button onclick="openOrder('bundle')" class="sbar-btn">Замовити →</button>
 </div>
 
-<!-- Підключення бібліотеки для маски телефону -->
-<script src="https://unpkg.com/imask"></script>
-
 <script>
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4b37HLa7KMuend8LwVxu4pcWbtAwu3WJdW7V6GI_VKsjdI0udjpl2U1MdhE1MzWo/exec';
+var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4b37HLa7KMuend8LwVxu4pcWbtAwu3WJdW7V6GI_VKsjdI0udjpl2U1MdhE1MzWo/exec';
+var PRODUCT_NAMES = {sleep:'Sleep Aid Tea — 490 ₴',calm:'Keep Calm Tea — 490 ₴',women:'Raw Herbs for Women — 490 ₴',bundle:'Набір усі три — 1 250 ₴'};
+var PRICE_MAP = {sleep:490,calm:490,women:490,bundle:1250};
 
-// Ініціалізація маски для поля телефону
-const phoneEl = document.getElementById('f-phone');
-const phoneMask = IMask(phoneEl, {
-  mask: '+{380} (00) 000-00-00',
-  lazy: false,
-  placeholderChar: '_'
-});
+// Проста маска телефону — без зовнішніх бібліотек, працює в будь-якому WebView
+function initPhoneMask(el) {
+  if (!el) return;
+  el.addEventListener('focus', function() {
+    if (!this.value) this.value = '+380 ';
+  });
+  el.addEventListener('input', function() {
+    var digits = this.value.replace(/\D/g,'');
+    if (digits.length > 12) digits = digits.slice(0,12);
+    if (digits.slice(0,3) !== '380') {
+      if (digits.slice(0,1) === '0') digits = '380' + digits.slice(1);
+      else digits = '380' + digits;
+    }
+    var out = '+380';
+    if (digits.length > 3) out += ' ' + digits.slice(3,5);
+    if (digits.length > 5) out += ' ' + digits.slice(5,8);
+    if (digits.length > 8) out += ' ' + digits.slice(8,10);
+    if (digits.length > 10) out += ' ' + digits.slice(10,12);
+    this.value = out;
+  });
+}
 
-let dlvType = 'branch';
-function setDlv(type){
+function getPhoneDigits(el) {
+  return (el ? el.value : '').replace(/\D/g,'');
+}
+
+initPhoneMask(document.getElementById('f-phone'));
+initPhoneMask(document.getElementById('m-phone'));
+
+// Доставка
+var dlvType = 'branch';
+function setDlv(type) {
   dlvType = type;
   document.getElementById('dlv-branch').classList.toggle('act', type==='branch');
   document.getElementById('dlv-locker').classList.toggle('act', type==='locker');
@@ -634,158 +590,174 @@ function setDlv(type){
   document.getElementById('f-branch').placeholder = type==='branch' ? 'Наприклад: 12' : 'Наприклад: 4521';
 }
 
-function tfaq(b){
-  const a=b.nextElementSibling,o=b.classList.contains('open');
-  document.querySelectorAll('.fq').forEach(x=>{x.classList.remove('open');x.nextElementSibling.classList.remove('open')});
-  if(!o){b.classList.add('open');a.classList.add('open')}
+var dlvTypeM = 'branch';
+function setDlvM(type) {
+  dlvTypeM = type;
+  document.getElementById('m-dlv-branch').classList.toggle('act', type==='branch');
+  document.getElementById('m-dlv-locker').classList.toggle('act', type==='locker');
+  document.getElementById('m-dlv-label').textContent = type==='branch' ? 'Номер відділення' : 'Номер поштомату';
+  document.getElementById('m-branch').placeholder = type==='branch' ? 'Наприклад: 12' : 'Наприклад: 4521';
 }
 
-function selpo(el){
-  document.querySelectorAll('.po').forEach(o=>o.classList.remove('sel'));
+// FAQ
+function tfaq(b) {
+  var a = b.nextElementSibling, o = b.classList.contains('open');
+  document.querySelectorAll('.fq').forEach(function(x) {
+    x.classList.remove('open');
+    x.nextElementSibling.classList.remove('open');
+  });
+  if (!o) { b.classList.add('open'); a.classList.add('open'); }
+}
+
+// Вибір продукту — тільки в межах свого .po-list
+function selpo(el) {
+  var list = el.closest ? el.closest('.po-list') : el.parentElement;
+  if (!list) return;
+  list.querySelectorAll('.po').forEach(function(o) { o.classList.remove('sel'); });
   el.classList.add('sel');
-  const r=el.querySelector('input[type=radio]');
-  if(r)r.checked=true
+  var r = el.querySelector('input[type=radio]');
+  if (r) r.checked = true;
 }
 
-async function subm(){
-  const nameEl   = document.getElementById('f-name');
-  const cityEl   = document.getElementById('f-city');
-  const branchEl = document.getElementById('f-branch');
-  const prodEl   = document.querySelector('input[name=p]:checked');
-  const btn      = document.querySelector('.sbtn');
+// Модалка
+function openOrder(prod) {
+  var modal = document.getElementById('orderModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (prod) {
+    var list = modal.querySelector('.po-list');
+    if (list) {
+      list.querySelectorAll('.po').forEach(function(o) { o.classList.remove('sel'); });
+      var radio = list.querySelector('input[value="' + prod + '"]');
+      if (radio) {
+        radio.checked = true;
+        radio.closest('.po').classList.add('sel');
+      }
+    }
+  }
+  var box = modal.querySelector('.modal-box');
+  if (box) box.scrollTop = 0;
+}
 
-  const n = nameEl.value.trim();
-  const c = cityEl.value.trim();
-  const b = branchEl.value.trim();
-  
-  // Беремо значення з нашої маски
-  const pRaw = phoneMask.unmaskedValue; // "380991234567"
-  const pFormatted = phoneMask.value; // "+380 (99) 123-45-67"
+function closeOrder() {
+  document.getElementById('orderModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-  [nameEl,phoneEl,cityEl,branchEl].forEach(el=>el.style.borderColor='');
-  
-  if(!n){nameEl.focus();nameEl.style.borderColor='var(--terra)';return}
-  // Перевіряємо, чи введено всі 12 цифр
-  if(pRaw.length < 12){phoneEl.focus();phoneEl.style.borderColor='var(--terra)';return}
-  if(!c){cityEl.focus();cityEl.style.borderColor='var(--terra)';return}
-  if(!b){branchEl.focus();branchEl.style.borderColor='var(--terra)';return}
+function closeOnBg(e) {
+  if (e.target === document.getElementById('orderModal')) closeOrder();
+}
 
-  const productNames = {
-    sleep:  'Sleep Aid Tea — 490 ₴',
-    calm:   'Keep Calm Tea — 490 ₴',
-    women:  'Raw Herbs for Women — 490 ₴',
-    bundle: 'Набір усі три — 1 250 ₴'
-  };
-  const dlvLabel = dlvType==='branch' ? `Відділення НП №${b}` : `Поштомат НП №${b}`;
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeOrder();
+});
 
-  btn.textContent = 'Відправляємо...';
-  btn.disabled = true;
-  btn.style.opacity = '0.7';
-
+// Відправка даних
+function sendData(data) {
   try {
-    await fetch(APPS_SCRIPT_URL, {
+    fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        name:     n,
-        phone:    "'" + pFormatted, // Добавляем апостроф, чтобы Гугл не считал это формулой
-        city:     c,
-        delivery: dlvLabel,
-        product:  productNames[prodEl ? prodEl.value : 'bundle']
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
-  } catch(err){}
-
-  showSuccess(n, pFormatted, productNames[prodEl ? prodEl.value : 'bundle'], c, dlvLabel); // Показуємо на екрані також красивий номер
+  } catch(e) {}
 }
 
-function showSuccess(name, phone, product, city, delivery) {
-  const form = document.querySelector('.oform');
-  form.innerHTML = `
-    <div style="text-align:center;padding:20px 0">
-      <div style="font-size:52px;margin-bottom:16px">🌿</div>
-      <h3 style="font-family:var(--fd);font-size:26px;font-weight:500;color:var(--ink);margin-bottom:12px">
-        Дякуємо, ${name}!
-      </h3>
-      <div style="background:var(--bg2);border-radius:var(--r);padding:16px;margin-bottom:18px;text-align:left">
-        <div style="font-size:13px;color:var(--ink-l);margin-bottom:6px">Ваше замовлення:</div>
-        <div style="font-size:15px;font-weight:500;color:var(--terra);margin-bottom:8px">${product}</div>
-        <div style="font-size:13px;color:var(--ink-m)">📍 ${city}, ${delivery}</div>
-        <div style="font-size:13px;color:var(--ink-m)">📞 ${phone}</div>
-        <div style="font-size:13px;color:var(--ink-m)">💳 Оплата при отриманні</div>
-      </div>
-      <p style="font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:20px">
-        Передзвонимо протягом години для підтвердження і відправимо протягом 24 годин.
-      </p>
-      <div style="background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:16px;font-size:13px;color:var(--sage-d);line-height:1.6">
-       Підпишіться на наш Instagram — поради по заварюванню та акції.<br><br>
-<a href="https://www.instagram.com/leckarua/" target="_blank" style="color:var(--sage-d);font-weight:500;text-decoration:none">→ @leckarua</a>
-      </div>
-    </div>
-  `;
+function trackPixel(pk) {
+  try {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+      fbq('track', 'Purchase', { value: PRICE_MAP[pk], currency: 'UAH', content_name: PRODUCT_NAMES[pk] });
+    }
+  } catch(e) {}
 }
 
-function openOrder(prod){
-  document.getElementById('orderModal').classList.add('open');
-  document.body.style.overflow='hidden';
-  if(prod){
-    document.querySelectorAll('input[name=pm]').forEach(r=>{
-      if(r.value===prod){
-        r.checked=true;
-        r.closest('.po').click();
-      }
-    });
-  }
+function successHTML(name, phone, product, city, delivery) {
+  return '<div style="text-align:center;padding:20px 0">'
+    + '<div style="font-size:52px;margin-bottom:16px">🌿</div>'
+    + '<h3 style="font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);margin-bottom:12px">Дякуємо, ' + name + '!</h3>'
+    + '<div style="background:var(--bg2);border-radius:var(--r);padding:16px;margin-bottom:16px;text-align:left">'
+    + '<div style="font-size:13px;color:var(--ink-l);margin-bottom:5px">Ваше замовлення:</div>'
+    + '<div style="font-size:15px;font-weight:500;color:var(--terra);margin-bottom:8px">' + product + '</div>'
+    + '<div style="font-size:13px;color:var(--ink-m);line-height:1.8">📍 ' + city + ', ' + delivery + '<br>📞 ' + phone + '<br>💳 Оплата при отриманні</div>'
+    + '</div>'
+    + '<p style="font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:20px">Передзвонимо протягом години для підтвердження і відправимо протягом 24 годин.</p>'
+    + '<a href="https://www.instagram.com/leckarua/" target="_blank" style="display:block;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:14px;font-size:13px;color:var(--sage-d);text-decoration:none;line-height:1.5">Підпишіться на Instagram — поради та акції 🌿<br><strong>→ @leckarua</strong></a>'
+    + '</div>';
 }
 
-function closeOrder(){
-  document.getElementById('orderModal').classList.remove('open');
-  document.body.style.overflow='';
+// Статична форма
+function subm() {
+  var nameEl = document.getElementById('f-name');
+  var phoneEl = document.getElementById('f-phone');
+  var cityEl = document.getElementById('f-city');
+  var branchEl = document.getElementById('f-branch');
+  var prodEl = document.querySelector('.order-sec input[name=p]:checked');
+  var btn = document.querySelector('.order-sec .sbtn');
+
+  var n = nameEl.value.trim();
+  var p = phoneEl.value.trim();
+  var pd = getPhoneDigits(phoneEl);
+  var c = cityEl.value.trim();
+  var b = branchEl.value.trim();
+
+  [nameEl,phoneEl,cityEl,branchEl].forEach(function(el){ el.style.borderColor=''; });
+  if (!n) { nameEl.focus(); nameEl.style.borderColor='var(--terra)'; return; }
+  if (pd.length < 12) { phoneEl.focus(); phoneEl.style.borderColor='var(--terra)'; return; }
+  if (!c) { cityEl.focus(); cityEl.style.borderColor='var(--terra)'; return; }
+  if (!b) { branchEl.focus(); branchEl.style.borderColor='var(--terra)'; return; }
+
+  var pk = prodEl ? prodEl.value : 'bundle';
+  var dlv = dlvType === 'branch' ? 'Відділення НП №' + b : 'Поштомат НП №' + b;
+
+  if (btn) { btn.textContent='Відправляємо...'; btn.disabled=true; btn.style.opacity='0.7'; }
+
+  sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: PRODUCT_NAMES[pk] });
+  trackPixel(pk);
+
+  var form = document.querySelector('.oform');
+  if (form) form.innerHTML = successHTML(n, p, PRODUCT_NAMES[pk], c, dlv);
 }
 
-function closeOnBg(e){
-  if(e.target===document.getElementById('orderModal'))closeOrder();
+// Модальна форма
+function submModal() {
+  var nameEl = document.getElementById('m-name');
+  var phoneEl = document.getElementById('m-phone');
+  var cityEl = document.getElementById('m-city');
+  var branchEl = document.getElementById('m-branch');
+  var prodEl = document.querySelector('#orderModal input[name=pm]:checked');
+  var btn = document.querySelector('#modal-form-wrap .sbtn');
+
+  var n = nameEl.value.trim();
+  var p = phoneEl.value.trim();
+  var pd = getPhoneDigits(phoneEl);
+  var c = cityEl.value.trim();
+  var b = branchEl.value.trim();
+
+  [nameEl,phoneEl,cityEl,branchEl].forEach(function(el){ el.style.borderColor=''; });
+  if (!n) { nameEl.focus(); nameEl.style.borderColor='var(--terra)'; return; }
+  if (pd.length < 12) { phoneEl.focus(); phoneEl.style.borderColor='var(--terra)'; return; }
+  if (!c) { cityEl.focus(); cityEl.style.borderColor='var(--terra)'; return; }
+  if (!b) { branchEl.focus(); branchEl.style.borderColor='var(--terra)'; return; }
+
+  var pk = prodEl ? prodEl.value : 'bundle';
+  var dlv = dlvTypeM === 'branch' ? 'Відділення НП №' + b : 'Поштомат НП №' + b;
+
+  if (btn) { btn.textContent='Відправляємо...'; btn.disabled=true; btn.style.opacity='0.7'; }
+
+  sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: PRODUCT_NAMES[pk] });
+  trackPixel(pk);
+
+  var wrap = document.getElementById('modal-form-wrap');
+  if (wrap) wrap.innerHTML = successHTML(n, p, PRODUCT_NAMES[pk], c, dlv);
 }
 
-let dlvTypeM='branch';
-function setDlvM(type){
-  dlvTypeM=type;
-  document.getElementById('m-dlv-branch').classList.toggle('act',type==='branch');
-  document.getElementById('m-dlv-locker').classList.toggle('act',type==='locker');
-  document.getElementById('m-dlv-label').textContent=type==='branch'?'Номер відділення':'Номер поштомату';
-  document.getElementById('m-branch').placeholder=type==='branch'?'Наприклад: 12':'Наприклад: 4521';
-}
-
-async function submModal(){
-  const nameEl=document.getElementById('m-name');
-  const phoneEl=document.getElementById('m-phone');
-  const cityEl=document.getElementById('m-city');
-  const branchEl=document.getElementById('m-branch');
-  const prodEl=document.querySelector('input[name=pm]:checked');
-  const btn=document.querySelector('#modal-form-wrap .sbtn');
-  const n=nameEl.value.trim(),p=phoneEl.value.trim(),c=cityEl.value.trim(),b=branchEl.value.trim();
-  [nameEl,phoneEl,cityEl,branchEl].forEach(el=>el.style.borderColor='');
-  if(!n){nameEl.focus();nameEl.style.borderColor='var(--terra)';return}
-  if(!p||p.length<10){phoneEl.focus();phoneEl.style.borderColor='var(--terra)';return}
-  if(!c){cityEl.focus();cityEl.style.borderColor='var(--terra)';return}
-  if(!b){branchEl.focus();branchEl.style.borderColor='var(--terra)';return}
-  const productNames={sleep:'Sleep Aid Tea — 490 ₴',calm:'Keep Calm Tea — 490 ₴',women:'Raw Herbs for Women — 490 ₴',bundle:'Набір усі три — 1 250 ₴'};
-  const dlvLabel=dlvTypeM==='branch'?`Відділення НП №${b}`:`Поштомат НП №${b}`;
-  btn.textContent='Відправляємо...';btn.disabled=true;btn.style.opacity='0.7';
-  try{
-    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:n,phone:"'"+p,city:c,delivery:dlvLabel,product:productNames[prodEl?prodEl.value:'bundle']})});
-  }catch(err){}
-  const priceMap={sleep:490,calm:490,women:490,bundle:1250};
-  const pk=prodEl?prodEl.value:'bundle';
-  if(typeof fbq!=='undefined'){fbq('track','Lead');fbq('track','Purchase',{value:priceMap[pk],currency:'UAH',content_name:productNames[pk]});}
-  document.getElementById('modal-form-wrap').innerHTML=`    <div style="text-align:center;padding:20px 0">      <div style="font-size:48px;margin-bottom:14px">🌿</div>      <h3 style="font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);margin-bottom:12px">Дякуємо, ${n}!</h3>      <div style="background:var(--bg2);border-radius:var(--r);padding:14px;margin-bottom:16px;text-align:left">        <div style="font-size:13px;color:var(--ink-l);margin-bottom:4px">Ваше замовлення:</div>        <div style="font-size:15px;font-weight:500;color:var(--terra);margin-bottom:6px">${productNames[pk]}</div>        <div style="font-size:13px;color:var(--ink-m)">📍 ${c}, ${dlvLabel}</div>        <div style="font-size:13px;color:var(--ink-m)">📞 ${p}</div>        <div style="font-size:13px;color:var(--ink-m)">💳 Оплата при отриманні</div>      </div>      <p style="font-size:13px;color:var(--ink-m);font-weight:300;line-height:1.6">Передзвонимо протягом години для підтвердження.</p>    </div>`;
-}
-
-window.addEventListener('scroll',()=>{
-  document.getElementById('sb').style.display=window.scrollY>400?'flex':'none'
-})
+// Sticky bar
+window.addEventListener('scroll', function() {
+  var sb = document.getElementById('sb');
+  if (sb) sb.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
 </script>
 </body>
 </html>
