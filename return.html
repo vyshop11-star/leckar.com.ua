@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Повернення та обмін — Leckar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--white:#fff;--bg:#fdfcf9;--bg2:#f8f5ef;--sage:#5a7c5a;--sage-d:#3d5c3d;--sage-bg:#eef4ee;--sage-bdr:#c5d9c5;--terra:#c4622e;--ink:#2d2418;--ink-m:#6b5c48;--ink-l:#a99880;--bdr:rgba(45,36,24,.1);--fd:'Playfair Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--r:12px}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.logo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--sage-d);text-decoration:none;letter-spacing:.04em}
+.logo span{display:block;font-family:var(--fb);font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
+.back{font-size:13px;color:var(--ink-l);text-decoration:none}
+.back:hover{color:var(--sage-d)}
+.container{max-width:660px;margin:0 auto;padding:0 22px}
+.page-hero{padding:48px 22px 40px;background:var(--white);border-bottom:1px solid var(--bdr)}
+.page-hero h1{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:500;color:var(--ink);margin-bottom:8px}
+.page-hero p{font-size:15px;color:var(--ink-m);font-weight:300}
+.content{padding:40px 22px 60px}
+.section{margin-bottom:36px}
+.section h2{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--bdr)}
+.section p{font-size:15px;color:var(--ink-m);font-weight:300;line-height:1.7;margin-bottom:12px}
+.section ul{list-style:none;margin-bottom:12px}
+.section ul li{font-size:15px;color:var(--ink-m);font-weight:300;padding:6px 0;border-bottom:1px solid rgba(45,36,24,.05);display:flex;gap:10px}
+.section ul li::before{content:'—';color:var(--sage);flex-shrink:0}
+.highlight{background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:18px 20px;margin-bottom:20px}
+.highlight p{color:var(--sage-d);font-weight:400;margin:0}
+.steps{counter-reset:step;list-style:none;margin-bottom:12px}
+.steps li{font-size:15px;color:var(--ink-m);font-weight:300;padding:10px 0 10px 42px;border-bottom:1px solid rgba(45,36,24,.05);position:relative;line-height:1.6}
+.steps li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;width:26px;height:26px;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--sage-d);text-align:center;line-height:24px}
+footer{padding:28px 22px;background:var(--bg2);border-top:1px solid var(--bdr);text-align:center;font-size:12px;color:var(--ink-l)}
+footer a{color:var(--ink-l);text-decoration:none;margin:0 10px}
+footer a:hover{color:var(--sage-d)}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">LECKAR <span>Fermented Botanicals</span></a>
+  <a href="/" class="back">← На головну</a>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Повернення та обмін</h1>
+    <p>Ваше задоволення — наш пріоритет</p>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="section">
+      <h2>🌿 Наша гарантія</h2>
+      <div class="highlight">
+        <p>Якщо протягом <strong>14 днів</strong> після отримання замовлення вам не підійшов продукт — ми повернемо кошти або обміняємо на інший. Без зайвих питань.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>✅ Умови повернення</h2>
+      <ul>
+        <li>Повернення можливе протягом <strong>14 днів</strong> з моменту отримання</li>
+        <li>Продукт має бути у закритому оригінальному пакованні (нерозпечатаний)</li>
+        <li>Якщо продукт виявився неналежної якості — повертаємо навіть відкритий</li>
+        <li>Витрати на зворотну доставку оплачує покупець (якщо причина не в якості товару)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📋 Як оформити повернення</h2>
+      <ol class="steps">
+        <li>Напишіть нам в Instagram <a href="https://www.instagram.com/leckarua/" target="_blank" style="color:var(--sage-d)">@leckarua</a> або на пошту <a href="mailto:leckar.ukraine@gmail.com" style="color:var(--sage-d)">leckar.ukraine@gmail.com</a> з темою "Повернення"</li>
+        <li>Вкажіть номер замовлення, ваш телефон і причину повернення</li>
+        <li>Ми підтвердимо повернення і надамо адресу для відправки</li>
+        <li>Після отримання товару повернемо кошти протягом 3-5 робочих днів</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>💰 Повернення коштів</h2>
+      <p>Кошти повертаються тим самим способом, яким здійснювалась оплата:</p>
+      <ul>
+        <li>При накладеному платежі — на картку, яку ви вкажете</li>
+        <li>При оплаті карткою — на ту ж картку протягом 3-5 банківських днів</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>❓ Є питання?</h2>
+      <p>Пишіть нам в Instagram <a href="https://www.instagram.com/leckarua/" target="_blank" style="color:var(--sage-d)">@leckarua</a> або на пошту <a href="mailto:leckar.ukraine@gmail.com" style="color:var(--sage-d)">leckar.ukraine@gmail.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <a href="/">Головна</a>
+  <a href="/delivery.html">Доставка та оплата</a>
+  <a href="/return.html">Повернення</a>
+  <a href="/privacy.html">Політика конфіденційності</a>
+  <a href="/contacts.html">Контакти та реквізити</a>
+  <br><br>© 2025 Leckar Fermented Botanicals
+</footer>
+</body>
+</html>

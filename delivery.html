@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Доставка та оплата — Leckar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--white:#fff;--bg:#fdfcf9;--bg2:#f8f5ef;--sage:#5a7c5a;--sage-d:#3d5c3d;--sage-bg:#eef4ee;--sage-bdr:#c5d9c5;--terra:#c4622e;--terra-d:#9e4c22;--ink:#2d2418;--ink-m:#6b5c48;--ink-l:#a99880;--bdr:rgba(45,36,24,.1);--fd:'Playfair Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--r:12px}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.logo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--sage-d);text-decoration:none;letter-spacing:.04em}
+.logo span{display:block;font-family:var(--fb);font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
+.back{font-size:13px;color:var(--ink-l);text-decoration:none;display:flex;align-items:center;gap:6px}
+.back:hover{color:var(--sage-d)}
+.container{max-width:660px;margin:0 auto;padding:0 22px}
+.page-hero{padding:48px 22px 40px;background:var(--white);border-bottom:1px solid var(--bdr)}
+.page-hero h1{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:500;color:var(--ink);margin-bottom:8px}
+.page-hero p{font-size:15px;color:var(--ink-m);font-weight:300}
+.content{padding:40px 22px 60px}
+.section{margin-bottom:36px}
+.section h2{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--bdr)}
+.section p{font-size:15px;color:var(--ink-m);font-weight:300;line-height:1.7;margin-bottom:12px}
+.section ul{list-style:none;margin-bottom:12px}
+.section ul li{font-size:15px;color:var(--ink-m);font-weight:300;padding:6px 0;border-bottom:1px solid rgba(45,36,24,.05);display:flex;gap:10px}
+.section ul li::before{content:'—';color:var(--sage);flex-shrink:0}
+.highlight{background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:18px 20px;margin-bottom:20px}
+.highlight p{color:var(--sage-d);font-weight:400;margin:0}
+.highlight strong{font-weight:500}
+.badge{display:inline-block;background:var(--terra);color:#fff;font-size:12px;font-weight:500;padding:3px 10px;border-radius:50px;margin-left:8px;vertical-align:middle}
+footer{padding:28px 22px;background:var(--bg2);border-top:1px solid var(--bdr);text-align:center;font-size:12px;color:var(--ink-l)}
+footer a{color:var(--ink-l);text-decoration:none;margin:0 10px}
+footer a:hover{color:var(--sage-d)}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">LECKAR <span>Fermented Botanicals</span></a>
+  <a href="/" class="back">← На головну</a>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Доставка та оплата</h1>
+    <p>Відправляємо по всій Україні через Nova Poshta</p>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="section">
+      <h2>🚚 Умови доставки</h2>
+      <div class="highlight">
+        <p><strong>Безкоштовна доставка</strong> при замовленні від 2 пачок або стартового набору 🎉</p>
+      </div>
+      <ul>
+        <li>Доставка здійснюється службою <strong>Nova Poshta</strong> по всій території України</li>
+        <li>Відправка протягом <strong>24 годин</strong> після підтвердження замовлення</li>
+        <li>Доставка у відділення або поштомат Nova Poshta на ваш вибір</li>
+        <li>Термін доставки: <strong>1-3 робочих дні</strong> залежно від міста</li>
+        <li>Вартість доставки 1 пачки: за тарифами Nova Poshta (~65-80 ₴)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>💳 Способи оплати</h2>
+      <ul>
+        <li><strong>Накладений платіж</strong> — оплата при отриманні на відділенні Nova Poshta</li>
+        <li><strong>NovaPay</strong> — онлайн оплата через сервіс Nova Poshta</li>
+        <li><strong>Карткою онлайн</strong> — Visa / Mastercard через захищений платіжний шлюз</li>
+      </ul>
+      <p>При оплаті накладеним платежем Nova Poshta стягує комісію 20 ₴ + 2% від суми замовлення.</p>
+    </div>
+
+    <div class="section">
+      <h2>📦 Пакування</h2>
+      <p>Кожне замовлення ретельно упаковується для захисту продукту під час транспортування. Чаї запаковані у фірмові крафтові пакети з zip-застібкою для збереження свіжості.</p>
+    </div>
+
+    <div class="section">
+      <h2>📍 Відстеження замовлення</h2>
+      <p>Після відправки ми надішлемо номер ТТН (накладну Nova Poshta) в Instagram або за номером телефону. Відстежити посилку можна на <a href="https://novaposhta.ua" target="_blank" style="color:var(--sage-d)">novaposhta.ua</a>.</p>
+    </div>
+
+    <div class="section">
+      <h2>❓ Є питання?</h2>
+      <p>Пишіть нам в Instagram <a href="https://www.instagram.com/leckarua/" target="_blank" style="color:var(--sage-d)">@leckarua</a> або на пошту <a href="mailto:leckar.ukraine@gmail.com" style="color:var(--sage-d)">leckar.ukraine@gmail.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <a href="/">Головна</a>
+  <a href="/delivery.html">Доставка та оплата</a>
+  <a href="/return.html">Повернення</a>
+  <a href="/privacy.html">Політика конфіденційності</a>
+  <a href="/contacts.html">Контакти та реквізити</a>
+  <br><br>© 2025 Leckar Fermented Botanicals
+</footer>
+</body>
+</html>
