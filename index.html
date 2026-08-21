@@ -766,7 +766,10 @@ function submModal() {
 // Sticky bar
 window.addEventListener('scroll', function() {
   var sb = document.getElementById('sb');
-  if (sb) sb.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  if (!sb) return;
+  var footer = document.querySelector('footer');
+  var footerTop = footer ? footer.getBoundingClientRect().top : 9999;
+  sb.style.display = (window.scrollY > 400 && footerTop > window.innerHeight) ? 'flex' : 'none';
 });
 </script>
 </body>
