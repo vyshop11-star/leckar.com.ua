@@ -63,7 +63,7 @@ header{padding:14px 22px;display:flex;align-items:center;justify-content:space-b
 .logo{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--sage-d);letter-spacing:.04em;line-height:1;text-decoration:none}
 .logo span{display:block;font-family:var(--fb);font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
 .header-right{display:flex;align-items:center;gap:10px}
-.cart-btn{position:relative;background:var(--sage-bg);border:1.5px solid var(--sage-bdr);color:var(--sage-d);width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cart-btn{position:relative;background:var(--sage-bg);border:1.5px solid var(--sage-bdr);color:var(--sage-d);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
 .cart-btn:hover{background:var(--sage-bdr)}
 .cart-badge{position:absolute;top:-4px;right:-4px;background:var(--terra);color:#fff;font-size:10.5px;font-weight:600;min-width:19px;height:19px;border-radius:50%;display:none;align-items:center;justify-content:center;padding:0 3px;font-family:var(--fb);border:2px solid var(--white)}
 .hcta{background:var(--terra);color:#fff;font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 20px;border-radius:50px;text-decoration:none;transition:background .2s;border:none;cursor:pointer}
@@ -299,7 +299,8 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   <a href="#" class="logo">LECKAR <span>FERMENTED BOTANICALS</span></a>
   <div class="header-right">
     <button class="cart-btn" onclick="openCart()" aria-label="Кошик">
-      🧺<span class="cart-badge" id="cartBadge">0</span>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      <span class="cart-badge" id="cartBadge">0</span>
     </button>
   </div>
 </header>
@@ -538,7 +539,9 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 <section class="cart-cta-sec" id="order">
   <div class="container">
     <div class="cart-cta-box">
-      <div class="cart-cta-icon">🧺</div>
+      <div class="cart-cta-icon">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--sage)"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      </div>
       <h3>Готові оформити замовлення?</h3>
       <p>Додайте потрібні чаї у кошик вище — там же можна змінити кількість і оформити доставку.</p>
       <button class="sbtn" onclick="openCart()">Переглянути кошик →</button>
@@ -725,7 +728,7 @@ function renderCart() {
 
   if (keys.length === 0) {
     wrap.innerHTML = '<div class="cart-empty">' +
-      '<div class="cart-empty-icon">🧺</div>' +
+      '<div class="cart-empty-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>' +
       '<p>Кошик порожній.<br>Додайте чай зі списку продуктів.</p>' +
       '<a href="#products" onclick="closeCart()">Переглянути чаї →</a>' +
       '</div>';
