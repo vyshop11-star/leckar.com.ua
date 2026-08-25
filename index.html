@@ -208,8 +208,15 @@ h2.sh em{color:var(--terra);font-style:italic}
 .proof-sec .sh-wrap{text-align:center;margin-bottom:36px}
 .amz-bar{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;gap:14px;margin-bottom:16px}
 .amz-bar:hover{border-color:var(--sage-bdr);box-shadow:0 2px 14px rgba(90,124,90,.08)}
-.amz-s{font-size:20px;color:#e88c2a;letter-spacing:2px}
-.amz-t{font-size:13px;color:var(--ink-m);font-weight:300}
+.amz-bar{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;gap:10px 14px;margin-bottom:16px;flex-wrap:wrap}
+.amz-bar:hover{border-color:var(--sage-bdr);box-shadow:0 2px 14px rgba(90,124,90,.08)}
+.amz-s{font-size:20px;color:#e88c2a;letter-spacing:2px;flex-shrink:0}
+.amz-t{font-size:13px;color:var(--ink-m);font-weight:300;white-space:nowrap}
+.amz-cta{color:var(--sage-d);font-size:13px;font-weight:500;white-space:nowrap;margin-left:auto}
+@media(max-width:420px){
+  .amz-bar{justify-content:center;text-align:center}
+  .amz-cta{margin-left:0;width:100%;padding-top:4px;border-top:1px solid var(--sage-bdr);text-align:center}
+}
 .amz-t strong{color:var(--ink);font-weight:500}
 .reviews{display:flex;flex-direction:column;gap:12px}
 .rv{background:var(--bg);border:1px solid var(--bdr);border-radius:var(--r);padding:20px 22px;transition:border-color .2s,box-shadow .2s}
@@ -577,10 +584,10 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
       <p class="slbl">Відгуки</p>
       <h2 class="sh">Вони вже спробували</h2>
     </div>
-    <a href="https://www.amazon.com/stores/Leckar/page/9B859F7E-3CC2-4A3F-ABC7-4019D6FCD80A?lp_asin=B0DPN631D7&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto" target="_blank" class="amz-bar" style="text-decoration:none;transition:border-color .2s,box-shadow .2s">
+    <a href="https://www.amazon.com/stores/Leckar/page/9B859F7E-3CC2-4A3F-ABC7-4019D6FCD80A?lp_asin=B0DPN631D7&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto" target="_blank" class="amz-bar" style="text-decoration:none">
       <div class="amz-s">★★★★★</div>
       <div class="amz-t"><strong>4.8 з 5</strong> на Amazon US · Перевірені покупці</div>
-      <div style="margin-left:auto;color:var(--sage-d);font-size:13px;font-weight:500;white-space:nowrap">Магазин на Amazon →</div>
+      <div class="amz-cta">Магазин на Amazon →</div>
     </a>
     <div class="reviews">
       <div class="rv"><div class="rv-s">★★★★★</div><p class="rv-t">«Перший раз за пів року прокинулась і не почувалась як зомбі. Навіть не очікувала що чай може давати такий ефект.»</p><p class="rv-a"><strong>Оксана В.</strong> · Львів · Sleep Aid Tea</p></div>
