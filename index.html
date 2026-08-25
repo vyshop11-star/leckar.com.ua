@@ -59,9 +59,13 @@ body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;
 .container{max-width:700px;margin:0 auto;padding:0 22px}
 .topbar{background:var(--sage-bg);border-bottom:1px solid var(--sage-bdr);padding:9px 22px;text-align:center;font-size:12.5px;color:var(--sage-d);font-weight:400;letter-spacing:.01em}
 .topbar strong{font-weight:500}
-header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
+header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;gap:12px}
 .logo{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--sage-d);letter-spacing:.04em;line-height:1;text-decoration:none}
 .logo span{display:block;font-family:var(--fb);font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
+.header-right{display:flex;align-items:center;gap:10px}
+.cart-btn{position:relative;background:var(--sage-bg);border:1.5px solid var(--sage-bdr);color:var(--sage-d);width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cart-btn:hover{background:var(--sage-bdr)}
+.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--terra);color:#fff;font-size:10.5px;font-weight:600;min-width:19px;height:19px;border-radius:50%;display:none;align-items:center;justify-content:center;padding:0 3px;font-family:var(--fb);border:2px solid var(--white)}
 .hcta{background:var(--terra);color:#fff;font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 20px;border-radius:50px;text-decoration:none;transition:background .2s;border:none;cursor:pointer}
 .hcta:hover{background:var(--terra-d)}
 .hero{padding:48px 22px 56px;background:var(--white);border-bottom:1px solid var(--bdr-s);position:relative;overflow:hidden}
@@ -110,15 +114,16 @@ h2.sh em{color:var(--terra);font-style:italic}
 .bpill{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--sage-d);font-weight:400}
 .bpill-ic{width:34px;height:34px;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
 .prod-sec{padding:72px 22px;background:var(--bg)}
-.prod-sec .sh-wrap{text-align:center;margin-bottom:42px}
-.pclist{display:flex;flex-direction:column;gap:16px}
+.prod-sec .sh-wrap{text-align:center;margin-bottom:24px}
+.cert-mini{display:inline-flex;align-items:center;gap:7px;background:var(--sage-bg);border:1px solid var(--sage-bdr);color:var(--sage-d);font-size:12px;font-weight:500;padding:7px 16px;border-radius:50px;text-decoration:none;margin-top:6px}
+.pclist{display:flex;flex-direction:column;gap:16px;margin-top:24px}
 .pc{background:var(--white);border:1.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:border-color .2s,box-shadow .2s}
 .pc:hover{border-color:var(--sage-bdr);box-shadow:0 4px 28px rgba(45,36,24,.06)}
 .pc.hero-pc{border-color:var(--sage-bdr);border-width:2px}
 .pc.hero-pc .pc-inner{background:linear-gradient(135deg,var(--white) 0%,var(--sage-bg) 100%)}
 .pc-badge{display:block;background:var(--sage-bg);border-bottom:1px solid var(--sage-bdr);padding:8px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-d)}
 .pc-img{width:100%;height:200px;object-fit:contain;display:block;background:var(--bg2)}
-.pc-inner{padding:24px 22px;display:grid;grid-template-columns:1fr 110px;gap:16px;align-items:start}
+.pc-inner{padding:24px 22px;display:grid;grid-template-columns:1fr 130px;gap:16px;align-items:start}
 .pc-num{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:5px}
 .pc-name{font-family:var(--fd);font-size:clamp(19px,3.5vw,25px);font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:6px}
 .pc-tag{font-size:13.5px;color:var(--ink-m);font-weight:300;margin-bottom:14px;line-height:1.55;max-width:360px}
@@ -127,12 +132,17 @@ h2.sh em{color:var(--terra);font-style:italic}
 .blist{list-style:none;margin-bottom:16px}
 .blist li{font-size:13.5px;color:var(--ink-m);font-weight:300;padding:3px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.45}
 .blist li::before{content:'—';color:var(--sage-mid);flex-shrink:0;font-size:12px}
-.pc-right{text-align:right}
-.pc-old{font-size:13px;color:var(--ink-xl);font-weight:300;text-decoration:line-through;margin-bottom:2px}
-.pc-price{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--terra);line-height:1;margin-bottom:3px}
-.pc-unit{font-size:11px;color:var(--ink-xl);font-weight:300;margin-bottom:14px;line-height:1.4}
-.pc-btn{display:block;background:transparent;border:1.5px solid var(--sage);color:var(--sage-d);font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 14px;border-radius:50px;text-align:center;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;border:none}
-.pc.hero-pc .pc-btn,.pc-btn:hover{background:var(--sage);color:#fff}
+.pc-right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.pc-old{font-size:13px;color:var(--ink-xl);font-weight:300;text-decoration:line-through;margin-bottom:-6px}
+.pc-price{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--terra);line-height:1}
+.pc-unit{font-size:11px;color:var(--ink-xl);font-weight:300;line-height:1.4}
+.qty-stepper{display:flex;align-items:center;gap:0;border:1.5px solid var(--bdr);border-radius:50px;overflow:hidden;background:var(--bg)}
+.qty-btn{width:30px;height:30px;background:none;border:none;color:var(--sage-d);font-size:16px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0}
+.qty-btn:hover{background:var(--sage-bg)}
+.qty-val{min-width:24px;text-align:center;font-size:14px;font-weight:500;color:var(--ink)}
+.pc-btn{display:block;background:var(--sage);border:none;color:#fff;font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 16px;border-radius:50px;text-align:center;text-decoration:none;cursor:pointer;transition:all .2s;white-space:nowrap;width:100%}
+.pc-btn:hover{background:var(--sage-d)}
+.pc-btn.added{background:var(--terra)}
 .bundle-sec{padding:0 22px 72px;background:var(--bg)}
 .bx{background:var(--terra-bg);border:2px solid var(--terra-bdr);border-radius:var(--rl);padding:32px 28px;position:relative;overflow:hidden}
 .bx::after{content:'☕';position:absolute;bottom:-14px;right:16px;font-size:110px;opacity:.06;pointer-events:none;user-select:none}
@@ -147,9 +157,12 @@ h2.sh em{color:var(--terra);font-style:italic}
 .bnew{font-family:var(--fd);font-size:40px;font-weight:700;color:var(--terra);line-height:1}
 .bold{font-size:16px;color:var(--ink-xl);text-decoration:line-through;font-weight:300}
 .bsave{font-size:12px;background:rgba(196,98,46,.12);color:var(--terra-d);padding:4px 12px;border-radius:50px;font-weight:500}
-.bbtn{display:block;background:var(--terra);color:#fff;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;text-align:center;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;width:100%;margin-bottom:10px}
+.bx-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bx-actions .qty-stepper{background:var(--white)}
+.bbtn{background:var(--terra);color:#fff;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px 24px;border-radius:50px;text-align:center;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;flex:1;min-width:180px}
 .bbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
-.bsub{text-align:center;font-size:12px;color:var(--ink-l)}
+.bbtn.added{background:var(--sage)}
+.bsub{text-align:center;font-size:12px;color:var(--ink-l);margin-top:14px}
 .mech-sec{padding:72px 22px;background:var(--bg2);border-top:1px solid var(--bdr-s)}
 .mech-sec .sh-wrap{text-align:center;margin-bottom:44px}
 .msteps{display:flex;flex-direction:column}
@@ -179,53 +192,78 @@ h2.sh em{color:var(--terra);font-style:italic}
 .fq.open .fa-ic{transform:rotate(45deg)}
 .fa{font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s}
 .fa.open{max-height:400px;padding-bottom:18px}
-.order-sec{padding:72px 22px;background:var(--white);border-top:1px solid var(--bdr-s)}
-.order-sec .sh-wrap{text-align:center;margin-bottom:36px}
-.oform{background:var(--bg);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:28px 24px;max-width:500px;margin:0 auto}
+
+/* CTA / order-sec replaced with cart-cta */
+.cart-cta-sec{padding:72px 22px;background:var(--white);border-top:1px solid var(--bdr-s);text-align:center}
+.cart-cta-box{max-width:460px;margin:0 auto;background:var(--bg);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:36px 28px}
+.cart-cta-box .cart-cta-icon{font-size:44px;margin-bottom:14px}
+.cart-cta-box h3{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:10px}
+.cart-cta-box p{font-size:14px;color:var(--ink-m);font-weight:300;margin-bottom:22px;line-height:1.6}
+
+/* form field styles (reused inside checkout modal) */
 .flbl{display:block;font-size:11px;color:var(--ink-l);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;font-weight:500}
 .fg{margin-bottom:15px}
 .fi-inp{width:100%;background:var(--white);border:1.5px solid var(--bdr);border-radius:10px;color:var(--ink);font-family:var(--fb);font-size:15px;padding:12px 14px;transition:border-color .2s;outline:none;appearance:none;-webkit-appearance:none}
 .fi-inp:focus{border-color:var(--sage);background:var(--white)}
 .fi-inp::placeholder{color:var(--ink-xl)}
-.po-label{font-size:11px;color:var(--ink-l);letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;font-weight:500;display:block}
-.po-list{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
-.po{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1.5px solid var(--bdr);border-radius:10px;padding:11px 14px;cursor:pointer;transition:border-color .2s,background .2s;gap:12px}
-.po input[type=radio]{display:none}
-.po.sel{border-color:var(--sage);background:var(--sage-bg)}
-.po.bundle-po{background:var(--terra-bg);border-color:var(--terra-bdr)}
-.po.bundle-po.sel{border-color:var(--terra)}
-.po-l{display:flex;align-items:center;gap:9px}
-.por{width:17px;height:17px;border:1.5px solid var(--ink-xl);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
-.po.sel .por{border-color:var(--sage)}
-.po.bundle-po.sel .por{border-color:var(--terra)}
-.por-d{width:8px;height:8px;background:var(--sage);border-radius:50%;display:none}
-.po.sel .por-d{display:block}
-.po.bundle-po.sel .por-d{background:var(--terra)}
-.po-n{font-size:14px;color:var(--ink);font-weight:400}
-.po-p{font-family:var(--fd);font-size:17px;font-weight:500;color:var(--terra);white-space:nowrap}
-.bbadge{font-size:10px;background:var(--terra);color:#fff;padding:2px 8px;border-radius:50px;font-weight:500;letter-spacing:.04em;white-space:nowrap}
 .dlv-toggle{display:flex;gap:8px;margin-bottom:14px}
 .dlv-opt{flex:1;padding:10px 8px;border:1.5px solid var(--bdr);border-radius:10px;font-family:var(--fb);font-size:13px;font-weight:400;color:var(--ink-m);background:var(--bg);cursor:pointer;text-align:center;transition:all .2s;line-height:1.3}
 .dlv-opt.act{border-color:var(--sage);background:var(--sage-bg);color:var(--sage-d);font-weight:500}
 .dlv-note{font-size:11.5px;color:var(--ink-l);margin-bottom:14px;line-height:1.5;padding:10px 12px;background:var(--bg2);border-radius:8px}
 .sbtn{width:100%;background:var(--terra);color:#fff;border:none;font-family:var(--fb);font-size:16px;font-weight:500;padding:16px;border-radius:50px;cursor:pointer;transition:background .2s,transform .15s;margin-bottom:10px}
 .sbtn:hover{background:var(--terra-d);transform:translateY(-1px)}
+.sbtn:disabled{opacity:.5;cursor:not-allowed}
 .ig-btn{width:100%;background:transparent;color:#C13584;border:1.5px solid rgba(193,53,132,.25);font-family:var(--fb);font-size:14px;font-weight:400;padding:12px;border-radius:50px;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
 .ig-btn:hover{background:rgba(193,53,132,.05)}
 .fguara{text-align:center;font-size:12px;color:var(--ink-l);margin-top:13px;line-height:1.5}
+
 footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);text-align:center}
 .flogo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--sage-d);margin-bottom:8px}
 .fdesc{font-size:13px;color:var(--ink-l);font-weight:300;max-width:320px;margin:0 auto 18px;line-height:1.6}
 .flinks{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.flinks a{font-size:12px;color:var(--ink-l);text-decoration:none;transition:color .2s;cursor:pointer}
-.flinks a:hover{color:var(--sage-d)}
+.flinks a{font-size:12px;color:var(--sage-d);text-decoration:underline;text-underline-offset:3px;transition:color .2s;cursor:pointer}
+.flinks a:hover{color:var(--terra)}
 .fcopy{margin-top:20px;font-size:11px;color:var(--ink-xl)}
+
 .sbar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--bdr);padding:11px 16px;z-index:200;gap:10px;align-items:center;box-shadow:0 -3px 16px rgba(45,36,24,.08)}
 .sbar-t{flex:1;font-size:13px;color:var(--ink-m);font-weight:300}
 .sbar-t strong{color:var(--ink);display:block;font-weight:500;font-size:14px}
 .sbar-btn{background:var(--terra);color:#fff;font-family:var(--fb);font-size:14px;font-weight:500;padding:10px 22px;border-radius:50px;white-space:nowrap;flex-shrink:0;transition:background .2s;border:none;cursor:pointer}
 .sbar-btn:hover{background:var(--terra-d)}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(45,36,24,.55);z-index:500;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+
+/* CART DRAWER */
+.cart-overlay{display:none;position:fixed;inset:0;background:rgba(45,36,24,.5);z-index:550;backdrop-filter:blur(2px)}
+.cart-overlay.open{display:block}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:420px;background:var(--white);z-index:551;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;box-shadow:-8px 0 30px rgba(45,36,24,.15)}
+.cart-overlay.open .cart-drawer{transform:translateX(0)}
+.cart-head{padding:20px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr);flex-shrink:0}
+.cart-title{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--ink)}
+.cart-close{background:var(--bg2);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--ink-m);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cart-close:hover{background:var(--bg3)}
+.cart-items{flex:1;overflow-y:auto;padding:16px 22px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--ink-m)}
+.cart-empty-icon{font-size:44px;margin-bottom:14px;opacity:.5}
+.cart-empty p{font-size:14px;font-weight:300;margin-bottom:20px}
+.cart-empty a{color:var(--sage-d);font-weight:500;text-decoration:underline}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--bdr-s)}
+.cart-item:last-child{border-bottom:none}
+.cart-item-img{width:56px;height:56px;border-radius:8px;object-fit:contain;background:var(--bg2);flex-shrink:0}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.cart-item-price{font-size:13px;color:var(--terra);font-weight:500;margin-bottom:8px}
+.cart-item-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cart-item-remove{font-size:12px;color:var(--ink-l);text-decoration:underline;cursor:pointer;background:none;border:none;font-family:var(--fb)}
+.cart-item-remove:hover{color:var(--terra)}
+.cart-foot{padding:18px 22px 22px;border-top:1px solid var(--bdr);flex-shrink:0}
+.cart-delivery-note{font-size:12.5px;padding:10px 12px;border-radius:8px;margin-bottom:14px;line-height:1.5}
+.cart-delivery-note.pending{background:var(--terra-bg);color:var(--terra-d)}
+.cart-delivery-note.done{background:var(--sage-bg);color:var(--sage-d)}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.cart-total-row span:first-child{font-size:14px;color:var(--ink-m)}
+.cart-total-row span:last-child{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--terra)}
+
+/* CHECKOUT MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(45,36,24,.55);z-index:600;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .modal-overlay.open{display:flex}
 .modal-box{background:var(--white);width:100%;max-width:520px;max-height:90vh;overflow-y:auto;border-radius:24px 24px 0 0;padding:24px 22px 36px;position:relative;animation:slideUp .3s ease}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
@@ -233,6 +271,9 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 .modal-close:hover{background:var(--bg3)}
 .modal-drag{width:40px;height:4px;background:var(--ink-xl);border-radius:2px;margin:0 auto 20px}
 .modal-title{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:18px;padding-right:40px}
+.order-summary{background:var(--bg2);border-radius:var(--r);padding:14px 16px;margin-bottom:20px}
+.order-summary-row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-m);padding:4px 0}
+.order-summary-row.total{border-top:1px solid var(--bdr);margin-top:6px;padding-top:10px;font-size:15px;font-weight:500;color:var(--ink)}
 @media(min-width:600px){
   .modal-overlay{align-items:center}
   .modal-box{border-radius:24px;max-height:85vh}
@@ -240,9 +281,13 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 @media(max-width:640px){
   .sbar{display:flex}
   body{padding-bottom:64px}
-  .pc-inner{grid-template-columns:1fr;gap:4px}
-  .pc-right{text-align:left;display:flex;align-items:center;gap:16px}
+  .pc-inner{grid-template-columns:1fr;gap:12px}
+  .pc-right{align-items:stretch;text-align:left}
+  .pc-old,.pc-price,.pc-unit{text-align:left}
   .pcards{grid-template-columns:1fr}
+  .bx-actions{flex-direction:column;align-items:stretch}
+  .bx-actions .qty-stepper{justify-content:center}
+  .cart-drawer{max-width:100%}
 }
 </style>
 </head>
@@ -252,7 +297,11 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 
 <header>
   <a href="#" class="logo">LECKAR <span>FERMENTED BOTANICALS</span></a>
-  <button onclick="openOrder()" class="hcta">Замовити →</button>
+  <div class="header-right">
+    <button class="cart-btn" onclick="openCart()" aria-label="Кошик">
+      🧺<span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </div>
 </header>
 
 <section class="hero">
@@ -263,8 +312,8 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         <h1>Ваше тіло<br>чекає <em>відпочинку</em>.</h1>
         <p class="hero-sub">Три формули з болгарських трав — для <strong>глибокого сну</strong>, <strong>спокою</strong> і <strong>жіночого балансу</strong>. Без мелатоніну. Без звикання.</p>
         <div class="hero-btns">
-          <button onclick="openOrder()" class="btn-p">Замовити зараз</button>
-          <a href="#products" class="btn-s">Обери свою формулу</a>
+          <a href="#products" class="btn-p">Обрати чай →</a>
+          <a href="#bundle" class="btn-s">Стартовий набір</a>
         </div>
         <div class="hero-trust">
           <span class="ti"><span class="td"></span>Болгарія, EU-стандарт</span>
@@ -272,8 +321,8 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
           <span class="ti"><span class="td"></span>4.8★ Amazon US</span>
           <span class="ti"><span class="td"></span>Гарантія повернення</span>
           <a href="/certificates.html" class="ti" style="text-decoration:none">
-  <span class="td"></span>Сертифіковано лабораторно
-</a>
+            <span class="td"></span>Сертифіковано лабораторно
+          </a>
         </div>
       </div>
       <div>
@@ -310,7 +359,8 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     <div class="sh-wrap">
       <p class="slbl">Три формули</p>
       <h2 class="sh">Обирайте <em>свою</em></h2>
-      <p class="ssub">Кожна формула дбайливо створена щоб задовольнити окремі конкретні потреби вашого організму. Оберіть свою або переконайтеся у ефективності усіх трьох, замовивши їх з приємною знижкою.</p>
+      <p class="ssub">Кожна формула дбайливо створена щоб задовольнити окремі конкретні потреби вашого організму. Додайте потрібну кількість пачок у кошик — від 2 пачок доставка безкоштовна.</p>
+      <a href="/certificates.html" class="cert-mini">✓ Кожна партія протестована в акредитованій лабораторії</a>
     </div>
     <div class="pclist">
 
@@ -336,7 +386,12 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <button onclick="openOrder('sleep')" class="pc-btn">Замовити</button>
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" onclick="stepQty('sleep',-1)">−</button>
+              <span class="qty-val" id="qty-sleep">1</span>
+              <button type="button" class="qty-btn" onclick="stepQty('sleep',1)">+</button>
+            </div>
+            <button onclick="addToCart('sleep', this)" class="pc-btn">До кошика</button>
           </div>
         </div>
       </div>
@@ -361,7 +416,12 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <button onclick="openOrder('calm')" class="pc-btn">Замовити</button>
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" onclick="stepQty('calm',-1)">−</button>
+              <span class="qty-val" id="qty-calm">1</span>
+              <button type="button" class="qty-btn" onclick="stepQty('calm',1)">+</button>
+            </div>
+            <button onclick="addToCart('calm', this)" class="pc-btn">До кошика</button>
           </div>
         </div>
       </div>
@@ -386,7 +446,12 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
             <div class="pc-old">590 ₴</div>
             <div class="pc-price">490 ₴</div>
             <div class="pc-unit">57г / ~25 чашок</div>
-            <button onclick="openOrder('women')" class="pc-btn">Замовити</button>
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" onclick="stepQty('women',-1)">−</button>
+              <span class="qty-val" id="qty-women">1</span>
+              <button type="button" class="qty-btn" onclick="stepQty('women',1)">+</button>
+            </div>
+            <button onclick="addToCart('women', this)" class="pc-btn">До кошика</button>
           </div>
         </div>
       </div>
@@ -411,7 +476,14 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         <span class="bold">1 470 ₴</span>
         <span class="bsave">економія 220 ₴</span>
       </div>
-      <button onclick="openOrder('bundle')" class="bbtn">Замовити Herbs for health →</button>
+      <div class="bx-actions">
+        <div class="qty-stepper">
+          <button type="button" class="qty-btn" onclick="stepQty('bundle',-1)">−</button>
+          <span class="qty-val" id="qty-bundle">1</span>
+          <button type="button" class="qty-btn" onclick="stepQty('bundle',1)">+</button>
+        </div>
+        <button onclick="addToCart('bundle', this)" class="bbtn">До кошика →</button>
+      </div>
       <p class="bsub">🎁 Безкоштовна доставка · Nova Poshta · Накладений платіж або карткою</p>
     </div>
   </div>
@@ -462,35 +534,14 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   </div>
 </section>
 
-<section class="order-sec" id="order">
+<!-- Replaces old static order form: simple CTA that opens the cart -->
+<section class="cart-cta-sec" id="order">
   <div class="container">
-    <div class="sh-wrap">
-      <p class="slbl">Замовити</p>
-      <h2 class="sh">Перший крок до<br><em>турботи про себе</em></h2>
-      <p class="ssub" style="margin-bottom:0">Заповніть форму — передзвонимо протягом години</p>
-    </div>
-    <div class="oform">
-      <span class="po-label">Оберіть замовлення</span>
-      <div class="po-list">
-        <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="sleep"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Sleep Aid Tea</span></div><span class="po-p">490 ₴</span></label>
-        <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="calm"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Keep Calm Tea</span></div><span class="po-p">490 ₴</span></label>
-        <label class="po" onclick="selpo(this)"><input type="radio" name="p" value="women"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Raw Herbs for Women</span></div><span class="po-p">490 ₴</span></label>
-        <label class="po bundle-po sel" onclick="selpo(this)"><input type="radio" name="p" value="bundle" checked><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Набір усі три &nbsp;<span class="bbadge">−15%</span></span></div><span class="po-p">1 250 ₴</span></label>
-      </div>
-      <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" id="f-name" placeholder="Як до вас звертатись"></div>
-      <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" id="f-phone" placeholder="+380 xx xxx xx xx"></div>
-      <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" id="f-city" placeholder="Київ, Львів, Дніпро..."></div>
-      <label class="flbl">Тип доставки Nova Poshta</label>
-      <div class="dlv-toggle">
-        <button type="button" class="dlv-opt act" id="dlv-branch" onclick="setDlv('branch')">📦 Відділення</button>
-        <button type="button" class="dlv-opt" id="dlv-locker" onclick="setDlv('locker')">🤖 Поштомат</button>
-      </div>
-      <div class="fg">
-        <label class="flbl" id="dlv-label">Номер відділення</label>
-        <input type="text" class="fi-inp" id="f-branch" placeholder="Наприклад: 12">
-      </div>
-      <p class="dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
-      <button class="sbtn" onclick="subm()">Підтвердити замовлення →</button>
+    <div class="cart-cta-box">
+      <div class="cart-cta-icon">🧺</div>
+      <h3>Готові оформити замовлення?</h3>
+      <p>Додайте потрібні чаї у кошик вище — там же можна змінити кількість і оформити доставку.</p>
+      <button class="sbtn" onclick="openCart()">Переглянути кошик →</button>
       <a href="https://www.instagram.com/leckarua/" target="_blank" class="ig-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         Написати в Instagram
@@ -505,7 +556,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   <p class="fdesc">Болгарські трав'яні збори для природного відновлення. Без хімії, без компромісів.</p>
   <div class="flinks">
     <a href="#products">Продукти</a>
-    <a onclick="openOrder()" style="cursor:pointer">Замовити</a>
+    <a onclick="openCart()" style="cursor:pointer">Кошик</a>
     <a href="https://www.instagram.com/leckarua/" target="_blank">Instagram</a>
     <a href="/delivery.html">Доставка та оплата</a>
     <a href="/return.html">Повернення</a>
@@ -516,26 +567,40 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     <a href="/offer.html">Договір оферти</a>
   </div>
   <p class="fcopy">© 2025 Leckar Fermented Botanicals · ФОП Ясько Владислав Леонідович</p>
-  <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:12px">
-    <img src="/img/visa.png" alt="Visa" style="height:20px;opacity:.65">
-    <img src="/img/mastercard.png" alt="Mastercard" style="height:26px;opacity:.65">
+  <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;gap:10px">
+    <div style="background:#fff;border:1px solid rgba(45,36,24,.12);border-radius:6px;padding:5px 10px;display:flex;align-items:center;height:34px">
+      <img src="/img/visa.png" alt="Visa" style="height:16px;display:block">
+    </div>
+    <div style="background:#fff;border:1px solid rgba(45,36,24,.12);border-radius:6px;padding:5px 10px;display:flex;align-items:center;height:34px">
+      <img src="/img/mastercard.png" alt="Mastercard" style="height:22px;display:block">
+    </div>
   </div>
 </footer>
 
-<!-- MODAL -->
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOnBg(event)">
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <p class="cart-title">Ваш кошик</p>
+      <button class="cart-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItemsWrap"></div>
+    <div class="cart-foot">
+      <div class="cart-delivery-note" id="cartDeliveryNote"></div>
+      <div class="cart-total-row"><span>Разом</span><span id="cartTotalPrice">0 ₴</span></div>
+      <button class="sbtn" id="cartCheckoutBtn" onclick="openCheckoutFromCart()">Оформити замовлення →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="orderModal" onclick="closeOnBg(event)">
   <div class="modal-box">
     <div class="modal-drag"></div>
     <button class="modal-close" onclick="closeOrder()">✕</button>
     <p class="modal-title">Оформити замовлення</p>
     <div id="modal-form-wrap">
-      <span class="po-label">Оберіть замовлення</span>
-      <div class="po-list">
-        <label class="po" onclick="selpo(this)"><input type="radio" name="pm" value="sleep"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Sleep Aid Tea</span></div><span class="po-p">490 ₴</span></label>
-        <label class="po" onclick="selpo(this)"><input type="radio" name="pm" value="calm"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Keep Calm Tea</span></div><span class="po-p">490 ₴</span></label>
-        <label class="po" onclick="selpo(this)"><input type="radio" name="pm" value="women"><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Raw Herbs for Women</span></div><span class="po-p">490 ₴</span></label>
-        <label class="po bundle-po sel" onclick="selpo(this)"><input type="radio" name="pm" value="bundle" checked><div class="po-l"><div class="por"><div class="por-d"></div></div><span class="po-n">Набір усі три &nbsp;<span class="bbadge">−15%</span></span></div><span class="po-p">1 250 ₴</span></label>
-      </div>
+      <div class="order-summary" id="orderSummary"></div>
       <div class="fg"><label class="flbl">Ваше ім'я</label><input type="text" class="fi-inp" id="m-name" placeholder="Як до вас звертатись"></div>
       <div class="fg"><label class="flbl">Телефон</label><input type="tel" class="fi-inp" id="m-phone" placeholder="+380 xx xxx xx xx"></div>
       <div class="fg"><label class="flbl">Місто</label><input type="text" class="fi-inp" id="m-city" placeholder="Київ, Львів, Дніпро..."></div>
@@ -548,107 +613,217 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         <label class="flbl" id="m-dlv-label">Номер відділення</label>
         <input type="text" class="fi-inp" id="m-branch" placeholder="Наприклад: 12">
       </div>
-      <p class="dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)<br>🎁 Безкоштовна доставка від 2 пачок або стартового набору</p>
-      <button class="sbtn" onclick="submModal()">Підтвердити замовлення →</button>
+      <p class="dlv-note" id="m-dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
+      <button class="sbtn" onclick="submCheckout()">Підтвердити замовлення →</button>
       <p class="fguara">🔒 Гарантія повернення · Без зайвих питань</p>
     </div>
   </div>
 </div>
 
 <div class="sbar" id="sb">
-  <div class="sbar-t"><strong>Стартовий набір</strong>3 чаї · 1 250 ₴</div>
-  <button onclick="openOrder('bundle')" class="sbar-btn">Замовити →</button>
+  <div class="sbar-t"><strong id="sbarTitle">Кошик</strong><span id="sbarSub">0 товарів</span></div>
+  <button onclick="openCart()" class="sbar-btn">Кошик →</button>
 </div>
 
 <script>
 var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4b37HLa7KMuend8LwVxu4pcWbtAwu3WJdW7V6GI_VKsjdI0udjpl2U1MdhE1MzWo/exec';
-var PRODUCT_NAMES = {sleep:'Sleep Aid Tea — 490 ₴',calm:'Keep Calm Tea — 490 ₴',women:'Raw Herbs for Women — 490 ₴',bundle:'Набір усі три — 1 250 ₴'};
-var PRICE_MAP = {sleep:490,calm:490,women:490,bundle:1250};
 
-// Проста маска телефону — без зовнішніх бібліотек, працює в будь-якому WebView
-function initPhoneMask(el) {
-  if (!el) return;
-  el.addEventListener('focus', function() {
-    if (!this.value) this.value = '+380 ';
+var PRODUCTS = {
+  sleep:  { name: 'Sleep Aid Tea',              price: 490,  packs: 1, img: '/img/sleep.jpg' },
+  calm:   { name: 'Keep Calm Tea',               price: 490,  packs: 1, img: '/img/calm.jpg' },
+  women:  { name: 'Raw Herbs for Women',         price: 490,  packs: 1, img: '/img/women.jpg' },
+  bundle: { name: 'Набір "Herbs for Health" (3 чаї)', price: 1250, packs: 3, img: '/img/hero.jpg' }
+};
+
+var qtyState = { sleep: 1, calm: 1, women: 1, bundle: 1 };
+var cart = {}; // key -> quantity (in-memory only, resets on page reload)
+
+/* ---------- Per-card quantity steppers ---------- */
+function stepQty(key, delta) {
+  var v = (qtyState[key] || 1) + delta;
+  if (v < 1) v = 1;
+  if (v > 20) v = 20;
+  qtyState[key] = v;
+  var el = document.getElementById('qty-' + key);
+  if (el) el.textContent = v;
+}
+
+/* ---------- Cart core ---------- */
+function addToCart(key, btn) {
+  var qty = qtyState[key] || 1;
+  cart[key] = (cart[key] || 0) + qty;
+  qtyState[key] = 1;
+  var el = document.getElementById('qty-' + key);
+  if (el) el.textContent = 1;
+  updateCartBadge();
+  renderCart();
+  if (btn) {
+    var original = btn.textContent;
+    btn.classList.add('added');
+    btn.textContent = '✓ Додано';
+    setTimeout(function () {
+      btn.classList.remove('added');
+      btn.textContent = original;
+    }, 1200);
+  }
+}
+
+function changeCartQty(key, delta) {
+  if (!cart[key]) return;
+  cart[key] += delta;
+  if (cart[key] <= 0) delete cart[key];
+  updateCartBadge();
+  renderCart();
+}
+
+function removeFromCart(key) {
+  delete cart[key];
+  updateCartBadge();
+  renderCart();
+}
+
+function cartCount() {
+  var n = 0;
+  for (var k in cart) n += cart[k];
+  return n;
+}
+
+function cartTotalPacks() {
+  var n = 0;
+  for (var k in cart) n += cart[k] * PRODUCTS[k].packs;
+  return n;
+}
+
+function cartSubtotal() {
+  var s = 0;
+  for (var k in cart) s += cart[k] * PRODUCTS[k].price;
+  return s;
+}
+
+function updateCartBadge() {
+  var badge = document.getElementById('cartBadge');
+  var count = cartCount();
+  if (count > 0) {
+    badge.style.display = 'flex';
+    badge.textContent = count;
+  } else {
+    badge.style.display = 'none';
+  }
+  var sb = document.getElementById('sb');
+  var sbarSub = document.getElementById('sbarSub');
+  if (count > 0) {
+    sbarSub.textContent = count + ' товар' + (count === 1 ? '' : count < 5 ? 'и' : 'ів') + ' · ' + cartSubtotal() + ' ₴';
+  }
+}
+
+function renderCart() {
+  var wrap = document.getElementById('cartItemsWrap');
+  var note = document.getElementById('cartDeliveryNote');
+  var totalEl = document.getElementById('cartTotalPrice');
+  var checkoutBtn = document.getElementById('cartCheckoutBtn');
+  var keys = Object.keys(cart);
+
+  if (keys.length === 0) {
+    wrap.innerHTML = '<div class="cart-empty">' +
+      '<div class="cart-empty-icon">🧺</div>' +
+      '<p>Кошик порожній.<br>Додайте чай зі списку продуктів.</p>' +
+      '<a href="#products" onclick="closeCart()">Переглянути чаї →</a>' +
+      '</div>';
+    note.style.display = 'none';
+    totalEl.textContent = '0 ₴';
+    checkoutBtn.disabled = true;
+    return;
+  }
+
+  checkoutBtn.disabled = false;
+  var html = '';
+  keys.forEach(function (key) {
+    var p = PRODUCTS[key];
+    var qty = cart[key];
+    html += '<div class="cart-item">' +
+      '<img src="' + p.img + '" class="cart-item-img" alt="' + p.name + '">' +
+      '<div class="cart-item-info">' +
+      '<div class="cart-item-name">' + p.name + '</div>' +
+      '<div class="cart-item-price">' + p.price + ' ₴ / шт</div>' +
+      '<div class="cart-item-row">' +
+      '<div class="qty-stepper">' +
+      '<button type="button" class="qty-btn" onclick="changeCartQty(\'' + key + '\',-1)">−</button>' +
+      '<span class="qty-val">' + qty + '</span>' +
+      '<button type="button" class="qty-btn" onclick="changeCartQty(\'' + key + '\',1)">+</button>' +
+      '</div>' +
+      '<button class="cart-item-remove" onclick="removeFromCart(\'' + key + '\')">Видалити</button>' +
+      '</div></div></div>';
   });
-  el.addEventListener('input', function() {
-    var digits = this.value.replace(/\D/g,'');
-    if (digits.length > 12) digits = digits.slice(0,12);
-    if (digits.slice(0,3) !== '380') {
-      if (digits.slice(0,1) === '0') digits = '380' + digits.slice(1);
-      else digits = '380' + digits;
-    }
-    var out = '+380';
-    if (digits.length > 3) out += ' ' + digits.slice(3,5);
-    if (digits.length > 5) out += ' ' + digits.slice(5,8);
-    if (digits.length > 8) out += ' ' + digits.slice(8,10);
-    if (digits.length > 10) out += ' ' + digits.slice(10,12);
-    this.value = out;
-  });
+  wrap.innerHTML = html;
+
+  var packs = cartTotalPacks();
+  note.style.display = 'block';
+  if (packs >= 2) {
+    note.className = 'cart-delivery-note done';
+    note.textContent = '🎉 Безкоштовна доставка вже застосована!';
+  } else {
+    note.className = 'cart-delivery-note pending';
+    note.textContent = '🎁 Додайте ще 1 пачку — і доставка стане безкоштовною';
+  }
+
+  totalEl.textContent = cartSubtotal() + ' ₴';
 }
 
-function getPhoneDigits(el) {
-  return (el ? el.value : '').replace(/\D/g,'');
+/* ---------- Cart drawer open/close ---------- */
+function openCart() {
+  renderCart();
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeCartOnBg(e) {
+  if (e.target === document.getElementById('cartOverlay')) closeCart();
 }
 
-initPhoneMask(document.getElementById('f-phone'));
-initPhoneMask(document.getElementById('m-phone'));
-
-// Доставка
-var dlvType = 'branch';
-function setDlv(type) {
-  dlvType = type;
-  document.getElementById('dlv-branch').classList.toggle('act', type==='branch');
-  document.getElementById('dlv-locker').classList.toggle('act', type==='locker');
-  document.getElementById('dlv-label').textContent = type==='branch' ? 'Номер відділення' : 'Номер поштомату';
-  document.getElementById('f-branch').placeholder = type==='branch' ? 'Наприклад: 12' : 'Наприклад: 4521';
-}
-
+/* ---------- Checkout modal ---------- */
 var dlvTypeM = 'branch';
 function setDlvM(type) {
   dlvTypeM = type;
-  document.getElementById('m-dlv-branch').classList.toggle('act', type==='branch');
-  document.getElementById('m-dlv-locker').classList.toggle('act', type==='locker');
-  document.getElementById('m-dlv-label').textContent = type==='branch' ? 'Номер відділення' : 'Номер поштомату';
-  document.getElementById('m-branch').placeholder = type==='branch' ? 'Наприклад: 12' : 'Наприклад: 4521';
+  document.getElementById('m-dlv-branch').classList.toggle('act', type === 'branch');
+  document.getElementById('m-dlv-locker').classList.toggle('act', type === 'locker');
+  document.getElementById('m-dlv-label').textContent = type === 'branch' ? 'Номер відділення' : 'Номер поштомату';
+  document.getElementById('m-branch').placeholder = type === 'branch' ? 'Наприклад: 12' : 'Наприклад: 4521';
 }
 
-// FAQ
-function tfaq(b) {
-  var a = b.nextElementSibling, o = b.classList.contains('open');
-  document.querySelectorAll('.fq').forEach(function(x) {
-    x.classList.remove('open');
-    x.nextElementSibling.classList.remove('open');
+function renderOrderSummary() {
+  var box = document.getElementById('orderSummary');
+  var keys = Object.keys(cart);
+  var html = '';
+  keys.forEach(function (key) {
+    var p = PRODUCTS[key];
+    var qty = cart[key];
+    html += '<div class="order-summary-row"><span>' + p.name + ' × ' + qty + '</span><span>' + (p.price * qty) + ' ₴</span></div>';
   });
-  if (!o) { b.classList.add('open'); a.classList.add('open'); }
+  var packs = cartTotalPacks();
+  var subtotal = cartSubtotal();
+  var freeDelivery = packs >= 2;
+  html += '<div class="order-summary-row"><span>Доставка</span><span>' + (freeDelivery ? 'Безкоштовно 🎁' : 'За тарифами Nova Poshta') + '</span></div>';
+  html += '<div class="order-summary-row total"><span>Разом</span><span>' + subtotal + ' ₴</span></div>';
+  box.innerHTML = html;
+
+  var noteEl = document.getElementById('m-dlv-note');
+  if (noteEl) {
+    noteEl.innerHTML = freeDelivery
+      ? '💳 Оплата при отриманні (накладений платіж Nova Poshta)<br>🎁 Безкоштовна доставка застосована'
+      : '💳 Оплата при отриманні (накладений платіж Nova Poshta)';
+  }
 }
 
-// Вибір продукту — тільки в межах свого .po-list
-function selpo(el) {
-  var list = el.closest ? el.closest('.po-list') : el.parentElement;
-  if (!list) return;
-  list.querySelectorAll('.po').forEach(function(o) { o.classList.remove('sel'); });
-  el.classList.add('sel');
-  var r = el.querySelector('input[type=radio]');
-  if (r) r.checked = true;
-}
-
-// Модалка
-function openOrder(prod) {
+function openCheckoutFromCart() {
+  if (Object.keys(cart).length === 0) return;
+  closeCart();
+  renderOrderSummary();
   var modal = document.getElementById('orderModal');
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
-  if (prod) {
-    var list = modal.querySelector('.po-list');
-    if (list) {
-      list.querySelectorAll('.po').forEach(function(o) { o.classList.remove('sel'); });
-      var radio = list.querySelector('input[value="' + prod + '"]');
-      if (radio) {
-        radio.checked = true;
-        radio.closest('.po').classList.add('sel');
-      }
-    }
-  }
   var box = modal.querySelector('.modal-box');
   if (box) box.scrollTop = 0;
 }
@@ -657,16 +832,50 @@ function closeOrder() {
   document.getElementById('orderModal').classList.remove('open');
   document.body.style.overflow = '';
 }
-
 function closeOnBg(e) {
   if (e.target === document.getElementById('orderModal')) closeOrder();
 }
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeOrder();
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') { closeOrder(); closeCart(); }
 });
 
-// Відправка даних
+/* ---------- Phone mask ---------- */
+function initPhoneMask(el) {
+  if (!el) return;
+  el.addEventListener('focus', function () {
+    if (!this.value) this.value = '+380 ';
+  });
+  el.addEventListener('input', function () {
+    var digits = this.value.replace(/\D/g, '');
+    if (digits.length > 12) digits = digits.slice(0, 12);
+    if (digits.slice(0, 3) !== '380') {
+      if (digits.slice(0, 1) === '0') digits = '380' + digits.slice(1);
+      else digits = '380' + digits;
+    }
+    var out = '+380';
+    if (digits.length > 3) out += ' ' + digits.slice(3, 5);
+    if (digits.length > 5) out += ' ' + digits.slice(5, 8);
+    if (digits.length > 8) out += ' ' + digits.slice(8, 10);
+    if (digits.length > 10) out += ' ' + digits.slice(10, 12);
+    this.value = out;
+  });
+}
+function getPhoneDigits(el) {
+  return (el ? el.value : '').replace(/\D/g, '');
+}
+initPhoneMask(document.getElementById('m-phone'));
+
+/* ---------- FAQ ---------- */
+function tfaq(b) {
+  var a = b.nextElementSibling, o = b.classList.contains('open');
+  document.querySelectorAll('.fq').forEach(function (x) {
+    x.classList.remove('open');
+    x.nextElementSibling.classList.remove('open');
+  });
+  if (!o) { b.classList.add('open'); a.classList.add('open'); }
+}
+
+/* ---------- Send to backend + pixel ---------- */
 function sendData(data) {
   try {
     fetch(APPS_SCRIPT_URL, {
@@ -675,72 +884,47 @@ function sendData(data) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-  } catch(e) {}
+  } catch (e) {}
 }
-
-function trackPixel(pk) {
+function trackPixel(total, productLabel) {
   try {
     if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead');
-      fbq('track', 'Purchase', { value: PRICE_MAP[pk], currency: 'UAH', content_name: PRODUCT_NAMES[pk] });
+      fbq('track', 'Purchase', { value: total, currency: 'UAH', content_name: productLabel });
     }
-  } catch(e) {}
+  } catch (e) {}
 }
 
-function successHTML(name, phone, product, city, delivery) {
+function buildProductSummary() {
+  var lines = [];
+  var keys = Object.keys(cart);
+  keys.forEach(function (key) {
+    var p = PRODUCTS[key];
+    var qty = cart[key];
+    lines.push(p.name + ' x' + qty + ' (' + (p.price * qty) + ' \u20B4)');
+  });
+  return lines.join(', ');
+}
+
+function successHTML(name, phone, productLabel, total, city, delivery) {
   return '<div style="text-align:center;padding:20px 0">'
     + '<div style="font-size:52px;margin-bottom:16px">🌿</div>'
     + '<h3 style="font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);margin-bottom:12px">Дякуємо, ' + name + '!</h3>'
     + '<div style="background:var(--bg2);border-radius:var(--r);padding:16px;margin-bottom:16px;text-align:left">'
     + '<div style="font-size:13px;color:var(--ink-l);margin-bottom:5px">Ваше замовлення:</div>'
-    + '<div style="font-size:15px;font-weight:500;color:var(--terra);margin-bottom:8px">' + product + '</div>'
-    + '<div style="font-size:13px;color:var(--ink-m);line-height:1.8">📍 ' + city + ', ' + delivery + '<br>📞 ' + phone + '<br>💳 Оплата при отриманні</div>'
+    + '<div style="font-size:14px;font-weight:500;color:var(--terra);margin-bottom:8px;line-height:1.5">' + productLabel + '</div>'
+    + '<div style="font-size:13px;color:var(--ink-m);line-height:1.8">💰 Разом: <strong>' + total + ' ₴</strong><br>📍 ' + city + ', ' + delivery + '<br>📞 ' + phone + '<br>💳 Оплата при отриманні</div>'
     + '</div>'
     + '<p style="font-size:14px;color:var(--ink-m);font-weight:300;line-height:1.65;margin-bottom:20px">Передзвонимо протягом години для підтвердження і відправимо протягом 24 годин.</p>'
     + '<a href="https://www.instagram.com/leckarua/" target="_blank" style="display:block;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--r);padding:14px;font-size:13px;color:var(--sage-d);text-decoration:none;line-height:1.5">Підпишіться на Instagram — поради та акції 🌿<br><strong>→ @leckarua</strong></a>'
     + '</div>';
 }
 
-// Статична форма
-function subm() {
-  var nameEl = document.getElementById('f-name');
-  var phoneEl = document.getElementById('f-phone');
-  var cityEl = document.getElementById('f-city');
-  var branchEl = document.getElementById('f-branch');
-  var prodEl = document.querySelector('.order-sec input[name=p]:checked');
-  var btn = document.querySelector('.order-sec .sbtn');
-
-  var n = nameEl.value.trim();
-  var p = phoneEl.value.trim();
-  var pd = getPhoneDigits(phoneEl);
-  var c = cityEl.value.trim();
-  var b = branchEl.value.trim();
-
-  [nameEl,phoneEl,cityEl,branchEl].forEach(function(el){ el.style.borderColor=''; });
-  if (!n) { nameEl.focus(); nameEl.style.borderColor='var(--terra)'; return; }
-  if (pd.length < 12) { phoneEl.focus(); phoneEl.style.borderColor='var(--terra)'; return; }
-  if (!c) { cityEl.focus(); cityEl.style.borderColor='var(--terra)'; return; }
-  if (!b) { branchEl.focus(); branchEl.style.borderColor='var(--terra)'; return; }
-
-  var pk = prodEl ? prodEl.value : 'bundle';
-  var dlv = dlvType === 'branch' ? 'Відділення НП №' + b : 'Поштомат НП №' + b;
-
-  if (btn) { btn.textContent='Відправляємо...'; btn.disabled=true; btn.style.opacity='0.7'; }
-
-  sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: PRODUCT_NAMES[pk] });
-  trackPixel(pk);
-
-  var form = document.querySelector('.oform');
-  if (form) form.innerHTML = successHTML(n, p, PRODUCT_NAMES[pk], c, dlv);
-}
-
-// Модальна форма
-function submModal() {
+function submCheckout() {
   var nameEl = document.getElementById('m-name');
   var phoneEl = document.getElementById('m-phone');
   var cityEl = document.getElementById('m-city');
   var branchEl = document.getElementById('m-branch');
-  var prodEl = document.querySelector('#orderModal input[name=pm]:checked');
   var btn = document.querySelector('#modal-form-wrap .sbtn');
 
   var n = nameEl.value.trim();
@@ -749,32 +933,39 @@ function submModal() {
   var c = cityEl.value.trim();
   var b = branchEl.value.trim();
 
-  [nameEl,phoneEl,cityEl,branchEl].forEach(function(el){ el.style.borderColor=''; });
-  if (!n) { nameEl.focus(); nameEl.style.borderColor='var(--terra)'; return; }
-  if (pd.length < 12) { phoneEl.focus(); phoneEl.style.borderColor='var(--terra)'; return; }
-  if (!c) { cityEl.focus(); cityEl.style.borderColor='var(--terra)'; return; }
-  if (!b) { branchEl.focus(); branchEl.style.borderColor='var(--terra)'; return; }
+  [nameEl, phoneEl, cityEl, branchEl].forEach(function (el) { el.style.borderColor = ''; });
+  if (!n) { nameEl.focus(); nameEl.style.borderColor = 'var(--terra)'; return; }
+  if (pd.length < 12) { phoneEl.focus(); phoneEl.style.borderColor = 'var(--terra)'; return; }
+  if (!c) { cityEl.focus(); cityEl.style.borderColor = 'var(--terra)'; return; }
+  if (!b) { branchEl.focus(); branchEl.style.borderColor = 'var(--terra)'; return; }
 
-  var pk = prodEl ? prodEl.value : 'bundle';
   var dlv = dlvTypeM === 'branch' ? 'Відділення НП №' + b : 'Поштомат НП №' + b;
+  var productLabel = buildProductSummary();
+  var total = cartSubtotal();
 
-  if (btn) { btn.textContent='Відправляємо...'; btn.disabled=true; btn.style.opacity='0.7'; }
+  if (btn) { btn.textContent = 'Відправляємо...'; btn.disabled = true; btn.style.opacity = '0.7'; }
 
-  sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: PRODUCT_NAMES[pk] });
-  trackPixel(pk);
+  sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: productLabel + ' | Разом: ' + total + ' \u20B4' });
+  trackPixel(total, productLabel);
 
   var wrap = document.getElementById('modal-form-wrap');
-  if (wrap) wrap.innerHTML = successHTML(n, p, PRODUCT_NAMES[pk], c, dlv);
+  if (wrap) wrap.innerHTML = successHTML(n, p, productLabel, total, c, dlv);
+
+  cart = {};
+  updateCartBadge();
 }
 
-// Sticky bar
-window.addEventListener('scroll', function() {
+/* ---------- Sticky bar ---------- */
+window.addEventListener('scroll', function () {
   var sb = document.getElementById('sb');
   if (!sb) return;
   var footer = document.querySelector('footer');
   var footerTop = footer ? footer.getBoundingClientRect().top : 9999;
-  sb.style.display = (window.scrollY > 400 && footerTop > window.innerHeight) ? 'flex' : 'none';
+  var shouldShow = window.scrollY > 400 && footerTop > window.innerHeight && cartCount() > 0;
+  sb.style.display = shouldShow ? 'flex' : 'none';
 });
+
+updateCartBadge();
 </script>
 </body>
 </html>
