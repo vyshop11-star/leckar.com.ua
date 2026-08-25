@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сертифікати якості — Leckar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#fff;--bg:#fdfcf9;--bg2:#f8f5ef;
+  --sage:#5a7c5a;--sage-d:#3d5c3d;--sage-bg:#eef4ee;--sage-bdr:#c5d9c5;
+  --terra:#c4622e;--terra-bg:#fdf0e8;--terra-bdr:#f0c9ad;
+  --ink:#2d2418;--ink-m:#6b5c48;--ink-l:#a99880;--ink-xl:#cfc2b0;
+  --bdr:rgba(45,36,24,.1);--fd:'Playfair Display',Georgia,serif;--fb:'Inter',system-ui,sans-serif;--r:12px;--rl:18px
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.logo{font-family:var(--fd);font-size:20px;font-weight:500;color:var(--sage-d);text-decoration:none;letter-spacing:.04em}
+.logo span{display:block;font-family:var(--fb);font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
+.back{font-size:13px;color:var(--ink-l);text-decoration:none}
+.back:hover{color:var(--sage-d)}
+.container{max-width:700px;margin:0 auto;padding:0 22px}
+.page-hero{padding:52px 22px 40px;background:var(--white);border-bottom:1px solid var(--bdr);text-align:center}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--sage-bg);border:1px solid var(--sage-bdr);color:var(--sage-d);font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:20px}
+.badge::before{content:'✓';font-size:13px}
+.page-hero h1{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:500;color:var(--ink);margin-bottom:12px;line-height:1.2}
+.page-hero p{font-size:15px;color:var(--ink-m);font-weight:300;max-width:480px;margin:0 auto;line-height:1.65}
+
+.content{padding:48px 22px 64px}
+
+.intro-box{background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:var(--rl);padding:24px 26px;margin-bottom:40px}
+.intro-box p{font-size:14.5px;color:var(--sage-d);font-weight:400;line-height:1.7;margin:0}
+.intro-box strong{font-weight:500}
+
+.slbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:28px;text-align:center}
+
+.cert-grid{display:flex;flex-direction:column;gap:16px;margin-bottom:44px}
+.cert-card{background:var(--white);border:1.5px solid var(--bdr);border-radius:var(--rl);padding:24px 24px;display:flex;align-items:center;gap:18px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+.cert-card:hover{border-color:var(--sage-bdr);box-shadow:0 4px 20px rgba(45,36,24,.06)}
+.cert-icon{width:52px;height:52px;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cert-info{flex:1}
+.cert-tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:4px}
+.cert-title{font-family:var(--fd);font-size:19px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.cert-desc{font-size:13px;color:var(--ink-m);font-weight:300;line-height:1.5}
+.cert-arrow{font-size:20px;color:var(--sage);flex-shrink:0}
+
+.main-cert{border-color:var(--terra-bdr);background:var(--terra-bg)}
+.main-cert:hover{border-color:var(--terra)}
+.main-cert .cert-icon{background:var(--white);border-color:var(--terra-bdr)}
+.main-cert .cert-tag{color:var(--terra)}
+
+.section-title{font-family:var(--fd);font-size:24px;font-weight:500;color:var(--ink);text-align:center;margin-bottom:8px}
+.section-sub{font-size:14px;color:var(--ink-m);font-weight:300;text-align:center;margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6}
+
+.results-table{width:100%;border-collapse:collapse;margin-bottom:12px;background:var(--white);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+.results-table th{background:var(--sage-bg);color:var(--sage-d);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;padding:10px 12px;text-align:left;border-bottom:1px solid var(--sage-bdr)}
+.results-table td{padding:10px 12px;font-size:13px;color:var(--ink-m);font-weight:300;border-bottom:1px solid rgba(45,36,24,.05)}
+.results-table tr:last-child td{border-bottom:none}
+.result-ok{color:var(--sage-d);font-weight:500}
+
+.trust-strip{background:var(--white);border:1px solid var(--bdr);border-radius:var(--rl);padding:28px 24px;text-align:center;margin-top:20px}
+.trust-strip h3{font-family:var(--fd);font-size:19px;font-weight:500;color:var(--ink);margin-bottom:14px}
+.trust-row{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+.trust-item{font-size:12.5px;color:var(--ink-m);display:flex;align-items:center;gap:6px}
+.trust-dot{width:5px;height:5px;background:var(--sage);border-radius:50%;flex-shrink:0}
+
+footer{padding:28px 22px;background:var(--bg2);border-top:1px solid var(--bdr);text-align:center;font-size:12px;color:var(--ink-l)}
+footer a{color:var(--ink-l);text-decoration:none;margin:0 8px}
+footer a:hover{color:var(--sage-d)}
+
+@media(max-width:480px){
+  .cert-card{padding:18px 16px;gap:14px}
+  .cert-icon{width:44px;height:44px;font-size:18px}
+  .results-table{font-size:12px}
+  .results-table th,.results-table td{padding:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">LECKAR <span>Fermented Botanicals</span></a>
+  <a href="/" class="back">← На головну</a>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="badge">Якість підтверджена документально</div>
+    <h1>Сертифікати якості</h1>
+    <p>Кожна партія Leckar проходить лабораторні випробування в акредитованому центрі в Болгарії перед відправкою в Україну</p>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <div class="intro-box">
+      <p>Наші чаї виготовляються в Болгарії на потужностях <strong>СМИК Ингридиънтс АД</strong> і проходять випробування в незалежній акредитованій лабораторії <strong>Testing Center GLOBALTEST</strong> (акредитація ANAB, США, відповідно до стандарту ISO/IEC 17025:2017). Кожна партія тестується на відсутність патогенних мікроорганізмів перед відправкою в Україну.</p>
+    </div>
+
+    <p class="slbl">Санітарний сертифікат на експорт</p>
+    <div class="cert-grid">
+      <a href="/certs/health-certificate.pdf" target="_blank" class="cert-card main-cert">
+        <div class="cert-icon">🇧🇬</div>
+        <div class="cert-info">
+          <div class="cert-tag">Bulgarian Food Safety Agency</div>
+          <div class="cert-title">Здравен сертифікат на експорт в Україну</div>
+          <div class="cert-desc">Офіційний документ Міністерства землеробства Болгарії, що підтверджує право експорту продукції в Україну. № BG2216525/15.06.2026</div>
+        </div>
+        <div class="cert-arrow">→</div>
+      </a>
+    </div>
+
+    <p class="slbl">Лабораторні протоколи випробувань</p>
+    <div class="cert-grid">
+      <a href="/certs/sleep-aid-certificate.pdf" target="_blank" class="cert-card">
+        <div class="cert-icon">😴</div>
+        <div class="cert-info">
+          <div class="cert-tag">Протокол RA5294</div>
+          <div class="cert-title">Sleep Aid Tea</div>
+          <div class="cert-desc">Мікробіологічні випробування: E.coli, Listeria, Salmonella — не виявлено</div>
+        </div>
+        <div class="cert-arrow">→</div>
+      </a>
+
+      <a href="/certs/keep-calm-certificate.pdf" target="_blank" class="cert-card">
+        <div class="cert-icon">🧘</div>
+        <div class="cert-info">
+          <div class="cert-tag">Протокол RA5295</div>
+          <div class="cert-title">Keep Calm Tea</div>
+          <div class="cert-desc">Мікробіологічні випробування: E.coli, Listeria, Salmonella — не виявлено</div>
+        </div>
+        <div class="cert-arrow">→</div>
+      </a>
+
+      <a href="/certs/herbs-for-women-certificate.pdf" target="_blank" class="cert-card">
+        <div class="cert-icon">🌸</div>
+        <div class="cert-info">
+          <div class="cert-tag">Протокол RA5293</div>
+          <div class="cert-title">Raw Herbs for Women</div>
+          <div class="cert-desc">Мікробіологічні випробування: E.coli, Listeria, Salmonella — не виявлено</div>
+        </div>
+        <div class="cert-arrow">→</div>
+      </a>
+    </div>
+
+    <p class="section-title">Результати випробувань</p>
+    <p class="section-sub">Ідентичні для всіх трьох формул — Sleep Aid, Keep Calm, Raw Herbs for Women</p>
+
+    <table class="results-table">
+      <tr>
+        <th>Показник</th>
+        <th>Метод</th>
+        <th>Результат</th>
+      </tr>
+      <tr>
+        <td>Escherichia coli</td>
+        <td>Ph. Eur. 2.6.13</td>
+        <td class="result-ok">Не виявлено в 1 мл</td>
+      </tr>
+      <tr>
+        <td>Listeria monocytogenes</td>
+        <td>ДСТУ EN ISO 11290-1</td>
+        <td class="result-ok">Не виявлено в 25 мл</td>
+      </tr>
+      <tr>
+        <td>Salmonella</td>
+        <td>Ph. Eur. 2.6.13</td>
+        <td class="result-ok">Не виявлено в 10 мл</td>
+      </tr>
+      <tr>
+        <td>Загальна кількість мікроорганізмів</td>
+        <td>Ph. Eur. 2.6.12</td>
+        <td class="result-ok">&lt;10 cfu/мл</td>
+      </tr>
+      <tr>
+        <td>Плісняви та дріжджі</td>
+        <td>Ph. Eur. 2.6.12</td>
+        <td class="result-ok">&lt;10 cfu/мл</td>
+      </tr>
+    </table>
+
+    <div class="trust-strip">
+      <h3>Чому це важливо</h3>
+      <div class="trust-row">
+        <span class="trust-item"><span class="trust-dot"></span>Акредитація ANAB (США)</span>
+        <span class="trust-item"><span class="trust-dot"></span>Стандарт ISO/IEC 17025:2017</span>
+        <span class="trust-item"><span class="trust-dot"></span>Незалежна лабораторія</span>
+        <span class="trust-item"><span class="trust-dot"></span>Кожна партія тестується окремо</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <a href="/">Головна</a>
+  <a href="/delivery.html">Доставка та оплата</a>
+  <a href="/return.html">Повернення</a>
+  <a href="/privacy.html">Політика захисту ПД</a>
+  <a href="/certificates.html">Сертифікати якості</a>
+  <a href="/contacts.html">Контакти</a>
+  <a href="/offer.html">Договір оферти</a>
+  <br><br>© 2025 Leckar Fermented Botanicals · ФОП Ясько Владислав Леонідович
+</footer>
+</body>
+</html>
