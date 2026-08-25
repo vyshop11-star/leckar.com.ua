@@ -129,6 +129,14 @@ h2.sh{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:500;color
 h2.sh em{color:var(--terra);font-style:italic}
 .ssub{font-size:15px;color:var(--ink-m);font-weight:300;max-width:390px;margin:0 auto 38px;line-height:1.65}
 .pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:14px;text-align:left}
+.pain-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.pain-tab{background:var(--white);border:1.5px solid var(--bdr);color:var(--ink-m);font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 18px;border-radius:50px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.pain-tab:hover{border-color:var(--sage-bdr)}
+.pain-tab.act{background:var(--sage);border-color:var(--sage);color:#fff}
+.pain-group{display:none}
+.pain-group.act{display:block}
+.pain-cta{margin-top:24px;display:inline-flex;align-items:center;gap:7px;background:var(--sage);color:#fff;font-size:13px;font-weight:500;padding:10px 22px;border-radius:50px;text-decoration:none;transition:background .2s}
+.pain-cta:hover{background:var(--sage-d)}
 .pcard{background:var(--white);border:1px solid var(--bdr);border-radius:var(--r);padding:22px 20px;transition:border-color .25s,box-shadow .25s}
 .pcard:hover{border-color:var(--sage-bdr);box-shadow:0 2px 16px rgba(90,124,90,.07)}
 .pi{font-size:26px;margin-bottom:12px;display:block}
@@ -140,10 +148,9 @@ h2.sh em{color:var(--terra);font-style:italic}
 .bpill-ic{width:34px;height:34px;background:var(--sage-bg);border:1px solid var(--sage-bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
 .prod-sec{padding:72px 22px;background:var(--bg)}
 .prod-sec .sh-wrap{text-align:center;margin-bottom:24px}
-.cert-mini{display:inline-flex;align-items:center;gap:7px;background:var(--sage-bg);border:1px solid var(--sage-bdr);color:var(--sage-d);font-size:12px;font-weight:500;padding:7px 16px;border-radius:50px;text-decoration:underline;text-underline-offset:2px;margin-top:6px;transition:background .2s}
-.cert-mini:hover{background:var(--sage-bdr)}
+.cert-mini{display:inline-flex;align-items:center;gap:7px;background:var(--sage-bg);border:1px solid var(--sage-bdr);color:var(--sage-d);font-size:12px;font-weight:500;padding:7px 16px;border-radius:50px;text-decoration:none;margin-top:6px}
 .pclist{display:flex;flex-direction:column;gap:16px;margin-top:24px}
-.pc{background:var(--white);border:1.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.pc{background:var(--white);border:1.5px solid var(--bdr);border-radius:var(--rl);overflow:hidden;transition:border-color .2s,box-shadow .2s;scroll-margin-top:90px}
 .pc:hover{border-color:var(--sage-bdr);box-shadow:0 4px 28px rgba(45,36,24,.06)}
 .pc.hero-pc{border-color:var(--sage-bdr);border-width:2px}
 .pc.hero-pc .pc-inner{background:linear-gradient(135deg,var(--white) 0%,var(--sage-bg) 100%)}
@@ -362,16 +369,45 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   </div>
 </section>
 
-<section class="pain-sec">
+<section class="pain-sec" id="pain">
   <div class="container">
     <p class="slbl">Чому ви тут</p>
-    <h2 class="sh">Ромашковий чай<br>давно <em>не рятує</em>.</h2>
-    <p class="ssub">Три причини, через які стандартні засоби не дають результату</p>
-    <div class="pcards">
-      <div class="pcard"><span class="pi">🧠</span><h3>Думки не вимикаються</h3><p>Лягаєте — і мозок запускає весь список справ. Ромашка не зупиняє тривожні думки.</p></div>
-      <div class="pcard"><span class="pi">💪</span><h3>Тіло не розслабляється</h3><p>М'язи тримають напругу навіть коли намагаєтесь заснути. Звичайний чай не знімає фізичну напругу.</p></div>
-      <div class="pcard"><span class="pi">😶</span><h3>Ранок без сил</h3><p>Прокидаєтесь таким же втомленим. Це не недосип — тіло не відновилось вночі.</p></div>
+    <h2 class="sh">Знайомий стан<br><em>«так далі не можна»</em>?</h2>
+    <p class="ssub">Кожна формула Leckar вирішує свою конкретну проблему. Оберіть свою:</p>
+
+    <div class="pain-tabs">
+      <button class="pain-tab act" data-tab="women" onclick="switchPainTab('women')">🌸 Жіноче здоров'я</button>
+      <button class="pain-tab" data-tab="sleep" onclick="switchPainTab('sleep')">😴 Сон</button>
+      <button class="pain-tab" data-tab="calm" onclick="switchPainTab('calm')">🧘 Спокій</button>
     </div>
+
+    <div class="pain-group act" data-group="women">
+      <div class="pcards">
+        <div class="pcard"><span class="pi">🎭</span><h3>Настрій стрибає без причини</h3><p>Гормональні коливання роблять емоції некерованими — і ви самі не розумієте, чому раптом все дратує.</p></div>
+        <div class="pcard"><span class="pi">📅</span><h3>Цикл живе своїм життям</h3><p>Нерегулярність, дискомфорт, здуття — тіло ніби працює проти вас щомісяця.</p></div>
+        <div class="pcard"><span class="pi">🔋</span><h3>Енергія на нулі</h3><p>Хронічна втома, яка не залежить від того, скільки ви спали.</p></div>
+      </div>
+      <a href="#prod-women" class="pain-cta">Переглянути Raw Herbs for Women →</a>
+    </div>
+
+    <div class="pain-group" data-group="sleep">
+      <div class="pcards">
+        <div class="pcard"><span class="pi">🧠</span><h3>Думки не вимикаються</h3><p>Лягаєте — і мозок запускає весь список справ. Ромашка не зупиняє тривожні думки.</p></div>
+        <div class="pcard"><span class="pi">💪</span><h3>Тіло не розслабляється</h3><p>М'язи тримають напругу навіть коли намагаєтесь заснути. Звичайний чай не знімає фізичну напругу.</p></div>
+        <div class="pcard"><span class="pi">😶</span><h3>Ранок без сил</h3><p>Прокидаєтесь таким же втомленим. Це не недосип — тіло не відновилось вночі.</p></div>
+      </div>
+      <a href="#prod-sleep" class="pain-cta">Переглянути Sleep Aid Tea →</a>
+    </div>
+
+    <div class="pain-group" data-group="calm">
+      <div class="pcards">
+        <div class="pcard"><span class="pi">😰</span><h3>Тривога не відпускає</h3><p>Навіть коли немає реальної причини — тіло тримає напругу, і зосередитись важко.</p></div>
+        <div class="pcard"><span class="pi">🤕</span><h3>Напруга йде в голову</h3><p>Стрес перетворюється на головний біль, плечі й шия постійно затиснуті.</p></div>
+        <div class="pcard"><span class="pi">☕</span><h3>Кава вже не рятує</h3><p>Замість спокою — ще більше нервового збудження. Кофеїн лише підсилює тривогу.</p></div>
+      </div>
+      <a href="#prod-calm" class="pain-cta">Переглянути Keep Calm Tea →</a>
+    </div>
+
   </div>
 </section>
 
@@ -390,11 +426,11 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
       <p class="slbl">Три формули</p>
       <h2 class="sh">Обирайте <em>свою</em></h2>
       <p class="ssub">Кожна формула дбайливо створена щоб задовольнити окремі конкретні потреби вашого організму. Додайте потрібну кількість пачок у кошик — від 2 пачок доставка безкоштовна.</p>
-      <a href="/certificates.html" class="cert-mini">✓ Кожна партія протестована в акредитованій лабораторії →</a>
+      <a href="/certificates.html" class="cert-mini">✓ Кожна партія протестована в акредитованій лабораторії</a>
     </div>
     <div class="pclist">
 
-      <div class="pc hero-pc">
+      <div class="pc hero-pc" id="prod-sleep">
         <span class="pc-badge">★ Топ вибір — Sleep Aid Tea</span>
         <img src="/img/sleep.jpg" alt="Sleep Aid Tea" class="pc-img" loading="lazy">
         <div class="pc-inner">
@@ -426,7 +462,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         </div>
       </div>
 
-      <div class="pc">
+      <div class="pc" id="prod-calm">
         <img src="/img/calm.jpg" alt="Keep Calm Tea" class="pc-img" loading="lazy">
         <div class="pc-inner">
           <div>
@@ -456,7 +492,7 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         </div>
       </div>
 
-      <div class="pc">
+      <div class="pc" id="prod-women">
         <img src="/img/women.jpg" alt="Raw Herbs for Women" class="pc-img" loading="lazy">
         <div class="pc-inner">
           <div>
@@ -611,7 +647,11 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 
 <!-- SIDE NAV (desktop only) -->
 <nav class="side-nav" id="sideNav">
+  <a href="#pain" data-sec="pain"><span class="dot"></span>Чому ви тут</a>
   <a href="#products" data-sec="products"><span class="dot"></span>Продукти</a>
+  <a href="#prod-sleep" data-sec="prod-sleep" style="padding-left:24px;font-size:11px"><span class="dot"></span>Sleep Aid</a>
+  <a href="#prod-calm" data-sec="prod-calm" style="padding-left:24px;font-size:11px"><span class="dot"></span>Keep Calm</a>
+  <a href="#prod-women" data-sec="prod-women" style="padding-left:24px;font-size:11px"><span class="dot"></span>For Women</a>
   <a href="#bundle" data-sec="bundle"><span class="dot"></span>Набір</a>
   <a href="#" onclick="openCart();return false;"><span class="dot"></span>Кошик</a>
   <div class="nav-sep"></div>
@@ -630,7 +670,11 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
   </div>
   <div class="mm-body">
     <p class="mm-section-lbl">На цій сторінці</p>
+    <a href="#pain" class="mm-link" onclick="closeMobileMenu()">Чому ви тут</a>
     <a href="#products" class="mm-link" onclick="closeMobileMenu()">Три формули чаю</a>
+    <a href="#prod-sleep" class="mm-link" onclick="closeMobileMenu()" style="padding-left:16px;font-size:14px">— Sleep Aid Tea</a>
+    <a href="#prod-calm" class="mm-link" onclick="closeMobileMenu()" style="padding-left:16px;font-size:14px">— Keep Calm Tea</a>
+    <a href="#prod-women" class="mm-link" onclick="closeMobileMenu()" style="padding-left:16px;font-size:14px">— Raw Herbs for Women</a>
     <a href="#bundle" class="mm-link" onclick="closeMobileMenu()">Стартовий набір</a>
     <a href="#" class="mm-link" onclick="closeMobileMenu();openCart();return false;">Кошик</a>
     <a href="#" class="mm-link" onclick="closeMobileMenu();document.querySelector('.faq-sec').scrollIntoView({behavior:'smooth'});return false;">Питання і відповіді</a>
@@ -939,6 +983,16 @@ function getPhoneDigits(el) {
 }
 initPhoneMask(document.getElementById('m-phone'));
 
+/* ---------- Pain section tabs ---------- */
+function switchPainTab(tab) {
+  document.querySelectorAll('.pain-tab').forEach(function (b) {
+    b.classList.toggle('act', b.getAttribute('data-tab') === tab);
+  });
+  document.querySelectorAll('.pain-group').forEach(function (g) {
+    g.classList.toggle('act', g.getAttribute('data-group') === tab);
+  });
+}
+
 /* ---------- FAQ ---------- */
 function tfaq(b) {
   var a = b.nextElementSibling, o = b.classList.contains('open');
@@ -1054,7 +1108,11 @@ function closeMobileMenu() {
 /* ---------- Side nav active state on scroll ---------- */
 (function () {
   var sections = [
+    { id: 'pain', el: document.getElementById('pain') },
     { id: 'products', el: document.getElementById('products') },
+    { id: 'prod-sleep', el: document.getElementById('prod-sleep') },
+    { id: 'prod-calm', el: document.getElementById('prod-calm') },
+    { id: 'prod-women', el: document.getElementById('prod-women') },
     { id: 'bundle', el: document.getElementById('bundle') }
   ];
   var links = document.querySelectorAll('.side-nav a[data-sec]');
