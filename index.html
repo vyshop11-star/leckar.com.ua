@@ -62,7 +62,32 @@ body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;
 header{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100;gap:12px}
 .logo{font-family:var(--fd);font-size:22px;font-weight:500;color:var(--sage-d);letter-spacing:.04em;line-height:1;text-decoration:none}
 .logo span{display:block;font-family:var(--fb);font-size:10.5px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-l);margin-top:2px}
-.header-right{display:flex;align-items:center;gap:10px}
+.header-right{display:flex;align-items:center;gap:8px}
+.nav-btn{background:none;border:1.5px solid var(--bdr);color:var(--ink-m);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
+.nav-btn:hover{border-color:var(--sage-bdr);color:var(--sage-d)}
+
+/* ── SIDE NAV (desktop) ── */
+.side-nav{display:none;position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:90;flex-direction:column;gap:2px}
+.side-nav a{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:20px;text-decoration:none;font-size:12px;color:var(--ink-l);font-weight:400;transition:all .2s;white-space:nowrap}
+.side-nav a .dot{width:5px;height:5px;border-radius:50%;background:var(--ink-xl);flex-shrink:0;transition:background .2s}
+.side-nav a:hover{color:var(--sage-d);background:var(--sage-bg)}
+.side-nav a:hover .dot{background:var(--sage)}
+.side-nav a.active{color:var(--sage-d);font-weight:500;background:var(--sage-bg)}
+.side-nav a.active .dot{background:var(--sage)}
+.side-nav .nav-sep{height:1px;background:var(--bdr);margin:8px 6px}
+.side-nav .nav-sub a{font-size:11px;color:var(--ink-xl)}
+@media(min-width:1240px){.side-nav{display:flex}}
+
+/* ── MOBILE MENU ── */
+.mobile-menu-overlay{display:none;position:fixed;inset:0;background:var(--white);z-index:400;overflow-y:auto}
+.mobile-menu-overlay.open{display:block}
+.mm-head{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--bdr)}
+.mm-close{background:var(--bg2);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;color:var(--ink-m);display:flex;align-items:center;justify-content:center}
+.mm-body{padding:20px 22px 40px}
+.mm-section-lbl{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);font-weight:500;margin:24px 0 10px}
+.mm-section-lbl:first-child{margin-top:0}
+.mm-link{display:block;padding:13px 4px;font-size:16px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--bdr-s);font-family:var(--fb);font-weight:400}
+.mm-link:active{color:var(--sage-d)}
 .cart-btn{position:relative;background:var(--sage-bg);border:1.5px solid var(--sage-bdr);color:var(--sage-d);width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
 .cart-btn:hover{background:var(--sage-bdr)}
 .cart-badge{position:absolute;top:-4px;right:-4px;background:var(--terra);color:#fff;font-size:10.5px;font-weight:600;min-width:19px;height:19px;border-radius:50%;display:none;align-items:center;justify-content:center;padding:0 3px;font-family:var(--fb);border:2px solid var(--white)}
@@ -298,6 +323,9 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 <header>
   <a href="#" class="logo">LECKAR <span>FERMENTED BOTANICALS</span></a>
   <div class="header-right">
+    <button class="nav-btn" onclick="openMobileMenu()" aria-label="Меню">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
     <button class="cart-btn" onclick="openCart()" aria-label="Кошик">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
       <span class="cart-badge" id="cartBadge">0</span>
@@ -579,6 +607,48 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     </div>
   </div>
 </footer>
+
+<!-- SIDE NAV (desktop only) -->
+<nav class="side-nav" id="sideNav">
+  <a href="#products" data-sec="products"><span class="dot"></span>Продукти</a>
+  <a href="#bundle" data-sec="bundle"><span class="dot"></span>Набір</a>
+  <a href="#" onclick="openCart();return false;"><span class="dot"></span>Кошик</a>
+  <div class="nav-sep"></div>
+  <div class="nav-sub">
+    <a href="/certificates.html"><span class="dot"></span>Сертифікати</a>
+    <a href="/delivery.html"><span class="dot"></span>Доставка</a>
+    <a href="/contacts.html"><span class="dot"></span>Контакти</a>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mm-head">
+    <a href="#" class="logo">LECKAR</a>
+    <button class="mm-close" onclick="closeMobileMenu()">✕</button>
+  </div>
+  <div class="mm-body">
+    <p class="mm-section-lbl">На цій сторінці</p>
+    <a href="#products" class="mm-link" onclick="closeMobileMenu()">Три формули чаю</a>
+    <a href="#bundle" class="mm-link" onclick="closeMobileMenu()">Стартовий набір</a>
+    <a href="#" class="mm-link" onclick="closeMobileMenu();openCart();return false;">Кошик</a>
+    <a href="#" class="mm-link" onclick="closeMobileMenu();document.querySelector('.faq-sec').scrollIntoView({behavior:'smooth'});return false;">Питання і відповіді</a>
+
+    <p class="mm-section-lbl">Інформація</p>
+    <a href="/certificates.html" class="mm-link">Сертифікати якості</a>
+    <a href="/delivery.html" class="mm-link">Доставка та оплата</a>
+    <a href="/return.html" class="mm-link">Повернення</a>
+    <a href="/contacts.html" class="mm-link">Контакти та реквізити</a>
+
+    <p class="mm-section-lbl">Юридична інформація</p>
+    <a href="/offer.html" class="mm-link">Договір оферти</a>
+    <a href="/privacy.html" class="mm-link">Політика захисту персональних даних</a>
+    <a href="/konfidencialnist.html" class="mm-link">Політика конфіденційності</a>
+
+    <p class="mm-section-lbl">Соцмережі</p>
+    <a href="https://www.instagram.com/leckarua/" target="_blank" class="mm-link">Instagram — @leckarua</a>
+  </div>
+</div>
 
 <!-- CART DRAWER -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCartOnBg(event)">
@@ -969,6 +1039,35 @@ window.addEventListener('scroll', function () {
 });
 
 updateCartBadge();
+
+/* ---------- Mobile menu ---------- */
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ---------- Side nav active state on scroll ---------- */
+(function () {
+  var sections = [
+    { id: 'products', el: document.getElementById('products') },
+    { id: 'bundle', el: document.getElementById('bundle') }
+  ];
+  var links = document.querySelectorAll('.side-nav a[data-sec]');
+  window.addEventListener('scroll', function () {
+    var pos = window.scrollY + 160;
+    var current = null;
+    sections.forEach(function (s) {
+      if (s.el && s.el.offsetTop <= pos) current = s.id;
+    });
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-sec') === current);
+    });
+  });
+})();
 </script>
 </body>
 </html>
