@@ -740,8 +740,13 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
         <label class="flbl" id="m-dlv-label">Номер відділення</label>
         <input type="text" class="fi-inp" id="m-branch" placeholder="Наприклад: 12">
       </div>
+      <label class="flbl">Спосіб оплати</label>
+      <div class="dlv-toggle" style="margin-bottom:16px">
+        <button type="button" class="dlv-opt act" id="m-pay-cod" onclick="setPayMethod('cod')">📦 При отриманні</button>
+        <button type="button" class="dlv-opt" id="m-pay-card" onclick="setPayMethod('card')">💳 Карткою онлайн</button>
+      </div>
       <p class="dlv-note" id="m-dlv-note">💳 Оплата при отриманні (накладений платіж Nova Poshta)</p>
-      <button class="sbtn" onclick="submCheckout()">Підтвердити замовлення →</button>
+      <button class="sbtn" id="m-submit-btn" onclick="submCheckout()">Підтвердити замовлення →</button>
       <p class="fguara">🔒 Гарантія повернення · Без зайвих питань</p>
     </div>
   </div>
@@ -912,6 +917,21 @@ function closeCartOnBg(e) {
 
 /* ---------- Checkout modal ---------- */
 var dlvTypeM = 'branch';
+var payMethod = 'cod';
+function setPayMethod(method) {
+  payMethod = method;
+  document.getElementById('m-pay-cod').classList.toggle('act', method === 'cod');
+  document.getElementById('m-pay-card').classList.toggle('act', method === 'card');
+  var note = document.getElementById('m-dlv-note');
+  var btn = document.getElementById('m-submit-btn');
+  if (method === 'card') {
+    note.innerHTML = '💳 Оплата карткою онлайн (Visa / Mastercard) — переадресація на захищену сторінку NovaPay';
+    btn.textContent = 'Перейти до оплати →';
+  } else {
+    note.innerHTML = '💳 Оплата при отриманні (накладений платіж Nova Poshta)';
+    btn.textContent = 'Підтвердити замовлення →';
+  }
+}
 function setDlvM(type) {
   dlvTypeM = type;
   document.getElementById('m-dlv-branch').classList.toggle('act', type === 'branch');
@@ -948,6 +968,7 @@ function openCheckoutFromCart() {
   if (Object.keys(cart).length === 0) return;
   closeCart();
   renderOrderSummary();
+  setPayMethod('cod');
   var modal = document.getElementById('orderModal');
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1062,7 +1083,7 @@ function submCheckout() {
   var phoneEl = document.getElementById('m-phone');
   var cityEl = document.getElementById('m-city');
   var branchEl = document.getElementById('m-branch');
-  var btn = document.querySelector('#modal-form-wrap .sbtn');
+  var btn = document.getElementById('m-submit-btn');
 
   var n = nameEl.value.trim();
   var p = phoneEl.value.trim();
@@ -1080,6 +1101,11 @@ function submCheckout() {
   var productLabel = buildProductSummary();
   var total = cartSubtotal();
 
+  if (payMethod === 'card') {
+    submCheckoutCard(n, p, c, dlv, total, btn);
+    return;
+  }
+
   if (btn) { btn.textContent = 'Відправляємо...'; btn.disabled = true; btn.style.opacity = '0.7'; }
 
   sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: productLabel + ' | Разом: ' + total + ' \u20B4' });
@@ -1090,6 +1116,35 @@ function submCheckout() {
 
   cart = {};
   updateCartBadge();
+}
+
+async function submCheckoutCard(n, p, c, dlv, total, btn) {
+  if (btn) { btn.textContent = 'Створюємо платіж...'; btn.disabled = true; btn.style.opacity = '0.7'; }
+
+  var items = Object.keys(cart).map(function (key) {
+    var prod = PRODUCTS[key];
+    return { name: prod.name, qty: cart[key], price: prod.price };
+  });
+
+  try {
+    var resp = await fetch('/api/novapay-checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: n, phone: p, city: c, delivery: dlv, items: items, total: total })
+    });
+    var data = await resp.json();
+    if (!resp.ok || !data.url) throw new Error(data.error || 'Payment session failed');
+
+    trackPixel(total, buildProductSummary());
+    window.location.href = data.url;
+  } catch (err) {
+    if (btn) {
+      btn.textContent = 'Перейти до оплати →';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+    alert('Не вдалося створити платіж. Спробуйте ще раз або оберіть оплату при отриманні.');
+  }
 }
 
 /* ---------- Sticky bar ---------- */
