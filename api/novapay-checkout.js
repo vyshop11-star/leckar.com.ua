@@ -44,12 +44,15 @@ module.exports = async (req, res) => {
       return it.name + ' x' + it.qty;
     }).join(', ');
 
+    // NovaPay expects a clean phone number, e.g. +380991234567 (no spaces)
+    const cleanPhone = '+' + String(phone).replace(/\D/g, '');
+
     // 1) Create session
     const session = await novaPayRequest('/session', {
       merchant_id: merchantId,
       client_first_name: firstName,
       client_last_name: lastName,
-      client_phone: phone,
+      client_phone: cleanPhone,
       callback_url: siteUrl + '/api/novapay-callback',
       success_url: siteUrl + '/payment-success.html',
       fail_url: siteUrl + '/payment-fail.html',
