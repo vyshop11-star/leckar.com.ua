@@ -5,7 +5,7 @@
 
 const crypto = require('crypto');
 
-const API_BASE = 'https://api-qecom.novapay.ua/v1';
+const API_BASE = 'https://api-ecom.novapay.ua/v1';
 
 function getPrivateKeyPem() {
   const b64 = process.env.NOVAPAY_PRIVATE_KEY_B64;
