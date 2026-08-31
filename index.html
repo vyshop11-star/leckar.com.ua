@@ -300,6 +300,15 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 .cart-delivery-note.pending{background:var(--terra-bg);color:var(--terra-d)}
 .cart-delivery-note.done{background:var(--sage-bg);color:var(--sage-d)}
 .cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.cart-total-row.old span:last-child{text-decoration:line-through;color:var(--ink-xl);font-family:var(--fb);font-size:14px;font-weight:400}
+.promo-row{display:flex;gap:8px;margin-bottom:14px}
+.promo-inp{flex:1;background:var(--bg);border:1.5px solid var(--bdr);border-radius:10px;color:var(--ink);font-family:var(--fb);font-size:13px;padding:10px 12px;outline:none;text-transform:uppercase}
+.promo-inp:focus{border-color:var(--sage)}
+.promo-btn{background:var(--sage);color:#fff;border:none;font-family:var(--fb);font-size:13px;font-weight:500;padding:0 16px;border-radius:10px;cursor:pointer;transition:background .2s;white-space:nowrap}
+.promo-btn:hover{background:var(--sage-d)}
+.promo-msg{font-size:12px;margin-bottom:12px;padding:8px 12px;border-radius:8px;display:none}
+.promo-msg.ok{display:block;background:var(--sage-bg);color:var(--sage-d)}
+.promo-msg.err{display:block;background:var(--terra-bg);color:var(--terra-d)}
 .cart-total-row span:first-child{font-size:14px;color:var(--ink-m)}
 .cart-total-row span:last-child{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--terra)}
 
@@ -714,6 +723,12 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
     <div class="cart-items" id="cartItemsWrap"></div>
     <div class="cart-foot">
       <div class="cart-delivery-note" id="cartDeliveryNote"></div>
+      <div class="promo-row">
+        <input type="text" class="promo-inp" id="promoInput" placeholder="Промокод">
+        <button class="promo-btn" onclick="applyPromo()">Застосувати</button>
+      </div>
+      <div class="promo-msg" id="promoMsg"></div>
+      <div class="cart-total-row old" id="cartTotalOldRow" style="display:none"><span>Було</span><span id="cartTotalOld">0 ₴</span></div>
       <div class="cart-total-row"><span>Разом</span><span id="cartTotalPrice">0 ₴</span></div>
       <button class="sbtn" id="cartCheckoutBtn" onclick="openCheckoutFromCart()">Оформити замовлення →</button>
     </div>
@@ -769,6 +784,41 @@ var PRODUCTS = {
 
 var qtyState = { sleep: 1, calm: 1, women: 1, bundle: 1 };
 var cart = {}; // key -> quantity (in-memory only, resets on page reload)
+
+var VALID_PROMOS = { REGINA: 20, YANA: 20, OKSANA: 20 }; // code -> % discount
+var appliedPromo = null; // { code, percent }
+
+function applyPromo() {
+  var input = document.getElementById('promoInput');
+  var msg = document.getElementById('promoMsg');
+  var code = input.value.trim().toUpperCase();
+
+  if (!code) {
+    appliedPromo = null;
+    msg.className = 'promo-msg';
+    renderCart();
+    return;
+  }
+
+  if (VALID_PROMOS[code]) {
+    appliedPromo = { code: code, percent: VALID_PROMOS[code] };
+    msg.className = 'promo-msg ok';
+    msg.textContent = '✓ Промокод ' + code + ' застосовано: −' + appliedPromo.percent + '%';
+  } else {
+    appliedPromo = null;
+    msg.className = 'promo-msg err';
+    msg.textContent = '✕ Такого промокоду не знайдено';
+  }
+  renderCart();
+}
+
+function cartFinalTotal() {
+  var subtotal = cartSubtotal();
+  if (appliedPromo) {
+    return Math.round(subtotal * (1 - appliedPromo.percent / 100));
+  }
+  return subtotal;
+}
 
 /* ---------- Per-card quantity steppers ---------- */
 function stepQty(key, delta) {
@@ -898,7 +948,17 @@ function renderCart() {
     note.textContent = '🎁 Додайте ще 1 пачку — і доставка стане безкоштовною';
   }
 
-  totalEl.textContent = cartSubtotal() + ' ₴';
+  var oldRow = document.getElementById('cartTotalOldRow');
+  var oldEl = document.getElementById('cartTotalOld');
+  var subtotal = cartSubtotal();
+  var final = cartFinalTotal();
+  if (appliedPromo) {
+    oldRow.style.display = 'flex';
+    oldEl.textContent = subtotal + ' ₴';
+  } else {
+    oldRow.style.display = 'none';
+  }
+  totalEl.textContent = final + ' ₴';
 }
 
 /* ---------- Cart drawer open/close ---------- */
@@ -953,7 +1013,10 @@ function renderOrderSummary() {
   var subtotal = cartSubtotal();
   var freeDelivery = packs >= 2;
   html += '<div class="order-summary-row"><span>Доставка</span><span>' + (freeDelivery ? 'Безкоштовно 🎁' : 'За тарифами Nova Poshta') + '</span></div>';
-  html += '<div class="order-summary-row total"><span>Разом</span><span>' + subtotal + ' ₴</span></div>';
+  if (appliedPromo) {
+    html += '<div class="order-summary-row"><span>Промокод ' + appliedPromo.code + '</span><span>−' + appliedPromo.percent + '%</span></div>';
+  }
+  html += '<div class="order-summary-row total"><span>Разом</span><span>' + cartFinalTotal() + ' ₴</span></div>';
   box.innerHTML = html;
 
   var noteEl = document.getElementById('m-dlv-note');
@@ -1099,7 +1162,10 @@ function submCheckout() {
 
   var dlv = dlvTypeM === 'branch' ? 'Відділення НП №' + b : 'Поштомат НП №' + b;
   var productLabel = buildProductSummary();
-  var total = cartSubtotal();
+  var total = cartFinalTotal();
+  if (appliedPromo) {
+    productLabel += ' | Промокод: ' + appliedPromo.code + ' (-' + appliedPromo.percent + '%)';
+  }
 
   if (payMethod === 'card') {
     submCheckoutCard(n, p, c, dlv, total, btn);
@@ -1115,6 +1181,7 @@ function submCheckout() {
   if (wrap) wrap.innerHTML = successHTML(n, p, productLabel, total, c, dlv);
 
   cart = {};
+  appliedPromo = null;
   updateCartBadge();
 }
 
