@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -349,11 +349,11 @@ footer{padding:40px 22px;background:var(--bg2);border-top:1px solid var(--bdr);t
 </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
+
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9ZFG2RX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 <div class="topbar">🎁 <strong>Безкоштовна доставка</strong> від 2 пачок · <a href="/certificates.html" style="color:var(--sage-d);text-decoration:underline">✓ Сертифіковано лабораторно</a></div>
 
 <header>
@@ -1126,6 +1126,17 @@ function trackPixel(total, productLabel) {
     }
   } catch (e) {}
 }
+function trackGoogleConversion(total, productLabel) {
+  try {
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: 'purchase',
+      value: total,
+      currency: 'UAH',
+      items: [{ item_name: productLabel }]
+    });
+  } catch (e) {}
+}
 
 function buildProductSummary() {
   var lines = [];
@@ -1187,6 +1198,7 @@ function submCheckout() {
 
   sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: productLabel + ' | Разом: ' + total + ' \u20B4' });
   trackPixel(total, productLabel);
+  trackGoogleConversion(total, productLabel);
 
   var wrap = document.getElementById('modal-form-wrap');
   if (wrap) wrap.innerHTML = successHTML(n, p, productLabel, total, c, dlv);
@@ -1214,6 +1226,7 @@ async function submCheckoutCard(n, p, c, dlv, total, btn) {
     if (!resp.ok || !data.url) throw new Error(data.error || 'Payment session failed');
 
     trackPixel(total, buildProductSummary());
+    trackGoogleConversion(total, buildProductSummary());
     window.location.href = data.url;
   } catch (err) {
     if (btn) {
