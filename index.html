@@ -1196,7 +1196,15 @@ function submCheckout() {
 
   if (btn) { btn.textContent = 'Відправляємо...'; btn.disabled = true; btn.style.opacity = '0.7'; }
 
-  sendData({ name: n, phone: "'" + p, city: c, delivery: dlv, product: productLabel + ' | Разом: ' + total + ' \u20B4' });
+  sendData({
+  name: n,
+  phone: "'" + p,
+  city: c,
+  delivery: dlv,
+  product: productLabel + ' | Разом: ' + total + ' \u20B4',
+  promo: appliedPromo ? appliedPromo.code + ' (-' + appliedPromo.percent + '%)' : '—',
+  payment: payMethod === 'card' ? 'Картка (NovaPay)' : 'Накладений платіж'
+});
   trackPixel(total, productLabel);
   trackGoogleConversion(total, productLabel);
 
