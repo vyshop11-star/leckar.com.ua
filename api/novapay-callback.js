@@ -12,8 +12,8 @@ module.exports = async (req, res) => {
     // (see documentation): { id, metadata, status, client_first_name, amount, ... }
     const meta = data.metadata || {};
     const status = data.status || data.transaction_status || 'unknown';
-    const isSuccess = ['approved', 'holded', 'completed'].includes(String(status).toLowerCase())
-      || data.transaction_status === 'APPROVED';
+    const isSuccess = ['approved', 'holded', 'completed', 'paid', 'success'].includes(String(status).toLowerCase())
+  || data.transaction_status === 'APPROVED';
 
     const telegramToken = process.env.TELEGRAM_TOKEN;
     const telegramChat = process.env.TELEGRAM_CHAT_ID;
