@@ -470,7 +470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="ing">Пасифлора</span><span class="ing">Липа</span><span class="ing">Ромашка</span><span class="ing">Лаванда</span><span class="ing">Вербена</span><span class="ing">Хміль</span>
             </div>
             <ul class="blist">
-              <li>Вимикає тривожні думки (пасифлора + каліфорнійський мак)</li>
+              <li>Вимикає тривожні думки (пасифлора + лаванда)</li>
               <li>Розслаблює м'язи — тіло «відпускає» напругу</li>
               <li>Заспокоює кишківник для глибшого сну</li>
               <li>Без мелатоніну. Без звикання</li>
@@ -501,7 +501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="ing">Валеріана</span><span class="ing">М'ята перцева</span><span class="ing">Лаванда</span>
             </div>
             <ul class="blist">
-              <li>Валеріана — клінічно підтверджений заспокійливий ефект</li>
+              <li>Валеріана — одна з найвідоміших заспокійливих трав</li>
               <li>М'ята знімає головний біль від напруги</li>
               <li>Можна пити вдень — без сонливості</li>
             </ul>
@@ -790,10 +790,13 @@ var PRODUCTS = {
   sleep:  { name: 'Sleep Aid Tea',              price: 440,  packs: 1, img: '/img/sleep.jpg' },
   calm:   { name: 'Keep Calm Tea',               price: 440,  packs: 1, img: '/img/calm.jpg' },
   women:  { name: 'Raw Herbs for Women',         price: 440,  packs: 1, img: '/img/women.jpg' },
-  bundle: { name: 'Набір "Herbs for Health" (3 чаї)', price: 1200, packs: 3, img: '/img/hero.jpg' }
+  bundle: { name: 'Набір "Herbs for Health" (3 чаї)', price: 1200, packs: 3, img: '/img/hero.jpg', set: true },
+  duo:    { name: 'Набір "День і Ніч" (Sleep Aid + Keep Calm)', price: 790, packs: 2, img: '/img/sleep.jpg', set: true },
+  course: { name: 'Курс "День і Ніч" 7 тижнів (2× Sleep Aid + 2× Keep Calm)', price: 1490, packs: 4, img: '/img/sleep.jpg', set: true }
 };
+// ВАЖЛИВО: ціни також у /api/novapay-checkout.js (PRICES) — змінювати в обох місцях.
 
-var qtyState = { sleep: 1, calm: 1, women: 1, bundle: 1 };
+var qtyState = { sleep: 1, calm: 1, women: 1, bundle: 1, duo: 1, course: 1 };
 var cart = {}; // key -> quantity (in-memory only, resets on page reload)
 
 var VALID_PROMOS = { REGINA: 20, YANA: 20, OKSANA: 20 }; // code -> % discount
@@ -814,7 +817,7 @@ function applyPromo() {
   if (VALID_PROMOS[code]) {
     appliedPromo = { code: code, percent: VALID_PROMOS[code] };
     msg.className = 'promo-msg ok';
-    msg.textContent = '✓ Промокод ' + code + ' застосовано: −' + appliedPromo.percent + '%';
+    msg.textContent = '✓ Промокод ' + code + ' застосовано: −' + appliedPromo.percent + '% (на окремі чаї, крім наборів)';
   } else {
     appliedPromo = null;
     msg.className = 'promo-msg err';
@@ -823,10 +826,16 @@ function applyPromo() {
   renderCart();
 }
 
+// Промокод діє лише на окремі чаї, не на набори (set: true)
+function cartPromoBase() {
+  var s = 0;
+  for (var k in cart) if (!PRODUCTS[k].set) s += cart[k] * PRODUCTS[k].price;
+  return s;
+}
 function cartFinalTotal() {
   var subtotal = cartSubtotal();
   if (appliedPromo) {
-    return Math.round(subtotal * (1 - appliedPromo.percent / 100));
+    return subtotal - Math.round(cartPromoBase() * appliedPromo.percent / 100);
   }
   return subtotal;
 }
@@ -1216,20 +1225,27 @@ async function submCheckoutCard(n, p, c, dlv, total, btn) {
 
   var items = Object.keys(cart).map(function (key) {
     var prod = PRODUCTS[key];
-    return { name: prod.name, qty: cart[key], price: prod.price };
+    return { key: key, name: prod.name, qty: cart[key], price: prod.price };
   });
 
   try {
     var resp = await fetch('/api/novapay-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: n, phone: p, city: c, delivery: dlv, items: items, total: total })
+      body: JSON.stringify({ name: n, phone: p, city: c, delivery: dlv, items: items, total: total, promo: appliedPromo ? appliedPromo.code : null })
     });
     var data = await resp.json();
     if (!resp.ok || !data.url) throw new Error(data.error || 'Payment session failed');
 
-    trackPixel(total, buildProductSummary());
-    trackGoogleConversion(total, buildProductSummary());
+    // Purchase НЕ шлемо тут: клієнт ще не оплатив. Подію відправляє /payment-success
+    // за даними, збереженими нижче (з event_id = order_id для дедуплікації).
+    try {
+      sessionStorage.setItem('leckar_pending_purchase', JSON.stringify({
+        order_id: data.order_id, value: data.total || total, label: buildProductSummary(),
+        items: Object.keys(cart).map(function (k) { return { item_id: k, item_name: PRODUCTS[k].name, price: PRODUCTS[k].price, quantity: cart[k] }; })
+      }));
+    } catch (e) {}
+    try { if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { value: data.total || total, currency: 'UAH' }); } catch (e) {}
     window.location.href = data.url;
   } catch (err) {
     if (btn) {
@@ -1262,6 +1278,25 @@ function closeMobileMenu() {
   document.getElementById('mobileMenu').classList.remove('open');
   document.body.style.overflow = '';
 }
+
+/* ---------- Додавання в кошик за посиланням: /?add=duo (з лендингів, напр. /son) ---------- */
+(function () {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var key = params.get('add');
+    if (!key || !PRODUCTS[key]) return;
+    var qty = Math.min(Math.max(parseInt(params.get('qty') || '1', 10) || 1, 1), 20);
+    cart[key] = (cart[key] || 0) + qty;
+    updateCartBadge();
+    try { if (typeof fbq !== 'undefined') fbq('track', 'AddToCart', { value: PRODUCTS[key].price * qty, currency: 'UAH', content_ids: [key], content_type: 'product' }); } catch (e) {}
+    try { window.dataLayer = window.dataLayer || []; dataLayer.push({ event: 'add_to_cart', currency: 'UAH', value: PRODUCTS[key].price * qty, items: [{ item_id: key, item_name: PRODUCTS[key].name, price: PRODUCTS[key].price, quantity: qty }] }); } catch (e) {}
+    // прибираємо add/qty з адреси, UTM лишаємо
+    params.delete('add'); params.delete('qty');
+    var qs = params.toString();
+    history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+    openCart();
+  } catch (e) {}
+})();
 
 /* ---------- Side nav active state on scroll ---------- */
 (function () {

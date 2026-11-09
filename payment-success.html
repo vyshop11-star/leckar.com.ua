@@ -55,5 +55,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p>Ваше замовлення підтверджено. Ми зв'яжемось з вами протягом години і відправимо чай протягом 24 годин.</p>
   <a href="/">На головну</a>
 </div>
+<script>
+/* Purchase — лише тут, після успішної оплати. Дані зберігає index.html перед переходом на NovaPay. */
+(function () {
+  try {
+    var raw = sessionStorage.getItem('leckar_pending_purchase');
+    if (!raw) return;
+    sessionStorage.removeItem('leckar_pending_purchase'); // щоб оновлення сторінки не дублювало подію
+    var o = JSON.parse(raw);
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', { value: o.value, currency: 'UAH', content_name: o.label }, { eventID: o.order_id });
+    }
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({ event: 'purchase', transaction_id: o.order_id, value: o.value, currency: 'UAH', items: o.items });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
